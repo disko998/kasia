@@ -1,9 +1,10 @@
+import Header from '@/components/layout/Header'
 import React from 'react'
 
 export default function index() {
   return (
     <div>
-      <h1 className="text-9xl font-bold underline">Hello world!</h1>
+      <Header />
     </div>
   )
 }

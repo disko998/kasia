@@ -8,7 +8,8 @@ type Props = {}
 export default function Header({}: Props) {
   return (
     <nav
-      className={`bg-[rgba(245, 244, 240, 0.8)] flex h-[89px] w-full flex-row items-center justify-between px-4`}
+      className={`container flex h-[89px] flex-row items-center justify-between
+	   bg-soft-white/80 dark:bg-soft-black/80`}
     >
       <Button>menu</Button>
 

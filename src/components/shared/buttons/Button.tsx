@@ -18,9 +18,11 @@ export default function Button({
 }: Props) {
   return (
     <button
-      className={`flex min-h-[25px] min-w-[69px] flex-row items-center justify-center rounded-full border-1 border-dark-blue bg-transparent p-1 text-xs uppercase leading-normal text-dark-blue ${
-        className || ''
-      }`}
+      className={`flex min-h-[25px] min-w-[69px] flex-row items-center 
+	  justify-center rounded-full border-1 border-dark-blue bg-transparent 
+	  p-1 text-xs uppercase leading-normal text-dark-blue dark:border-soft-white dark:text-soft-white ${
+      className || ''
+    }`}
       {...buttonProps}
     >
       {iconLeft}

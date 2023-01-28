@@ -18,11 +18,12 @@ export type IconsTypes = keyof typeof iconTypes
 
 export type IconProps = {
   name: IconsTypes
+  color?: string
   size?: number | string
   viewBox?: string
 }
 
-const Icon = ({ name, size, viewBox, ...props }: IconProps) => {
+const Icon = ({ name, size, viewBox, color, ...props }: IconProps) => {
   const IconComponent = iconTypes[name].component
 
   const sizeProps = size ? { width: size, height: size } : {}
@@ -30,6 +31,8 @@ const Icon = ({ name, size, viewBox, ...props }: IconProps) => {
   return (
     <IconComponent
       viewBox={iconTypes[name].viewBox}
+      className="fill-soft-white dark:fill-dark-blue"
+      color={color}
       {...sizeProps}
       {...props}
     />

@@ -20,8 +20,16 @@ module.exports = {
         blue: '#55707F',
         'dark-blue': '#394556'
       },
+      fontFamily: {
+        serif: ['var(--font-imbue)'],
+        sans: ['var(--font-jeko)']
+      },
       fontSize: {
-        xxs: '.625rem'
+        xs: '.625rem',
+        base: '0.875rem',
+        h3: '1.5rem',
+        h2: '3rem',
+        h1: '4.875rem'
       },
       borderWidth: {
         1: '1px'

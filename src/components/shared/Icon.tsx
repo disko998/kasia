@@ -1,22 +1,38 @@
 import React from 'react'
 
 import Logo from '@/assets/icons/logo.svg'
+import Shutter from '@/assets/icons/shutter.svg'
 
 const iconTypes = {
-  logo: Logo
+  logo: {
+    component: Logo,
+    viewBox: '0 0 116 37'
+  },
+  shutter: {
+    component: Shutter,
+    viewBox: '0 0 18 17'
+  }
 }
 
-type Props = {
-  name: keyof typeof iconTypes
-  size: number | string
-  viewBox: string
+export type IconsTypes = keyof typeof iconTypes
+
+export type IconProps = {
+  name: IconsTypes
+  size?: number | string
+  viewBox?: string
 }
 
-const Icon = ({ name, size, viewBox, ...props }: Props) => {
-  const IconComponent = iconTypes[name]
+const Icon = ({ name, size, viewBox, ...props }: IconProps) => {
+  const IconComponent = iconTypes[name].component
+
+  const sizeProps = size ? { width: size, height: size } : {}
 
   return (
-    <IconComponent viewBox={viewBox} width={size} height={size} {...props} />
+    <IconComponent
+      viewBox={iconTypes[name].viewBox}
+      {...sizeProps}
+      {...props}
+    />
   )
 }
 

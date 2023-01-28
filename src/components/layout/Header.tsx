@@ -1,23 +1,20 @@
 import React from 'react'
-import Logo from '@/assets/icons/logo.svg'
 import Icon from '@/components/shared/Icon'
-import Button from '@/components/shared/Button'
-import { px2rem } from '@/utils/helpers'
+import Button from '@/components/shared/buttons/Button'
+import ThemeToggle from '@/components/shared/buttons/ThemeToggle'
 
 type Props = {}
 
 export default function Header({}: Props) {
   return (
     <nav
-      className={`flex h-[89px] w-full flex-row items-center justify-between bg-red-500 px-4`}
+      className={`bg-[rgba(245, 244, 240, 0.8)] flex h-[89px] w-full flex-row items-center justify-between px-4`}
     >
-      <div>
-        <Button>menu</Button>
-      </div>
-      <div>
-        <Icon name="logo" viewBox="0 0 116 37" size={px2rem(116)} />
-      </div>
-      <div>socials & actions</div>
+      <Button>menu</Button>
+
+      <Icon name="logo" size={86} />
+
+      <ThemeToggle />
     </nav>
   )
 }

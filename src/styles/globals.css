@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    min-height: 100vh;
+    color: theme('colors.dark-blue');
+    background: theme('colors.soft-white');
+  }
+
+  .dark body {
+    color: theme('colors.soft-white');
+    background: theme('colors.soft-black');
+  }
+
+  * {
+    line-height: 100%;
+  }
+}
+
+@layer components {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: theme('fontFamily.serif');
+    font-weight: 500;
+    color: theme('colors.red-orange');
+  }
+
+  h1 {
+    font-size: theme('fontSize.h1');
+  }
+
+  h2 {
+    font-size: theme('fontSize.h2');
+  }
+
+  h3 {
+    font-size: theme('fontSize.h3');
+    font-weight: 600;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: theme('fontSize.base');
+  }
+}

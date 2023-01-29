@@ -8,6 +8,8 @@
     min-height: 100vh;
     color: theme('colors.dark-blue');
     background: theme('colors.soft-white');
+    font-size: theme('fontSize.base');
+    font-weight: 500;
   }
 
   .dark body {
@@ -48,5 +50,12 @@
   p {
     font-weight: 500;
     font-size: theme('fontSize.base');
+    line-height: 120%;
+  }
+
+  @media screen and (max-width: 640px) {
+    h2 {
+      font-size: theme('fontSize.4xl');
+    }
   }
 }

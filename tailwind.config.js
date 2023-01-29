@@ -29,6 +29,7 @@ module.exports = {
       },
       fontSize: {
         xs: '.625rem',
+        sm: '.75rem',
         base: '0.875rem',
         h3: '1.5rem',
         h2: '3rem',
@@ -36,6 +37,12 @@ module.exports = {
       },
       borderWidth: {
         1: '1px'
+      },
+      borderRadius: {
+        xl: '1rem'
+      },
+      backdropBlur: {
+        md: '10px'
       }
     }
   },

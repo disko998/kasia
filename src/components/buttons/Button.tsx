@@ -1,4 +1,5 @@
 import React from 'react'
+import { twMerge } from 'tailwind-merge'
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode
@@ -18,14 +19,17 @@ export default function Button({
 }: Props) {
   return (
     <button
-      className={`flex min-h-[25px] min-w-[69px] flex-row items-center 
-	  justify-center rounded-full border-1 border-dark-blue bg-transparent 
-	  p-1 text-xs font-medium uppercase leading-normal text-dark-blue
-	dark:border-soft-white dark:text-soft-white ${className || ''}`}
+      className={`ease-[cubic-bezier(.215, .61, .355, 1)] bg-transparent flex h-[1.6rem] min-w-[4.3rem] 
+	  flex-row items-center justify-center rounded-full border-1 border-dark-blue p-1 text-xxs
+	font-medium uppercase leading-normal text-dark-blue transition-colors dark:border-soft-white dark:text-soft-white ${
+    className || ''
+  }`}
       {...buttonProps}
     >
       {iconLeft && <span>{iconLeft}</span>}
-      <span className={`mx-[10px] ${textClassName || ''}`}>{children}</span>
+      <span className={`mx-[10px] w-full ${textClassName || ''}`}>
+        {children}
+      </span>
       <span>{iconRight}</span>
     </button>
   )

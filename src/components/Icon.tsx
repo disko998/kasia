@@ -54,7 +54,7 @@ const Icon = ({
   return (
     <IconComponent
       viewBox={iconTypes[name].viewBox}
-      className={`text-soft-dark-blue dark:text-white`}
+      className={`text-soft-dark-blue transition-colors dark:text-white`}
       color={color}
       {...sizeProps}
       {...props}

@@ -9,7 +9,7 @@ export default function Navbar({}: Props) {
   return (
     <div
       className={`container fixed z-50 flex h-[89px] flex-row items-center justify-between bg-soft-white/80
-	   backdrop-blur-md dark:bg-soft-black/80`}
+	   backdrop-blur-md transition-colors duration-500  dark:bg-soft-black/80`}
     >
       <Button>menu</Button>
 

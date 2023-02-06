@@ -13,10 +13,9 @@ const ThemeToggle = () => {
 
   return (
     <Button
-      className={`w-[75px]`}
-      textClassName={`w-[20px] overflow-visible`}
+      textClassName={`min-w-[1.5rem] overflow-visible`}
       onClick={() => mounted && setTheme(theme === 'dark' ? 'light' : 'dark')}
-      iconRight={<Icon name="shutter" />}
+      iconRight={<Icon name="shutter" size="clamp(17px, 1rem, 30px)" />}
     >
       {theme === 'dark' && mounted ? 'F/23' : 'F/1.4'}
     </Button>

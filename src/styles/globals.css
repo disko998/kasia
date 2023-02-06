@@ -3,18 +3,15 @@
 @tailwind utilities;
 
 @layer base {
-  html,
-  body {
-    min-height: 100vh;
-    color: theme('colors.dark-blue');
-    background: theme('colors.soft-white');
-    font-size: theme('fontSize.base');
+  :root {
+    font-size: 100%;
     font-weight: 500;
+    min-height: 100%;
+    height: auto;
   }
 
-  .dark body {
-    color: theme('colors.soft-white');
-    background: theme('colors.soft-black');
+  body {
+    @apply bg-soft-white text-dark-blue transition-colors duration-500 dark:bg-soft-black dark:text-soft-white;
   }
 
   * {
@@ -35,27 +32,36 @@
   }
 
   h1 {
-    font-size: theme('fontSize.h1');
+    font-size: theme('fontSize.5xl');
   }
 
   h2 {
-    font-size: theme('fontSize.h2');
+    font-size: theme('fontSize.4xl');
   }
 
   h3 {
-    font-size: theme('fontSize.h3');
+    font-size: theme('fontSize.2xl');
     font-weight: 600;
   }
 
   p {
-    font-weight: 500;
-    font-size: theme('fontSize.base');
+    font-size: theme('fontSize.sm');
     line-height: 120%;
   }
 
-  @media screen and (max-width: 640px) {
-    h2 {
-      font-size: theme('fontSize.4xl');
+  @media screen and (min-width: 640px) {
+    h1 {
+      font-size: theme('fontSize.6xl');
+    }
+
+    :root {
+      font-size: 130%;
+    }
+  }
+
+  @media screen and (min-width: 2560px) {
+    :root {
+      font-size: 170%;
     }
   }
 }

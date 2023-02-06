@@ -13,6 +13,7 @@ export default function index() {
     <>
       <Navbar />
       <Hero />
+
       <main className="min-h-[500px]">
         <section className="flex flex-col items-center pb-12">
           <div className="container flex max-w-2xl flex-col items-center text-center">

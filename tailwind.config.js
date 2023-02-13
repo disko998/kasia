@@ -30,7 +30,7 @@ module.exports = {
         sans: ['var(--font-jeko)']
       },
       fontSize: {
-        xxs: '0.625rem'
+        xs: '0.625rem'
       },
       borderWidth: {
         1: '1px'

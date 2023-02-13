@@ -5,6 +5,7 @@ import Shutter from '@/assets/icons/shutter.svg'
 import Play from '@/assets/icons/play.svg'
 import FatherDev from '@/assets/icons/father-dev.svg'
 import ArrowRight from '@/assets/icons/arrow-right.svg'
+import Close from '@/assets/icons/close.svg'
 
 const iconTypes = {
   logo: {
@@ -26,6 +27,10 @@ const iconTypes = {
   'arrow-right': {
     component: ArrowRight,
     viewBox: '0 0 22 8'
+  },
+  close: {
+    component: Close,
+    viewBox: '0 0 25 25'
   }
 }
 
@@ -37,6 +42,7 @@ export type IconProps = {
   size?: number | string
   viewBox?: string
   className?: string
+  onClick?: () => void
 }
 
 const Icon = ({
@@ -45,6 +51,7 @@ const Icon = ({
   viewBox,
   color,
   className,
+  onClick,
   ...props
 }: IconProps) => {
   const IconComponent = iconTypes[name].component
@@ -53,8 +60,9 @@ const Icon = ({
 
   return (
     <IconComponent
+      onClick={onClick}
       viewBox={iconTypes[name].viewBox}
-      className={`text-soft-dark-blue transition-colors dark:text-white`}
+      className={`text-soft-dark-blue transition-colors dark:text-soft-white`}
       color={color}
       {...sizeProps}
       {...props}

@@ -8,12 +8,10 @@ export default function Hero({}: Props) {
     <header className="container h-screen py-[89px]">
       <div className="relative flex h-full flex-col items-center justify-center overflow-hidden rounded-xl">
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center">
-          <h1 className="max-w-[500px] text-center text-white">
+          <h1 className="max-w-[30rem] text-center text-white">
             ZABELEŽI TRENUTAK SA KASIA STUDIOM
           </h1>
-          <Button className="mt-7 border-white" textClassName="text-white">
-            O NAMA
-          </Button>
+          <Button className="mt-7 border-white text-white">O NAMA</Button>
         </div>
 
         <video className="h-full w-full object-cover" autoPlay loop muted>

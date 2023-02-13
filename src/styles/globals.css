@@ -11,7 +11,7 @@
   }
 
   body {
-    @apply bg-soft-white text-dark-blue transition-colors duration-500 dark:bg-soft-black dark:text-soft-white;
+    @apply overscroll-contain bg-soft-white text-dark-blue transition-colors duration-500 dark:bg-soft-black dark:text-soft-white;
   }
 
   * {
@@ -61,7 +61,7 @@
 
   @media screen and (min-width: 2560px) {
     :root {
-      font-size: 170%;
+      font-size: 150%;
     }
   }
 }

@@ -23,10 +23,12 @@ const videos = [
 
 export default function FeaturedVideosSection() {
   return (
-    <section className="container flex max-w-[1330px] flex-col items-center py-12 text-center">
-      <h2 className="text-4xl sm:text-h2">Videografija je naša specijalnost</h2>
+    <section className="container flex flex-col items-center py-20 text-center">
+      <h2 className="sm:text-h2 text-4xl ">
+        Videografija je naša specijalnost
+      </h2>
 
-      <p className="mt-7 mb-24 max-w-2xl text-justify leading-[120%]">
+      <p className="mt-7 mb-20 max-w-2xl leading-[120%]">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -34,21 +36,21 @@ export default function FeaturedVideosSection() {
       </p>
 
       <div className="grid w-full grid-rows-1 gap-8 lg:grid-cols-3">
-        {videos.map(video => (
+        {videos.map(({ title, thumb }) => (
           <div
-            key={video.title}
-            className="flex flex-col items-center justify-center"
+            key={title}
+            className="flex flex-col items-center justify-center bg-red-orange"
           >
-            <div className="relative h-[250px] w-full max-w-[416px] overflow-hidden rounded-xl">
+            <div className="relative h-[200px] w-full max-w-[416px] overflow-hidden rounded-xl">
               <Image
+                fill
                 className="absolute inset-0 z-0 object-cover"
-                src={video.thumb}
+                src={thumb}
                 alt="Grad"
-                width={416}
-                height={250}
               />
+
               <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden bg-soft-black/60">
-                <h3 className="text-soft-white">{video.title}</h3>
+                <h3 className="text-soft-white">{title}</h3>
                 <Button
                   className="mt-4 whitespace-nowrap"
                   iconRight={<Icon name="play" />}
@@ -60,9 +62,11 @@ export default function FeaturedVideosSection() {
           </div>
         ))}
 
-        {/* <span className="mt-[15px] cursor-pointer text-sm font-semibold text-red-orange hover:underline">
-        UČITAJ JOŠ...
-      </span> */}
+        {videos.length > 3 && (
+          <span className="mt-[15px] cursor-pointer text-sm font-semibold text-red-orange hover:underline">
+            UČITAJ JOŠ...
+          </span>
+        )}
       </div>
     </section>
   )

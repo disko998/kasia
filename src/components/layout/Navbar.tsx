@@ -17,11 +17,11 @@ export default function Navbar({ onMenu }: Props) {
         menu
       </Button>
 
-      <div className="hidden flex-row gap-2 lg:flex">
+      <nav className="hidden flex-row gap-2 lg:flex">
         <Button>VIDEOGRAPHY</Button>
         <Button>PHOTOGRAPHY</Button>
         <Button>ABOUT US</Button>
-      </div>
+      </nav>
 
       <Logo />
 

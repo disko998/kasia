@@ -13,7 +13,7 @@ const PageLayout = ({ children }: Props) => {
     <>
       <Navbar onMenu={() => setShowMenu(true)} />
       <Menu isOpen={showMenu} onClose={() => setShowMenu(false)} />
-      {children}
+      <main>{children}</main>
     </>
   )
 }

@@ -1,76 +1,284 @@
 import FeaturedVideosSection from '@/components/FeaturedVideosSection'
-import Hero from '@/components/Hero'
 import PageLayout from '@/components/layout/PageLayout'
 import OurClients from '@/components/OurClients'
 import ProjectsReveals from '@/components/ProjectsReveals'
 import ScrollGallerySection from '@/components/ScrollGallerySection'
 import WeddingVideo from '@/components/WeddingVideo'
 import Image from 'next/image'
-import React from 'react'
+import React, { useRef } from 'react'
+import {
+  motion,
+  useAnimationControls,
+  useScroll,
+  useTransform,
+  Variants
+} from 'framer-motion'
+import Button from '@/components/buttons/Button'
 
-export default function index() {
+import BelgradeImage from '../../public/images/belgrade.png'
+import LighthouseImage from '../../public/images/lighthouse.png'
+import NatureImage from '../../public/images/nature.png'
+
+export default function Index() {
+  const heroRef = useRef<any>()
+  const section1Ref = useRef<any>()
+  const section2Ref = useRef<any>()
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start']
+  })
+  const section1Scroll = useScroll({
+    target: section1Ref,
+    offset: ['start center', 'end end']
+  })
+
+  const section2Scroll = useScroll({
+    target: section2Ref,
+    offset: ['start center', 'end end']
+  })
+
+  const section1Parallax = useScroll({
+    target: section2Ref,
+    offset: ['start end', 'start start']
+  })
+
+  const section2Parallax = useScroll({
+    target: section2Ref,
+    offset: ['end end', 'end start']
+  })
+
   return (
     <PageLayout>
-      <Hero />
+      <header className="container h-screen pt-[89px] pb-[70px]">
+        <motion.div
+          ref={heroRef}
+          style={{
+            y: useTransform(scrollYProgress, [0, 1], ['0%', '30%']),
+            opacity: useTransform(scrollYProgress, [0.5, 1], [1, 0])
+          }}
+          className="relative flex h-full flex-col items-center justify-center overflow-hidden rounded-xl"
+        >
+          <motion.div
+            style={{
+              y: useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
+            }}
+            className="absolute inset-0 z-20 flex flex-col items-center justify-center"
+          >
+            <h1 className="max-w-[30rem] text-center text-white">
+              ZABELEŽI TRENUTAK SA KASIA STUDIOM
+            </h1>
+            <Button className="mt-7 border-white text-white">O NAMA</Button>
+          </motion.div>
 
-      <main>
-        <section className="relative min-h-[1000px] pb-12">
+          <video className="h-full w-full object-cover" autoPlay loop muted>
+            <source src="/hero.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+          <div className="absolute inset-0 z-10 bg-soft-black/60" />
+        </motion.div>
+      </header>
+
+      <section ref={section1Ref} className="h-[3000px]">
+        <motion.div
+          style={{
+            y: useTransform(
+              section1Parallax.scrollYProgress,
+              [0, 1],
+              ['0%', '30%']
+            ),
+            opacity: useTransform(
+              section1Parallax.scrollYProgress,
+              [0, 1],
+              [1, 0]
+            )
+          }}
+          className="sticky top-0 flex h-screen items-center text-center"
+        >
           <div className="container flex max-w-2xl flex-col items-center text-center">
-            <h2>Naša Lokacija</h2>
-            <h3 className="mt-7 text-soft-black dark:text-soft-white">
+            <motion.h2
+              style={{
+                opacity: useTransform(
+                  section1Scroll.scrollYProgress,
+                  [0, 0.2],
+                  [0, 1]
+                )
+              }}
+            >
+              Naša Lokacija
+            </motion.h2>
+
+            <motion.h3
+              style={{
+                opacity: useTransform(
+                  section1Scroll.scrollYProgress,
+                  [0.2, 0.3],
+                  [0, 1]
+                ),
+                y: useTransform(
+                  section1Scroll.scrollYProgress,
+                  [0.2, 0.3],
+                  [10, 0]
+                )
+              }}
+              className="mt-7 text-soft-black dark:text-soft-white"
+            >
               Beograd, Srbija
-            </h3>
-            <p className="mt-7 max-w-[35rem]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut lab ore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat
-            </p>
+            </motion.h3>
 
-            <Image
+            <motion.p
+              style={{
+                opacity: useTransform(
+                  section1Scroll.scrollYProgress,
+                  [0.3, 0.4],
+                  [0, 1]
+                ),
+                y: useTransform(
+                  section1Scroll.scrollYProgress,
+                  [0.3, 0.4],
+                  [10, 0]
+                )
+              }}
               className="mt-7"
-              src="/images/belgrade.png"
-              alt="Beograd"
-              width={753}
-              height={212}
-            />
-          </div>
-        </section>
+            >
+              Naš studio se nalazi u Zemunu - ulica Prvomajska 6k.
+            </motion.p>
 
-        <section className="min-h-[1000px] py-12">
-          <div className="container relative flex max-w-[100%] flex-col items-center justify-center">
-            <h2>Kasia Studio</h2>
-            <p className="mt-7 max-w-[35rem]">
+            <motion.div
+              className="absolute bottom-0 left-0 right-0 flex items-center justify-center"
+              style={{
+                y: useTransform(
+                  section1Scroll.scrollYProgress,
+                  [0.4, 0.9],
+                  ['100%', '0%']
+                )
+              }}
+            >
+              <Image src={BelgradeImage} alt="Beograd" />
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section ref={section2Ref} className="mb-40 h-[3000px]">
+        <motion.div
+          className="sticky top-0 flex h-screen items-center text-center"
+          style={{
+            y: useTransform(
+              section2Parallax.scrollYProgress,
+              [0, 1],
+              ['0%', '30%']
+            ),
+            opacity: useTransform(
+              section2Parallax.scrollYProgress,
+              [0, 1],
+              [1, 0]
+            )
+          }}
+        >
+          <div className="container flex max-w-2xl flex-col items-center text-center">
+            <motion.h2
+              style={{
+                opacity: useTransform(
+                  section2Scroll.scrollYProgress,
+                  [0, 0.2],
+                  [0, 1]
+                )
+              }}
+            >
+              Kasia Studio
+            </motion.h2>
+
+            <motion.p
+              style={{
+                opacity: useTransform(
+                  section2Scroll.scrollYProgress,
+                  [0.2, 0.3],
+                  [0, 1]
+                ),
+                y: useTransform(
+                  section2Scroll.scrollYProgress,
+                  [0.2, 0.3],
+                  [10, 0]
+                )
+              }}
+              className="mt-7 max-w-[35rem]"
+            >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat
-            </p>
+            </motion.p>
 
-            <Image
-              className="mt-7 md:absolute md:left-[10px]"
-              src="/images/lighthouse.png"
-              alt="Svetionik"
-              width={625}
-              height={392}
-            />
+            <motion.div
+              style={{
+                opacity: useTransform(
+                  section2Scroll.scrollYProgress,
+                  [0.3, 0.4],
+                  [0, 1]
+                ),
+                y: useTransform(
+                  section2Scroll.scrollYProgress,
+                  [0.3, 0.4],
+                  [10, 0]
+                )
+              }}
+            >
+              <Button className="mt-7 border-red-orange text-red-orange">
+                O nama
+              </Button>
+            </motion.div>
 
-            {/* <Image
-              className="mt-7 hidden md:absolute md:right-[10px] md:block"
-              src="/images/nature.png"
-              alt="Priroda"
-              width={324}
-              height={549}
-            /> */}
+            <motion.div
+              className="absolute left-0 bottom-0 flex items-center justify-center"
+              style={{
+                // opacity: useTransform(
+                //   section2Scroll.scrollYProgress,
+                //   [0.4, 0.5],
+                //   [0, 1]
+                // ),
+                y: useTransform(
+                  section2Scroll.scrollYProgress,
+                  [0.4, 0.8],
+                  ['100%', '0%']
+                )
+              }}
+            >
+              <Image
+                width={625}
+                height={392}
+                src={LighthouseImage}
+                alt="Svetionik"
+              />
+            </motion.div>
+
+            <motion.div
+              className="absolute right-0 bottom-0 hidden items-center justify-center lg:flex"
+              style={{
+                // opacity: useTransform(
+                //   section2Scroll.scrollYProgress,
+                //   [0.4, 0.5],
+                //   [0, 1]
+                // ),
+                y: useTransform(
+                  section2Scroll.scrollYProgress,
+                  [0.6, 1],
+                  ['100%', '0%']
+                )
+              }}
+            >
+              <Image width={549} height={324} src={NatureImage} alt="Priroda" />
+            </motion.div>
           </div>
-        </section>
+        </motion.div>
+      </section>
 
-        <FeaturedVideosSection />
-        {/* <ScrollGallerySection /> */}
-        <OurClients />
-        <ProjectsReveals />
-        <WeddingVideo />
-      </main>
+      <FeaturedVideosSection />
+
+      <OurClients />
+      <ProjectsReveals />
+      <WeddingVideo />
     </PageLayout>
   )
 }

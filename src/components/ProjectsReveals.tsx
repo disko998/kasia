@@ -13,7 +13,7 @@ const projects = [
     pallet: ['#060A0B', '#136266', '#7A251E', '#934465', '#EBE4ED']
   },
   {
-    title: 'Petar Stanković - Začarani grad',
+    title: 'Petar Stanković - Začarani gradd',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     date: '02, steptembar 2021.',
@@ -21,7 +21,7 @@ const projects = [
     pallet: ['#58412A', '#555532', '#A0AA72', '#E5B2A6', '#E2BFA2']
   },
   {
-    title: 'Petar Stanković - Začarani grad',
+    title: 'Petar Stanković - Začarani graddd',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     date: '02, steptembar 2021.',

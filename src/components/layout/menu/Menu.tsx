@@ -24,7 +24,7 @@ const socials = [
 
 export default function Menu({ isOpen, onClose }: Props) {
   return (
-    <div
+    <nav
       className={classNames(
         'fixed inset-0 z-50 translate-x-[-100%] overflow-y-scroll overscroll-contain bg-red-orange transition-transform duration-500 ease-out sm:w-[400px] lg:hidden',
         {
@@ -41,7 +41,7 @@ export default function Menu({ isOpen, onClose }: Props) {
       <div className="flex flex-col gap-y-[20px] p-[30px] pt-0">
         {menuItems.map(({ label, href }) => (
           <Button
-            className="mt-2 h-[35px] text-[15px]"
+            className="mt-2 h-[35px] border-soft-white text-[15px] text-soft-white"
             as="a"
             key={label}
             href={href}
@@ -56,7 +56,7 @@ export default function Menu({ isOpen, onClose }: Props) {
       <div className="flex flex-col gap-y-[20px] p-[30px]">
         {socials.map(({ label, href }) => (
           <Button
-            className="mt-2 h-[35px] text-[15px]"
+            className="mt-2 h-[35px] border-soft-white text-[15px] text-soft-white"
             as="a"
             key={label}
             href={href}
@@ -66,6 +66,6 @@ export default function Menu({ isOpen, onClose }: Props) {
           </Button>
         ))}
       </div>
-    </div>
+    </nav>
   )
 }

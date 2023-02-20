@@ -1,20 +1,13 @@
 import FeaturedVideosSection from '@/components/FeaturedVideosSection'
 import PageLayout from '@/components/layout/PageLayout'
-import OurClients from '@/components/OurClients'
 import ProjectsReveals from '@/components/ProjectsReveals'
-import ScrollGallerySection from '@/components/ScrollGallerySection'
 import WeddingVideo from '@/components/WeddingVideo'
 import Image from 'next/image'
 import React, { useRef } from 'react'
-import {
-  motion,
-  useAnimationControls,
-  useScroll,
-  useTransform,
-  Variants
-} from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Button from '@/components/buttons/Button'
 
+import Icon from '@/components/Icon'
 import BelgradeImage from '../../public/images/belgrade.png'
 import LighthouseImage from '../../public/images/lighthouse.png'
 import NatureImage from '../../public/images/nature.png'
@@ -80,7 +73,7 @@ export default function Index() {
         </motion.div>
       </header>
 
-      <section ref={section1Ref} className="h-[3000px]">
+      <section ref={section1Ref} className="h-[300vh]">
         <motion.div
           style={{
             y: useTransform(
@@ -161,7 +154,7 @@ export default function Index() {
         </motion.div>
       </section>
 
-      <section ref={section2Ref} className="mb-40 h-[3000px]">
+      <section ref={section2Ref} className="mb-40 h-[300vh]">
         <motion.div
           className="sticky top-0 flex h-screen items-center text-center"
           style={{
@@ -276,9 +269,21 @@ export default function Index() {
 
       <FeaturedVideosSection />
 
-      <OurClients />
+      <section className="container flex h-screen flex-col items-center justify-center text-center">
+        <h2>Naši Klijenti</h2>
+
+        <div className="mx-auto mt-12 grid max-w-[309px] grid-cols-2 grid-rows-3 place-items-center gap-x-16 gap-y-14">
+          <Icon name="father-dev" />
+          <Icon name="father-dev" />
+          <Icon name="father-dev" />
+          <Icon name="father-dev" />
+          <Icon name="father-dev" />
+          <Icon name="father-dev" />
+        </div>
+      </section>
+
       <ProjectsReveals />
-      <WeddingVideo />
+      {/* <WeddingVideo /> */}
     </PageLayout>
   )
 }

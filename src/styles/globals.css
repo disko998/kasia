@@ -52,7 +52,7 @@
   }
 
   .container {
-    @apply lg:px-[70px];
+    @apply xl:px-[70px];
   }
 
   @media screen and (min-width: 2560px) {

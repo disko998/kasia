@@ -8,11 +8,9 @@ import StefanImage from '../../public/images/stefan.jpg'
 import MilosImage from '../../public/images/milos.jpg'
 import { useScroll, useTransform, motion } from 'framer-motion'
 import { useRef } from 'react'
-import useDimensions from '@/hooks/useDimmenstions'
 
 export default function About() {
   const headerRef = useRef<any>()
-  const dimensions = useDimensions()
 
   const { scrollYProgress } = useScroll({
     target: headerRef,
@@ -20,11 +18,10 @@ export default function About() {
   })
 
   const y = useTransform(scrollYProgress, [0, 1], ['-30%', '0%'])
-  const rotate = useTransform(scrollYProgress, [0, 1], ['100deg', '0deg'])
 
   return (
     <PageLayout>
-      <header ref={headerRef} className="my-14 pt-[140px]">
+      <header ref={headerRef} className="my-14 mt-[140px] ">
         <div className="container relative flex max-w-2xl flex-col items-center justify-center gap-6 text-center">
           <p className="text-sm font-medium tracking-[0.245em]">
             HAJDE BOLJE DA SE UPOZNAMO!
@@ -103,7 +100,9 @@ export default function About() {
         </div>
       </header>
 
-      {/* <FeaturedVideosSection /> */}
+      <div className="py-[140px]">
+        <FeaturedVideosSection />
+      </div>
     </PageLayout>
   )
 }

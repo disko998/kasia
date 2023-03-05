@@ -1,6 +1,6 @@
 import Icon from '@/components/Icon'
 import Image from 'next/image'
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 const projects = [
@@ -62,25 +62,25 @@ const Project = ({
   const rightImageX = useTransform(
     scrollYProgress,
     [0, 0.7, 1],
-    ['100%', '10%', '-10%']
+    ['100%', '80%', '-10%']
   )
   const leftImageX = useTransform(
     scrollYProgress,
     [0, 0.7, 1],
-    ['-100%', '-10%', '10%']
+    ['-100%', '-80%', '10%']
   )
 
-  const rightRotate = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    ['0deg', '-2deg', '-5deg']
-  )
+  //   const rightRotate = useTransform(
+  //     scrollYProgress,
+  //     [0, 0.5, 1],
+  //     ['0deg', '-2deg', '-2deg']
+  //   )
 
-  const leftRotate = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    ['0deg', '2deg', '5deg']
-  )
+  //   const leftRotate = useTransform(
+  //     scrollYProgress,
+  //     [0, 0.5, 1],
+  //     ['0deg', '2deg', '2deg']
+  //   )
 
   return (
     <motion.div
@@ -91,17 +91,17 @@ const Project = ({
     >
       <article className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         <motion.div
-          style={{ x: rightImageX, rotate: rightRotate }}
-          className="relative z-10 h-[80%] w-[50vw] max-w-[600px] overflow-hidden rounded-xl"
+          style={{ x: rightImageX }}
+          className="relative z-10 h-[80%] min-w-[100vw] overflow-hidden rounded-xl sm:min-w-[80vw] md:h-[700px] md:min-w-[600px]"
         >
           <Image fill src={images[0]} alt={title} />
         </motion.div>
 
-        <div className="flex w-[60vw] max-w-[600px] flex-col items-center text-center">
+        <div className="flex min-w-[100vw] flex-col items-center text-center sm:min-w-[80vw] md:min-w-[700px] md:max-w-[600px]">
           <h2>{title}</h2>
           <p className="mt-7">{description}</p>
 
-          <div className="mt-9 flex  items-center justify-between font-serif text-lg text-red-orange sm:text-2xl">
+          <div className="mt-9 flex items-center justify-between font-serif text-lg text-red-orange sm:text-2xl">
             <span>{date}</span>
             <span className="mx-8">
               <Icon name="arrow-right" />
@@ -121,8 +121,8 @@ const Project = ({
         </div>
 
         <motion.div
-          style={{ x: leftImageX, rotate: leftRotate }}
-          className="relative h-[80%] w-[50vw] max-w-[600px] origin-center overflow-hidden rounded-xl"
+          style={{ x: leftImageX }}
+          className="relative h-[80%] min-w-[100vw] max-w-[600px] origin-center overflow-hidden rounded-xl sm:min-w-[80vw] md:h-[700px] md:min-w-[600px]"
         >
           <Image fill src={images[1]} alt={title} />
         </motion.div>

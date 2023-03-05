@@ -8,7 +8,7 @@ const ThemeToggle = () => {
 
   return (
     <Button
-      textClassName={`min-w-[1.5rem] overflow-visible  `}
+      textClassName={`min-w-[1.5rem] overflow-visible`}
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       iconRight={
         <motion.div

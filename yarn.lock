@@ -1074,6 +1074,20 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@lottiefiles/lottie-interactivity@^1.6.2":
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/@lottiefiles/lottie-interactivity/-/lottie-interactivity-1.6.2.tgz#5a8ea9c03a1b1f451b66c346d7097e50ad133795"
+  integrity sha512-psmG/frpi4IIJjBa+Mj0ivKtfNRkasUnvU6sBrVfm7nSwBpEoyMop16uIEYg5PYdpboFbQQhibmwC006KGZhsA==
+  dependencies:
+    core-js "3"
+
+"@lottiefiles/react-lottie-player@^3.5.2":
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/@lottiefiles/react-lottie-player/-/react-lottie-player-3.5.2.tgz#4ed1bb5b59bc200201d51dba7a75f597ce48f268"
+  integrity sha512-vrvRgqXimIpM5GUzBP6aksZjCdLUGxTL3FZ+2NJzLmKkPL3xDEX7oCftqPSerFz1AXVwIur3FaZbWL+XyagXWQ==
+  dependencies:
+    lottie-web "^5.10.0"
+
 "@motionone/animation@^10.15.1":
   version "10.15.1"
   resolved "https://registry.yarnpkg.com/@motionone/animation/-/animation-10.15.1.tgz#4a85596c31cbc5100ae8eb8b34c459fb0ccf6807"
@@ -1798,6 +1812,11 @@ core-js-compat@^3.25.1:
   integrity sha512-welaYuF7ZtbYKGrIy7y3eb40d37rG1FvzEOfe7hSLd2iD6duMDqUhRfSvCGyC46HhR6Y8JXXdZ2lnRUMkPBpvg==
   dependencies:
     browserslist "^4.21.4"
+
+core-js@3:
+  version "3.29.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.29.0.tgz#0273e142b67761058bcde5615c503c7406b572d6"
+  integrity sha512-VG23vuEisJNkGl6XQmFJd3rEG/so/CNatqeE+7uZAwTSwFeB/qaO0be8xZYUNWprJ/GIwL8aMt9cj1kvbpTZhg==
 
 cosmiconfig@^7.0.1:
   version "7.1.0"
@@ -2995,6 +3014,18 @@ loose-envify@^1.1.0, loose-envify@^1.4.0:
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
+
+lottie-react@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/lottie-react/-/lottie-react-2.4.0.tgz#f7249eee2b1deee70457a2d142194fdf2456e4bd"
+  integrity sha512-pDJGj+AQlnlyHvOHFK7vLdsDcvbuqvwPZdMlJ360wrzGFurXeKPr8SiRCjLf3LrNYKANQtSsh5dz9UYQHuqx4w==
+  dependencies:
+    lottie-web "^5.10.2"
+
+lottie-web@^5.10.0, lottie-web@^5.10.2:
+  version "5.10.2"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.10.2.tgz#a1c952b6734759fcd369eba73b6b7e3d9a76ce0b"
+  integrity sha512-d0PFIGiwuMsJYaF4uPo+qG8dEorlI+xFI2zrrFtE1bGO4WoLIz+NjremxEq1swpR7juR10aeOtmNh3d6G3ub0A==
 
 lru-cache@^5.1.1:
   version "5.1.1"

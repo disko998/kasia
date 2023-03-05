@@ -89,7 +89,7 @@ const Project = ({
       key={title}
       className="relative h-[200vh]"
     >
-      <article className="sticky top-0 flex h-screen items-center justify-center overflow-hidden pt-[89px]">
+      <article className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         <motion.div
           style={{ x: rightImageX, rotate: rightRotate }}
           className="relative z-10 h-[80%] w-[50vw] max-w-[600px] overflow-hidden rounded-xl"

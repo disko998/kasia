@@ -45,17 +45,17 @@ export default function FeaturedVideosSection() {
             key={title}
             className="flex flex-col items-center justify-center"
           >
-            <motion.div
-              {...fade}
-              variants={{
-                hide: { opacity: 0, y: 50, transition: { duration: 0.5 } },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.5, delay: 0.2 * index }
-                }
-              }}
-              viewport={{ margin: '0px 0px -200px 0px' }}
+            <div
+              //   {...fade}
+              //   variants={{
+              //     hide: { opacity: 0, y: 50, transition: { duration: 0.5 } },
+              //     show: {
+              //       opacity: 1,
+              //       y: 0,
+              //       transition: { duration: 0.5, delay: 0.2 * index }
+              //     }
+              //   }}
+              //   viewport={{ margin: '0px 0px -200px 0px' }}
               className="relative h-[250px] w-full max-w-[500px] overflow-hidden rounded-xl lg:h-[15vw] lg:max-w-full"
             >
               <Image
@@ -74,7 +74,7 @@ export default function FeaturedVideosSection() {
                   Pogledaj video
                 </Button>
               </div>
-            </motion.div>
+            </div>
           </div>
         ))}
 

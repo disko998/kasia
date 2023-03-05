@@ -272,7 +272,7 @@ export default function Index() {
       <FeaturedVideosSection />
 
       <section className="container flex flex-col items-center justify-center text-center">
-        <motion.h2 {...fade}>Naši Klijenti</motion.h2>
+        <motion.h2>Naši Klijenti</motion.h2>
 
         <div className="mx-auto mt-12 grid max-w-[309px] grid-cols-2 grid-rows-3 place-items-center gap-x-16 gap-y-14">
           <Icon name="father-dev" />

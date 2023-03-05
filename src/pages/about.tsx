@@ -1,3 +1,5 @@
+import { useScroll, useTransform, motion } from 'framer-motion'
+import { useRef } from 'react'
 import FeaturedVideosSection from '@/components/FeaturedVideosSection'
 import PageLayout from '@/components/layout/PageLayout'
 import Image from 'next/image'
@@ -6,8 +8,6 @@ import NatureImage from '../../public/images/nature.png'
 import StricImage from '../../public/images/stric.jpg'
 import StefanImage from '../../public/images/stefan.jpg'
 import MilosImage from '../../public/images/milos.jpg'
-import { useScroll, useTransform, motion } from 'framer-motion'
-import { useRef } from 'react'
 
 export default function About() {
   const headerRef = useRef<any>()
@@ -21,7 +21,7 @@ export default function About() {
 
   return (
     <PageLayout>
-      <header ref={headerRef} className="my-14 mt-[140px] ">
+      <header ref={headerRef} className="my-14 mt-[140px]">
         <div className="container relative flex max-w-2xl flex-col items-center justify-center gap-6 text-center">
           <p className="text-sm font-medium tracking-[0.245em]">
             HAJDE BOLJE DA SE UPOZNAMO!
@@ -51,7 +51,7 @@ export default function About() {
             <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
               <h3 className="text-white">{'EDVARD NALBANTJAN'}</h3>
               <span className="text-[0.75rem] text-light-yellow">
-                {'DIPLOMIRANI FOTOGRAF'}
+                {'SNIMATELJ I VIDEO MONTAŽER'}
               </span>
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function About() {
               <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
                 <h3 className="text-white">STEFAN GORENJAK</h3>
                 <span className="text-[0.75rem] text-light-yellow">
-                  {'DIPLOMIRANI FOTOGRAF'}
+                  {'VIDEO MONTAŽER'}
                 </span>
               </div>
             </motion.div>

@@ -200,10 +200,10 @@ export default function Index() {
               }}
               className="mt-7 max-w-[35rem]"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat
+              Naš tim je sastavljen od 3 profesionalca, svako u svojoj oblasti.
+              Edvard je profesionalni fotograf koji je radio sa preko hiljadu
+              poznatih ličnosti i imena u regionu i svojim iskustvom i
+              kvalitetom stoji iza svake svoje fotografije...
             </motion.p>
 
             <motion.div
@@ -220,7 +220,11 @@ export default function Index() {
                 )
               }}
             >
-              <Button className="mt-7 border-red-orange text-red-orange">
+              <Button
+                as="a"
+                href="/about"
+                className="mt-7 border-red-orange text-red-orange"
+              >
                 O nama
               </Button>
             </motion.div>
@@ -228,11 +232,6 @@ export default function Index() {
             <motion.div
               className="absolute left-0 bottom-0 flex items-center justify-center"
               style={{
-                // opacity: useTransform(
-                //   section2Scroll.scrollYProgress,
-                //   [0.4, 0.5],
-                //   [0, 1]
-                // ),
                 y: useTransform(
                   section2Scroll.scrollYProgress,
                   [0.4, 0.8],
@@ -251,11 +250,6 @@ export default function Index() {
             <motion.div
               className="absolute right-0 bottom-0 hidden items-center justify-center lg:flex"
               style={{
-                // opacity: useTransform(
-                //   section2Scroll.scrollYProgress,
-                //   [0.4, 0.5],
-                //   [0, 1]
-                // ),
                 y: useTransform(
                   section2Scroll.scrollYProgress,
                   [0.6, 1],

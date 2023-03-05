@@ -12,6 +12,7 @@ import image3 from '../../public/images/photography/3.jpg'
 import image4 from '../../public/images/photography/4.jpg'
 import image5 from '../../public/images/photography/5.jpg'
 import image6 from '../../public/images/photography/6.jpg'
+import classNames from 'classnames'
 
 enum PhotographyCategories {
   ALL = 'Svi albums',
@@ -64,7 +65,7 @@ export default function Photography() {
               />
             </div>
 
-            <div className="fixed bottom-12 sm:hidden">
+            <div className="fixed bottom-12 z-10 sm:hidden">
               <motion.div
                 variants={{
                   hidden: { opacity: 0 },
@@ -77,15 +78,20 @@ export default function Photography() {
                 }}
                 initial="hidden"
                 animate={showDropdown ? 'show' : 'hidden'}
-                className="mb-5 flex w-full flex-col rounded-lg border-2 border-red-orange bg-soft-white dark:text-soft-black"
+                className="text:bg-soft-white mb-5 flex w-full flex-col rounded-lg border-2 border-red-orange bg-soft-white dark:bg-soft-black"
               >
-                {categories.map(category => (
+                {categories.map((category, i) => (
                   <button
                     onClick={() => {
                       setCategory(category)
                       setShowDropdown(false)
                     }}
-                    className="border-b-1 border-silver-brown p-[12px]"
+                    className={classNames(
+                      'border-silver-brown p-[12px] dark:border-red-orange',
+                      {
+                        'border-b-1': i !== category.length
+                      }
+                    )}
                     key={category}
                   >
                     {category}
@@ -104,8 +110,9 @@ export default function Photography() {
                   </motion.div>
                 }
                 textClassName="text-left"
-                className="min-h-[35px] w-[182px] border-2 border-red-orange bg-soft-white px-[18px] font-medium text-red-orange
-			   hover:bg-soft-white active:bg-soft-white dark:border-red-orange dark:text-red-orange hover:dark:bg-soft-white"
+                className="text-red-orang z-10 min-h-[35px] w-[182px] border-2 border-red-orange bg-soft-white 
+				px-[18px] font-medium hover:bg-soft-white active:bg-soft-white dark:border-red-orange dark:bg-soft-black
+				 dark:text-red-orange hover:dark:bg-soft-black active:dark:bg-soft-black"
               >
                 {category}
               </Button>

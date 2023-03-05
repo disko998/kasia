@@ -24,21 +24,20 @@ const videos = [
 ]
 
 export default function FeaturedVideosSection() {
-  //   const fade = useFadeVariations()
-
   return (
     <section className="container flex flex-col items-center justify-center text-center">
       <h2 className="sm:text-h2 text-4xl">Videografija je naša specijalnost</h2>
 
       <p className="mt-7 mb-20 max-w-2xl leading-[120%]">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat
+        Višedecenijska karijera u oblasti Videografije nam je donela veliko
+        iskustvo i profesionalnost koju možemo da prezentujemo i ponudimo našim
+        klijentima. Od svabi, do real-estate videa, preko commercial spotova i
+        videa do edukativnih programa… U prilogu možete videti neke od projekata
+        koje smo radili.
       </p>
 
       <div className="grid w-full grid-rows-1 gap-6 lg:grid-cols-3">
-        {videos.map(({ title, thumb }, index) => (
+        {videos.map(({ title, thumb }) => (
           <div
             key={title}
             className="flex flex-col items-center justify-center"

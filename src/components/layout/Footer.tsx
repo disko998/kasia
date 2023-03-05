@@ -15,7 +15,7 @@ export default function Footer({}: Props) {
       <div className="flex flex-col">
         <button
           onClick={() => onCopy('office@kasiastudio.rs')}
-          className="group mt-12 cursor-pointer rounded-2xl bg-white p-5 text-center font-serif text-[2.5rem] text-red-orange transition-colors duration-500 dark:bg-[#20211b] sm:text-5xl"
+          className="group mt-12 cursor-pointer rounded-2xl bg-white p-5 text-center font-serif text-[2.5rem] text-red-orange transition-colors duration-500 dark:bg-[#181b1e] sm:text-5xl"
         >
           <div className="transition-transform duration-300 group-hover:scale-95 group-active:scale-90">
             OFFICE@KASIASTUDIO.RS
@@ -25,7 +25,7 @@ export default function Footer({}: Props) {
 
         <button
           onClick={() => onCopy('+381 61/1160-549')}
-          className="group mt-12 cursor-pointer rounded-2xl bg-white p-5 text-center font-serif text-[2.5rem] text-red-orange transition-colors duration-500 dark:bg-[#20211b] sm:text-5xl"
+          className="group mt-12 cursor-pointer rounded-2xl bg-white p-5 text-center font-serif text-[2.5rem] text-red-orange transition-colors duration-500 dark:bg-[#181b1e] sm:text-5xl"
         >
           <div className="transition-transform duration-300 group-hover:scale-95 group-active:scale-90">
             +381 61/1160-549

@@ -5,30 +5,21 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 
 const projects = [
   {
-    title: 'Petar Stanković - Začarani grad',
+    title: 'Produkt fotografija',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    date: '02, steptembar 2021.',
-    place: 'Novi Sad',
-    pallet: ['#060A0B', '#136266', '#7A251E', '#934465', '#EBE4ED'],
-    images: ['/images/watch-1.webp', '/images/watch-1.webp']
+      'Sa zadovoljstvom vam predstavljamo jednu od najboljih product photography kampanja koju smo imali prilike da radimo i na koju smo najviše ponosni. U pitanju je kompanija Seiko.',
+    date: '05, steptembar 2021.',
+    place: 'Beograd, Srbija',
+    pallet: ['#58412A', '#555532', '#A0AA72', '#E6B2A6', '#E2BFA2'],
+    images: ['/images/svetac.jpeg', '/images/svetac.jpeg']
   },
   {
-    title: 'Petar Stanković - Začarani gradd',
+    title: 'Lazar Lux Apartments',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    date: '02, steptembar 2021.',
-    place: 'Novi Sad',
-    pallet: ['#58412A', '#555532', '#A0AA72', '#E5B2A6', '#E2BFA2'],
-    images: ['/images/watch-1.webp', '/images/watch-1.webp']
-  },
-  {
-    title: 'Petar Stanković - Začarani graddd',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    date: '02, steptembar 2021.',
-    place: 'Novi Sad',
-    pallet: ['#303941', '#647B83', '#9CB9C3', '#C6D8E2', '#FFFFFF'],
+      'Predivan hotel na samoj obali grčkog ostrva Krit. Imali smo tu čast da sarađujemo sa njima i njihovim predivnim hotelom. Nadamo se da ćete uživati!',
+    date: '05, steptembar 2022.',
+    place: 'Krit, Grčka',
+    pallet: ['#58412A', '#544A44', '#74A4C5', '#C6D8E2', '#FFFFFF'],
     images: ['/images/watch-1.webp', '/images/watch-1.webp']
   }
 ]

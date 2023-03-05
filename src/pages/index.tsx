@@ -45,7 +45,7 @@ export default function Index() {
 
   return (
     <PageLayout>
-      <header className="container h-screen pb-[70px]">
+      <header className="container h-screen pb-[70px] pt-[89px]">
         <motion.div
           ref={heroRef}
           style={{

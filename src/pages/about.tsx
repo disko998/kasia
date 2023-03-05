@@ -7,26 +7,8 @@ import StricImage from '../../public/images/stric.jpg'
 import StefanImage from '../../public/images/stefan.jpg'
 import MilosImage from '../../public/images/milos.jpg'
 import { useScroll, useTransform, motion } from 'framer-motion'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import useDimensions from '@/hooks/useDimmenstions'
-
-const team = [
-  {
-    image: StricImage,
-    name: 'EDVARD NALBANTJAN',
-    title: 'DIPLOMIRANI FOTOGRAF'
-  },
-  {
-    image: StefanImage,
-    name: 'STEFAN GORENJAK',
-    title: 'DIPLOMIRANI FOTOGRAF'
-  },
-  {
-    image: MilosImage,
-    name: 'MILOŠ MRĐA',
-    title: 'DIPLOMIRANI FOTOGRAF'
-  }
-]
 
 export default function About() {
   const headerRef = useRef<any>()
@@ -42,7 +24,7 @@ export default function About() {
 
   return (
     <PageLayout>
-      <header ref={headerRef} className="my-14">
+      <header ref={headerRef} className="my-14 pt-[140px]">
         <div className="container relative flex max-w-2xl flex-col items-center justify-center gap-6 text-center">
           <p className="text-sm font-medium tracking-[0.245em]">
             HAJDE BOLJE DA SE UPOZNAMO!

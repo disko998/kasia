@@ -10,7 +10,7 @@ type Props = {
 export default function Navbar({ onMenu }: Props) {
   return (
     <div
-      className={`container sticky top-0 z-40 flex h-[89px] flex-row items-center justify-between bg-soft-white/80
+      className={`container fixed top-0 z-40 flex h-[89px] flex-row items-center justify-between bg-soft-white/80
 	   backdrop-blur-md transition-colors duration-500 dark:bg-soft-black/80`}
     >
       <Button onClick={onMenu} className="lg:hidden">

@@ -5,9 +5,10 @@ import Footer from '@/components/layout/Footer'
 
 type Props = {
   children: React.ReactNode
+  hideFooter?: boolean
 }
 
-const PageLayout = ({ children }: Props) => {
+const PageLayout = ({ children, hideFooter }: Props) => {
   const [showMenu, setShowMenu] = useState(false)
 
   return (
@@ -15,7 +16,7 @@ const PageLayout = ({ children }: Props) => {
       <Navbar onMenu={() => setShowMenu(true)} />
       <Menu isOpen={showMenu} onClose={() => setShowMenu(false)} />
       <main className="min-h-screen">{children}</main>
-      <Footer />
+      {!hideFooter && <Footer />}
     </>
   )
 }

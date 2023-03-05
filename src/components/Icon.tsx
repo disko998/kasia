@@ -6,6 +6,7 @@ import Play from '@/assets/icons/play.svg'
 import FatherDev from '@/assets/icons/father-dev.svg'
 import ArrowRight from '@/assets/icons/arrow-right.svg'
 import Close from '@/assets/icons/close.svg'
+import ArrowDown from '@/assets/icons/arrow-down.svg'
 
 const iconTypes = {
   logo: {
@@ -31,6 +32,10 @@ const iconTypes = {
   close: {
     component: Close,
     viewBox: '0 0 25 25'
+  },
+  'arrow-down': {
+    component: ArrowDown,
+    viewBox: '0 0 14 9'
   }
 }
 

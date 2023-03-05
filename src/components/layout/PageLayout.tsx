@@ -14,7 +14,7 @@ const PageLayout = ({ children }: Props) => {
     <>
       <Navbar onMenu={() => setShowMenu(true)} />
       <Menu isOpen={showMenu} onClose={() => setShowMenu(false)} />
-      <main>{children}</main>
+      <main className="min-h-screen">{children}</main>
       <Footer />
     </>
   )

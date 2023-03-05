@@ -55,8 +55,8 @@ export default function FeaturedVideosSection() {
                   transition: { duration: 0.5, delay: 0.2 * index }
                 }
               }}
-              //   viewport={{ margin: '-250px' }}
-              className="relative h-[250px] w-full max-w-[500px] cursor-pointer overflow-hidden rounded-xl lg:h-[15vw] lg:max-w-full"
+              viewport={{ margin: '0px 0px -200px 0px' }}
+              className="relative h-[250px] w-full max-w-[500px] overflow-hidden rounded-xl lg:h-[15vw] lg:max-w-full"
             >
               <Image
                 fill

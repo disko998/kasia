@@ -25,7 +25,7 @@ export default function Button({
   ...buttonProps
 }: Props) {
   const classnames = twMerge(
-    'transition-color text-center ease-[cubic-bezier(.215, .61, .355, 1)] bg-transparent flex h-[1.6rem] min-w-[4.3rem] flex-row items-center justify-center rounded-full border-1 border-dark-blue p-1 font-medium uppercase leading-normal text-dark-blue text-xs dark:border-soft-white dark:text-soft-white',
+    'transition-color hover:bg-dark-blue/10 hover:dark:bg-soft-white/10 duration-300 text-center ease-[cubic-bezier(.215, .61, .355, 1)] bg-transparent flex h-[1.6rem] min-w-[4.3rem] flex-row items-center justify-center rounded-full border-1 border-dark-blue p-1 font-medium uppercase leading-normal text-dark-blue text-xs dark:border-soft-white dark:text-soft-white',
     className
   )
 

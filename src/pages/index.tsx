@@ -11,11 +11,13 @@ import Icon from '@/components/Icon'
 import BelgradeImage from '../../public/images/belgrade.png'
 import LighthouseImage from '../../public/images/lighthouse.png'
 import NatureImage from '../../public/images/nature.png'
+import useFadeVariations from '@/hooks/useFadeVariations'
 
 export default function Index() {
   const heroRef = useRef<any>()
   const section1Ref = useRef<any>()
   const section2Ref = useRef<any>()
+  const fade = useFadeVariations()
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -269,8 +271,8 @@ export default function Index() {
 
       <FeaturedVideosSection />
 
-      <section className="container flex h-screen flex-col items-center justify-center text-center">
-        <h2>Naši Klijenti</h2>
+      <section className="container flex flex-col items-center justify-center text-center">
+        <motion.h2 {...fade}>Naši Klijenti</motion.h2>
 
         <div className="mx-auto mt-12 grid max-w-[309px] grid-cols-2 grid-rows-3 place-items-center gap-x-16 gap-y-14">
           <Icon name="father-dev" />

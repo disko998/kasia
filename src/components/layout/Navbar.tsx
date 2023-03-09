@@ -18,6 +18,9 @@ export default function Navbar({ onMenu }: Props) {
       </Button>
 
       <nav className="hidden flex-row gap-4 lg:flex">
+        {/* <Button as="a" href={'/'}>
+          HOME
+        </Button> */}
         <Button as="a" href={'/videography'}>
           VIDEOGRAPHY
         </Button>

@@ -11,7 +11,10 @@ const projects = [
     date: '05, steptembar 2021.',
     place: 'Beograd, Srbija',
     pallet: ['#58412A', '#555532', '#A0AA72', '#E6B2A6', '#E2BFA2'],
-    images: ['/images/svetac.jpeg', '/images/svetac.jpeg']
+    images: [
+      '/images/projects/product-sat-1.png',
+      '/images/projects/product-sat-2.png'
+    ]
   },
   {
     title: 'Lazar Lux Apartments',
@@ -20,7 +23,7 @@ const projects = [
     date: '05, steptembar 2022.',
     place: 'Krit, Grčka',
     pallet: ['#58412A', '#544A44', '#74A4C5', '#C6D8E2', '#FFFFFF'],
-    images: ['/images/watch-1.webp', '/images/watch-1.webp']
+    images: ['/images/projects/hotel-1.png', '/images/projects/hotel-2.png']
   }
 ]
 
@@ -61,17 +64,17 @@ const Project = ({
     ['-100%', '-80%', '10%']
   )
 
-  //   const rightRotate = useTransform(
-  //     scrollYProgress,
-  //     [0, 0.5, 1],
-  //     ['0deg', '-2deg', '-2deg']
-  //   )
+  const rightRotate = useTransform(
+    scrollYProgress,
+    [0, 0.7, 1],
+    ['0deg', '-2deg', '-10deg']
+  )
 
-  //   const leftRotate = useTransform(
-  //     scrollYProgress,
-  //     [0, 0.5, 1],
-  //     ['0deg', '2deg', '2deg']
-  //   )
+  const leftRotate = useTransform(
+    scrollYProgress,
+    [0, 0.7, 1],
+    ['0deg', '2deg', '10deg']
+  )
 
   return (
     <motion.div
@@ -82,7 +85,7 @@ const Project = ({
     >
       <article className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         <motion.div
-          style={{ x: rightImageX }}
+          style={{ x: rightImageX, rotate: rightRotate }}
           className="relative z-10 h-[80%] min-w-[100vw] overflow-hidden rounded-xl sm:min-w-[80vw] md:h-[700px] md:min-w-[600px]"
         >
           <Image fill src={images[0]} alt={title} />
@@ -105,14 +108,14 @@ const Project = ({
               <span
                 key={color}
                 style={{ background: color }}
-                className={`h-[40px] w-[40px] rounded-lg`}
+                className="h-[2rem] w-[2rem] rounded-lg"
               />
             ))}
           </div>
         </div>
 
         <motion.div
-          style={{ x: leftImageX }}
+          style={{ x: leftImageX, rotate: leftRotate }}
           className="relative h-[80%] min-w-[100vw] max-w-[600px] origin-center overflow-hidden rounded-xl sm:min-w-[80vw] md:h-[700px] md:min-w-[600px]"
         >
           <Image fill src={images[1]} alt={title} />

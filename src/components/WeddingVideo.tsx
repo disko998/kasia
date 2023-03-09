@@ -1,21 +1,19 @@
 import Button from '@/components/buttons/Button'
 import Icon from '@/components/Icon'
 import Image from 'next/image'
-import JezenicImage from '../../public/images/jezenic-thumb.jpg'
-import Jezenic1Image from '../../public/images/jazenic-1.jpg'
-import Jezenic2Image from '../../public/images/jazenic-2.jpg'
-import Jezenic3Image from '../../public/images/jazenic-3.jpg'
 import { useRef } from 'react'
 import { useScroll, useTransform, motion } from 'framer-motion'
-import useFadeVariations from '@/hooks/useFadeVariations'
 
-type Props = {}
+import Thumbnail from '../../public/images/projects/janezic/thumbnail.png'
+import MladenciVencanje from '../../public/images/projects/janezic/mladenci.png'
+import ImageVencanje from '../../public/images/projects/janezic/vencanje.png'
+import ImageBurma from '../../public/images/projects/janezic/burma.png'
 
 const pallet = ['#060A0B', '#474749', '#C3C2C0', '#D3A38B', '#FFFFFF']
 
-export default function WeddingVideo({}: Props) {
+export default function WeddingVideo() {
   const sectionRef = useRef<any>()
-  const fade = useFadeVariations
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['center end', 'end center']
@@ -26,23 +24,22 @@ export default function WeddingVideo({}: Props) {
       <div className="container flex max-w-4xl flex-col items-center justify-center gap-4 pb-[100px] text-center sm:pb-[200px]">
         <motion.h2>Svadba - Janežić</motion.h2>
         <motion.p className="max-w-[600px]">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          Matej i Vanesa su prelepi mladi bračni par koji je odlučio da
+          najbitniji dan u njihovom životu zabeleži kroz brojne fotografije i
+          video od kog se gubi dah. Uživajte!
         </motion.p>
 
         <div className="relative mt-[50px]">
           <motion.div
             style={{
-              rotateY: useTransform(scrollYProgress, [0, 1], [-10, 0]),
-              rotateX: useTransform(scrollYProgress, [0, 1], [-20, 0])
+              rotateY: useTransform(scrollYProgress, [0, 1], [-20, 0]),
+              rotateX: useTransform(scrollYProgress, [0, 1], [-10, 0])
             }}
           >
             <div>
               <Image
                 className="overflow-hidden rounded-[20px] lg:rounded-[3rem]"
-                src={JezenicImage}
+                src={Thumbnail}
                 alt="Jezenic"
               />
 
@@ -65,7 +62,11 @@ export default function WeddingVideo({}: Props) {
                 scale: useTransform(scrollYProgress, [0, 1], [0.8, 1])
               }}
             >
-              <Image width={400} src={Jezenic1Image} alt="Jezenic" />
+              <Image
+                width={400}
+                src={MladenciVencanje}
+                alt="Jezenic mladenci"
+              />
             </motion.div>
 
             <motion.div
@@ -74,7 +75,7 @@ export default function WeddingVideo({}: Props) {
                 x: useTransform(scrollYProgress, [0, 1], [-50, 0])
               }}
             >
-              <Image width={250} src={Jezenic2Image} alt="Jezenic" />
+              <Image width={250} src={ImageVencanje} alt="Jezenic vencanje" />
             </motion.div>
 
             <motion.div
@@ -83,7 +84,7 @@ export default function WeddingVideo({}: Props) {
                 x: useTransform(scrollYProgress, [0, 1], [50, 0])
               }}
             >
-              <Image width={300} src={Jezenic3Image} alt="Jezenic" />
+              <Image width={300} src={ImageBurma} alt="Jezenic burma" />
             </motion.div>
           </div>
         </div>
@@ -93,7 +94,7 @@ export default function WeddingVideo({}: Props) {
             <span
               key={color}
               style={{ background: color }}
-              className={`h-[2rem] w-[2rem] rounded-lg`}
+              className="h-[2rem] w-[2rem] rounded-lg"
             />
           ))}
         </div>

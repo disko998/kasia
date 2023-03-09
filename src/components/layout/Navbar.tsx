@@ -9,7 +9,7 @@ type Props = {
 
 export default function Navbar({ onMenu }: Props) {
   return (
-    <div
+    <nav
       className={`container fixed top-0 z-40 flex h-[89px] flex-row items-center justify-between bg-soft-white/80
 	   backdrop-blur-md transition-colors duration-500 dark:bg-soft-black/80`}
     >
@@ -17,7 +17,7 @@ export default function Navbar({ onMenu }: Props) {
         menu
       </Button>
 
-      <nav className="hidden flex-row gap-4 lg:flex">
+      <div className="hidden flex-row gap-4 lg:flex">
         {/* <Button as="a" href={'/'}>
           HOME
         </Button> */}
@@ -30,7 +30,7 @@ export default function Navbar({ onMenu }: Props) {
         <Button as="a" href={'/about'}>
           ABOUT US
         </Button>
-      </nav>
+      </div>
 
       <Logo />
 
@@ -40,6 +40,6 @@ export default function Navbar({ onMenu }: Props) {
         <Button className="hidden lg:block">EMAIL</Button>
         <ThemeToggle />
       </div>
-    </div>
+    </nav>
   )
 }

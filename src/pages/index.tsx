@@ -1,4 +1,4 @@
-import FeaturedVideosSection from '@/components/FeaturedVideosSection'
+import FeaturedVideos from '@/components/FeaturedVideos'
 import PageLayout from '@/components/layout/PageLayout'
 import ProjectsReveals from '@/components/ProjectsReveals'
 import WeddingVideo from '@/components/WeddingVideo'
@@ -12,12 +12,12 @@ import BelgradeImage from '../../public/images/belgrade.png'
 import LighthouseImage from '../../public/images/lighthouse.png'
 import NatureImage from '../../public/images/nature.png'
 import useFadeVariations from '@/hooks/useFadeVariations'
+import FeaturedImages from '@/components/FeaturedImages'
 
 export default function Index() {
   const heroRef = useRef<any>()
   const section1Ref = useRef<any>()
   const section2Ref = useRef<any>()
-  const fade = useFadeVariations()
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -263,7 +263,8 @@ export default function Index() {
         </motion.div>
       </section>
 
-      <FeaturedVideosSection />
+      <FeaturedVideos />
+      <FeaturedImages />
 
       <section className="container mt-40 flex flex-col items-center justify-center text-center">
         <motion.h2>Naši Klijenti</motion.h2>

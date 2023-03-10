@@ -54,7 +54,7 @@ export default function WeddingVideo() {
             </div>
           </motion.div>
 
-          <div className="hidden sm:block">
+          <div className="hidden md:block">
             <motion.div
               className="absolute bottom-[-60px] left-[-150px] overflow-hidden rounded-[20px]"
               style={{

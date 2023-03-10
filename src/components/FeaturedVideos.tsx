@@ -1,9 +1,8 @@
 import Button from '@/components/buttons/Button'
 import Icon from '@/components/Icon'
 import Image from 'next/image'
-import React from 'react'
-import { motion } from 'framer-motion'
-import useFadeVariations from '@/hooks/useFadeVariations'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 const videos = [
   {
@@ -24,21 +23,47 @@ const videos = [
 ]
 
 export default function FeaturedVideosSection() {
-  return (
-    <section className="container flex flex-col items-center justify-center text-center">
-      <h2 className="sm:text-h2 text-4xl">Videografija je naša specijalnost</h2>
+  const targetRef = useRef<any>()
 
-      <p className="mt-7 mb-20 max-w-2xl leading-[120%]">
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ['start end', 'end start']
+  })
+
+  const parallaxScroll = useScroll({
+    target: targetRef,
+    offset: ['end end', 'end start']
+  })
+
+  const videoY = useTransform(scrollYProgress, [0.2, 0.5], [300, 0])
+
+  return (
+    <motion.section
+      //   style={{
+      //     y: useTransform(parallaxScroll.scrollYProgress, [0, 1], ['0%', '30%']),
+      //     opacity: useTransform(parallaxScroll.scrollYProgress, [0, 1], [1, 0])
+      //   }}
+      ref={targetRef}
+      className="container flex min-h-screen flex-col items-center justify-center text-center"
+    >
+      <motion.h2 className="sm:text-h2 text-4xl">
+        Videografija je naša specijalnost
+      </motion.h2>
+
+      <motion.p className="mt-7 mb-20 max-w-2xl leading-[120%]">
         Višedecenijska karijera u oblasti Videografije nam je donela veliko
         iskustvo i profesionalnost koju možemo da prezentujemo i ponudimo našim
         klijentima. Od svabi, do real-estate videa, preko commercial spotova i
         videa do edukativnih programa… U prilogu možete videti neke od projekata
         koje smo radili.
-      </p>
+      </motion.p>
 
       <div className="grid w-full grid-rows-1 gap-6 lg:grid-cols-3">
         {videos.map(({ title, thumb }) => (
-          <div
+          <motion.div
+            style={{
+              y: videoY
+            }}
             key={title}
             className="flex flex-col items-center justify-center"
           >
@@ -60,7 +85,7 @@ export default function FeaturedVideosSection() {
                 </Button>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
 
         {videos.length > 3 && (
@@ -69,6 +94,6 @@ export default function FeaturedVideosSection() {
           </span>
         )}
       </div>
-    </section>
+    </motion.section>
   )
 }

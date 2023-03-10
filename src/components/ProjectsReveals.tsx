@@ -30,8 +30,10 @@ const projects = [
 export default function ProjectsReveals() {
   return (
     <section className="relative flex flex-col gap-y-36">
-      {projects.map(project => (
-        <Project key={project.title} {...project} />
+      {projects.map((project, i) => (
+        <motion.div key={project.title}>
+          <Project {...project} index={i} />
+        </motion.div>
       ))}
     </section>
   )
@@ -43,12 +45,20 @@ const Project = ({
   date,
   place,
   pallet,
-  images
-}: (typeof projects)[0]) => {
+  images,
+  index
+}: (typeof projects)[0] & { index: number }) => {
   const sectionRef = useRef<any>()
+  const targetRef = useRef<any>()
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end end']
+  })
+
+  const parallaxScroll = useScroll({
+    target: targetRef,
+    offset: ['end end', 'end start']
   })
 
   const y = useTransform(scrollYProgress, [0, 1], ['10%', '0%'])
@@ -56,12 +66,12 @@ const Project = ({
   const rightImageX = useTransform(
     scrollYProgress,
     [0, 0.7, 1],
-    ['100%', '80%', '-10%']
+    ['100%', '80%', '-12%']
   )
   const leftImageX = useTransform(
     scrollYProgress,
     [0, 0.7, 1],
-    ['-100%', '-80%', '10%']
+    ['-100%', '-80%', '12%']
   )
 
   const rightRotate = useTransform(
@@ -76,6 +86,12 @@ const Project = ({
     ['0deg', '2deg', '10deg']
   )
 
+  const parallaxY = useTransform(
+    parallaxScroll.scrollYProgress,
+    [0, 1],
+    ['0%', '40%']
+  )
+
   return (
     <motion.div
       style={{ y: y }}
@@ -83,7 +99,13 @@ const Project = ({
       key={title}
       className="relative h-[200vh]"
     >
-      <article className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
+      <motion.article
+        ref={targetRef}
+        style={{
+          y: projects.length - 1 !== index ? parallaxY : undefined
+        }}
+        className="sticky top-0 flex h-screen items-center justify-center overflow-hidden"
+      >
         <motion.div
           style={{ x: rightImageX, rotate: rightRotate }}
           className="relative z-10 h-[80%] min-w-[100vw] overflow-hidden rounded-xl sm:min-w-[80vw] md:h-[700px] md:min-w-[600px]"
@@ -91,7 +113,7 @@ const Project = ({
           <Image fill src={images[0]} alt={title} />
         </motion.div>
 
-        <div className="flex min-w-[100vw] flex-col items-center text-center sm:min-w-[80vw] md:min-w-[700px] md:max-w-[600px]">
+        <div className="container flex min-w-[100vw] flex-col items-center text-center sm:min-w-[80vw] md:min-w-[700px] md:max-w-[600px]">
           <h2>{title}</h2>
           <p className="mt-7">{description}</p>
 
@@ -103,7 +125,7 @@ const Project = ({
             <span>{place}</span>
           </div>
 
-          <div className="mt-9 flex w-[319px] justify-between">
+          <div className="mt-9 flex w-[15rem] justify-between">
             {pallet.map(color => (
               <span
                 key={color}
@@ -120,7 +142,7 @@ const Project = ({
         >
           <Image fill src={images[1]} alt={title} />
         </motion.div>
-      </article>
+      </motion.article>
     </motion.div>
   )
 }

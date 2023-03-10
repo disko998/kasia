@@ -11,6 +11,7 @@ import FeaturedImages from '@/components/FeaturedImages'
 import BelgradeImage from '../../public/images/belgrade.png'
 import LighthouseImage from '../../public/images/lighthouse.png'
 import NatureImage from '../../public/images/nature.png'
+import Clients from '@/components/Clients'
 
 export default function Index() {
   const heroRef = useRef<any>()
@@ -88,7 +89,7 @@ export default function Index() {
 
       <section ref={locationRef} className="h-[400vh]">
         <motion.div
-          className="sticky top-0 flex h-screen items-center text-center"
+          className="sticky top-0 flex h-screen flex-col items-center justify-center"
           style={{
             y: useTransform(
               addressParallax.scrollYProgress,
@@ -102,7 +103,7 @@ export default function Index() {
             )
           }}
         >
-          <div className="container flex max-w-2xl flex-col items-center text-center">
+          <div className="container flex max-w-2xl flex-col items-center justify-center text-center">
             <motion.h2
               style={{
                 opacity: useTransform(
@@ -172,9 +173,9 @@ export default function Index() {
         </motion.div>
       </section>
 
-      <section ref={aboutRef} className="mb-[20rem] h-[400vh]">
+      <section ref={aboutRef} className="h-[400vh]">
         <motion.div
-          className="sticky top-0 flex h-screen items-center text-center"
+          className="sticky top-0 flex h-screen flex-col items-center justify-center"
           style={{
             y: useTransform(
               aboutParallax.scrollYProgress,
@@ -189,14 +190,10 @@ export default function Index() {
               style={{
                 opacity: useTransform(
                   aboutScroll.scrollYProgress,
-                  [0.2, 0.4],
+                  [0, 0.4],
                   [0, 1]
                 ),
-                y: useTransform(
-                  aboutScroll.scrollYProgress,
-                  [0.2, 0.4],
-                  [20, 0]
-                )
+                y: useTransform(aboutScroll.scrollYProgress, [0, 0.4], [20, 0])
               }}
             >
               Kasia Studio
@@ -248,12 +245,17 @@ export default function Index() {
           </div>
 
           <motion.div
-            className="absolute left-0 bottom-[50%] flex translate-y-[50%] items-center justify-center"
+            className="absolute left-0 top-[100%] flex items-center justify-center"
             style={{
-              bottom: useTransform(
+              top: useTransform(
                 aboutScroll.scrollYProgress,
-                [0.4, 0.8],
-                ['-50%', '50%']
+                [0.4, 1],
+                ['100%', '50%']
+              ),
+              y: useTransform(
+                aboutScroll.scrollYProgress,
+                [0.4, 1],
+                ['0%', '-50%']
               )
             }}
           >
@@ -261,12 +263,17 @@ export default function Index() {
           </motion.div>
 
           <motion.div
-            className="absolute right-0 bottom-0 hidden items-center justify-center lg:flex"
+            className="absolute right-0 top-[100%] hidden items-center justify-center xl:flex"
             style={{
-              bottom: useTransform(
+              top: useTransform(
                 aboutScroll.scrollYProgress,
                 [0.6, 1],
-                ['0px', '50%']
+                ['100%', '50%']
+              ),
+              y: useTransform(
+                aboutScroll.scrollYProgress,
+                [0.6, 1],
+                ['0%', '-50%']
               )
             }}
           >
@@ -277,20 +284,7 @@ export default function Index() {
 
       <FeaturedVideos />
       <FeaturedImages />
-
-      <section className="container mt-40 flex flex-col items-center justify-center text-center">
-        <motion.h2>Naši Klijenti</motion.h2>
-
-        <div className="mx-auto mt-12 grid max-w-[309px] grid-cols-2 grid-rows-3 place-items-center gap-x-16 gap-y-14">
-          <Icon name="father-dev" />
-          <Icon name="father-dev" />
-          <Icon name="father-dev" />
-          <Icon name="father-dev" />
-          <Icon name="father-dev" />
-          <Icon name="father-dev" />
-        </div>
-      </section>
-
+      <Clients />
       <ProjectsReveals />
       <WeddingVideo />
     </PageLayout>

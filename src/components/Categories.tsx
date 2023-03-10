@@ -1,5 +1,6 @@
 import Button from '@/components/buttons/Button'
 import classNames from 'classnames'
+import { motion } from 'framer-motion'
 
 type Props = {
   categories: string[]
@@ -18,13 +19,17 @@ export default function Categories({ categories, selected, onClick }: Props) {
           onClick={() => onClick(category)}
           className={classNames(
             'relative flex-1 py-[15px] text-black duration-300 dark:text-white',
-            {
-              [activeClasses]: selected === category
-            }
+            {}
           )}
           key={category}
         >
           {category}
+          {selected === category && (
+            <motion.div
+              layoutId="buttonUpperLine"
+              className="before absolute top-[-1px] flex h-[1px] w-full items-center justify-center bg-red-orange before:absolute before:h-2 before:w-2 before:rounded-full before:bg-red-orange"
+            />
+          )}
         </button>
       ))}
     </div>

@@ -5,7 +5,6 @@ import PageLayout from '@/components/layout/PageLayout'
 import Image from 'next/image'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import classNames from 'classnames'
 
 import image1 from '../../public/images/photography/1.jpg'
 import image2 from '../../public/images/photography/2.jpg'
@@ -13,13 +12,8 @@ import image3 from '../../public/images/photography/3.jpg'
 import image4 from '../../public/images/photography/4.jpg'
 import image5 from '../../public/images/photography/5.jpg'
 import image6 from '../../public/images/photography/6.jpg'
-
-enum PhotographyCategories {
-  ALL = 'Svi albums',
-  PORTRETI = 'Portreti',
-  DOGADJAJI = 'Dogadjaji',
-  ARHITEKTURA = 'Arhitektura'
-}
+import classNames from 'classnames'
+import photoData, { PhotographyCategories } from '@/assets/photography'
 
 const categories = [
   PhotographyCategories.ALL,
@@ -33,6 +27,7 @@ export default function Photography() {
     PhotographyCategories.ALL
   )
   const [showDropdown, setShowDropdown] = useState(false)
+  const [activeImg, setActiveImg] = useState()
 
   return (
     <PageLayout hideFooter>
@@ -122,28 +117,24 @@ export default function Photography() {
 
         <section className="mt-10 grid w-full grid-cols-1 gap-4 overflow-hidden p-4 sm:grid-cols-2 lg:mt-0 lg:w-[50%] lg:pt-[200px]">
           <div className="flex flex-col gap-4">
-            {[image4, image3, image2, image4, image3, image2].map(
-              (image, i) => (
-                <Image
-                  key={i}
-                  className="cursor-zoom-in overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
-                  src={image}
-                  alt="slika"
-                />
-              )
-            )}
+            {photoData[category].map((image, i) => (
+              <Image
+                key={i}
+                className="cursor-zoom-in overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
+                src={image}
+                alt="slika"
+              />
+            ))}
           </div>
-          <div className="flex flex-col gap-4">
-            {[image1, image6, image5, image1, image6, image5].map(
-              (image, i) => (
-                <Image
-                  className="cursor-zoom-in overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
-                  src={image}
-                  alt="slika"
-                  key={i}
-                />
-              )
-            )}
+          <div className="flex flex-col-reverse gap-4">
+            {photoData[category].map((image, i) => (
+              <Image
+                className="cursor-zoom-in overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
+                src={image}
+                alt="slika"
+                key={i}
+              />
+            ))}
           </div>
         </section>
       </div>

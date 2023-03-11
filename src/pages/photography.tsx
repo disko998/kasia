@@ -3,10 +3,10 @@ import Categories from '@/components/Categories'
 import Icon from '@/components/Icon'
 import PageLayout from '@/components/layout/PageLayout'
 import Image, { StaticImageData } from 'next/image'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import classNames from 'classnames'
-import photoData, { PhotographyCategories } from '@/assets/photography'
+import photoData, { PhotographyCategories } from '@/assets/photos'
 import Modal from '@/components/Modal'
 
 const categories = [
@@ -22,6 +22,17 @@ export default function Photography() {
   )
   const [showDropdown, setShowDropdown] = useState(false)
   const [activeImg, setActiveImg] = useState<StaticImageData>()
+
+  const { col1, col2 } = useMemo(() => {
+    const col1: StaticImageData[] = []
+    const col2: StaticImageData[] = []
+
+    photoData[category].forEach((data, i) => {
+      i % 2 === 0 ? col1.push(data) : col2.push(data)
+    })
+
+    return { col1, col2 }
+  }, [category])
 
   return (
     <PageLayout hideFooter>
@@ -57,9 +68,10 @@ export default function Photography() {
             <div className="fixed bottom-12 z-10 sm:hidden">
               <motion.div
                 variants={{
-                  hidden: { opacity: 0 },
+                  hidden: { opacity: 0, display: 'none' },
                   show: {
                     opacity: 1,
+                    display: 'flex',
                     transition: {
                       delayChildren: 0.5
                     }
@@ -111,35 +123,34 @@ export default function Photography() {
 
         <section className="mt-10 grid w-full grid-cols-1 gap-4 overflow-hidden p-4 sm:grid-cols-2 lg:mt-0 lg:w-[50%] lg:pt-[200px]">
           <div className="flex flex-col gap-4">
-            {photoData[category].map((image, i) => (
+            {col1.map(image => (
               <Image
                 onClick={() => setActiveImg(image)}
-                key={i}
+                key={image.src}
                 className="cursor-pointer overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
                 src={image}
                 alt="slika"
+                loading="lazy"
               />
             ))}
           </div>
 
           <div className="flex flex-col gap-4">
-            {photoData[category].map((image, i) => (
+            {col2.map(image => (
               <Image
+                loading="lazy"
                 onClick={() => setActiveImg(image)}
                 className="cursor-pointer overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
                 src={image}
                 alt="slika"
-                key={i}
+                key={image.src}
               />
             ))}
           </div>
         </section>
 
         <Modal open={!!activeImg} onClose={() => setActiveImg(undefined)}>
-          <div
-            onClick={e => e.stopPropagation()}
-            className="relative rounded-[20px]"
-          >
+          <div className="relative w-[90%] max-w-[100%] rounded-[20px] md:max-w-[50vw] xl:max-w-[30vw]">
             <div
               onClick={() => setActiveImg(undefined)}
               className="absolute -top-7 right-0 z-10 cursor-pointer"
@@ -149,7 +160,8 @@ export default function Photography() {
 
             {activeImg && (
               <Image
-                className="rounded-[20px]"
+                loading="lazy"
+                className="rounded-[20px] object-contain"
                 alt="modal image"
                 src={activeImg}
               />

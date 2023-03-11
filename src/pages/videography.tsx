@@ -5,31 +5,25 @@ import PageLayout from '@/components/layout/PageLayout'
 import Image from 'next/image'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-
-import image1 from '../../public/images/photography/1.jpg'
-import image2 from '../../public/images/photography/2.jpg'
-import image3 from '../../public/images/photography/3.jpg'
-import image4 from '../../public/images/photography/4.jpg'
-import image5 from '../../public/images/photography/5.jpg'
-import image6 from '../../public/images/photography/6.jpg'
-
-enum PhotographyCategories {
-  ALL = 'Svi albums',
-  DOGADJAJI = 'Dogadjaji',
-  SPOTOVI = 'Spotovi'
-}
+import Modal from '@/components/Modal'
+import videoData, { VideoCategories } from '@/assets/videos'
 
 const categories = [
-  PhotographyCategories.ALL,
-  PhotographyCategories.DOGADJAJI,
-  PhotographyCategories.SPOTOVI
+  VideoCategories.ALL,
+  VideoCategories.DOGADJAJI,
+  VideoCategories.SPORT,
+  VideoCategories.ARHITEKTURA,
+  VideoCategories.PRODUCT
 ]
 
 export default function Photography() {
-  const [category, setCategory] = useState<PhotographyCategories>(
-    PhotographyCategories.ALL
-  )
+  const [category, setCategory] = useState<VideoCategories>(VideoCategories.ALL)
   const [showDropdown, setShowDropdown] = useState(false)
+  const [activeVideo, setActiveVideo] = useState<string>()
+
+  const half = Math.round(videoData[category].length / 2)
+  const col1 = videoData[category].slice(0, half)
+  const col2 = videoData[category].slice(half, videoData[category].length)
 
   return (
     <PageLayout hideFooter>
@@ -55,9 +49,7 @@ export default function Photography() {
 
             <div className="mt-5 hidden w-full sm:block">
               <Categories
-                onClick={category =>
-                  setCategory(category as PhotographyCategories)
-                }
+                onClick={category => setCategory(category as VideoCategories)}
                 selected={category}
                 categories={categories}
               />
@@ -114,50 +106,74 @@ export default function Photography() {
 
         <section className="mt-10 grid w-full grid-cols-1 gap-4 overflow-hidden p-4 sm:grid-cols-2 lg:mt-0 lg:w-[50%] lg:pt-[200px]">
           <div className="flex flex-col gap-4">
-            {[image4, image3, image2, image4, image3, image2].map(
-              (image, i) => (
-                <div key={i} className="relative">
-                  <Image
-                    className="overflow-hidden rounded-[30px]"
-                    src={image}
-                    alt="slika"
-                  />
+            {col1.map(({ video }) => (
+              <div key={video} className="relative">
+                <video
+                  src={`/videos/${video}`}
+                  className="h-full w-full rounded-[20px] object-cover"
+                >
+                  Your browser does not support the video tag.
+                </video>
 
-                  <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden bg-soft-black/60">
-                    <Button
-                      className="mt-4 whitespace-nowrap border-soft-white text-soft-white backdrop-blur-[3.5px]"
-                      iconRight={<Icon name="play" />}
-                    >
-                      Pogledaj
-                    </Button>
-                  </div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden bg-soft-black/60">
+                  <Button
+                    onClick={() => setActiveVideo(video)}
+                    className="mt-4 whitespace-nowrap border-soft-white text-soft-white backdrop-blur-[3.5px]"
+                    iconRight={<Icon name="play" />}
+                  >
+                    Pogledaj
+                  </Button>
                 </div>
-              )
-            )}
+              </div>
+            ))}
           </div>
-          <div className="flex flex-col gap-4">
-            {[image1, image6, image5, image1, image6, image5].map(
-              (image, i) => (
-                <div key={i} className="relative">
-                  <Image
-                    className="overflow-hidden rounded-[30px]"
-                    src={image}
-                    alt="slika"
-                  />
 
-                  <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden bg-soft-black/60">
-                    <Button
-                      className="mt-4 whitespace-nowrap border-soft-white text-soft-white backdrop-blur-[3.5px]"
-                      iconRight={<Icon name="play" />}
-                    >
-                      Pogledaj
-                    </Button>
-                  </div>
+          <div className="flex flex-col gap-4">
+            {col2.map(({ video }) => (
+              <div key={video} className="relative">
+                <video
+                  src={`/videos/${video}`}
+                  className="h-full w-full rounded-[20px] object-cover"
+                >
+                  Your browser does not support the video tag.
+                </video>
+
+                <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden bg-soft-black/60">
+                  <Button
+                    onClick={() => setActiveVideo(video)}
+                    className="mt-4 whitespace-nowrap border-soft-white text-soft-white backdrop-blur-[3.5px]"
+                    iconRight={<Icon name="play" />}
+                  >
+                    Pogledaj
+                  </Button>
                 </div>
-              )
-            )}
+              </div>
+            ))}
           </div>
         </section>
+
+        <Modal open={!!activeVideo} onClose={() => setActiveVideo(undefined)}>
+          <div
+            onClick={e => e.stopPropagation()}
+            className="relative h-[50vh] max-h-[40rem] w-[90vw] max-w-[50rem] rounded-[20px] bg-light-yellow md:w-[70vw] xl:w-[40vw]"
+          >
+            <div
+              onClick={() => setActiveVideo(undefined)}
+              className="absolute -top-7 right-0 z-10 cursor-pointer"
+            >
+              <Icon name="close-btn" size="1.5rem" />
+            </div>
+
+            <video
+              className="h-full w-full rounded-[20px] object-cover"
+              autoPlay
+              controls
+            >
+              <source src={`/videos/${activeVideo}`} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </Modal>
       </div>
     </PageLayout>
   )

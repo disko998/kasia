@@ -68,7 +68,7 @@ export default function About() {
             <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
               <h3 className="text-white">{'Edvard Nalbantjan'}</h3>
               <span className="text-[0.75rem] text-light-yellow">
-                {'SNIMATELJ I VIDEO MONTAŽER'}
+                {'DIPLOMIRANI FOTOGRAF'}
               </span>
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function About() {
             <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
               <h3 className="text-white">{'MILOŠ MRĐA'}</h3>
               <span className="text-[0.75rem] text-light-yellow">
-                {'DIPLOMIRANI FOTOGRAF'}
+                {'VIDEO MONTAŽER'}
               </span>
             </div>
           </div>
@@ -141,7 +141,7 @@ export default function About() {
               <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
                 <h3 className="text-white">STEFAN GORENJAK</h3>
                 <span className="text-[0.75rem] text-light-yellow">
-                  {'VIDEO MONTAŽER'}
+                  {'SNIMATELJ I VIDEO MONTAŽER'}
                 </span>
               </div>
             </motion.div>

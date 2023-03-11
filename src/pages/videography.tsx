@@ -107,10 +107,13 @@ export default function Photography() {
         <section className="mt-10 grid w-full grid-cols-1 gap-4 overflow-hidden p-4 sm:grid-cols-2 lg:mt-0 lg:w-[50%] lg:pt-[200px]">
           <div className="flex flex-col gap-4">
             {col1.map(({ video }) => (
-              <div key={video} className="relative">
+              <div
+                key={video}
+                className="relative overflow-hidden rounded-[20px]"
+              >
                 <video
                   src={`/videos/${video}`}
-                  className="h-full w-full rounded-[20px] object-cover"
+                  className="h-full w-full  object-cover"
                 >
                   Your browser does not support the video tag.
                 </video>

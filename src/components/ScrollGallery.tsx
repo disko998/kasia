@@ -57,7 +57,7 @@ export default function ScrollGallery({ scrollRef }: Props) {
           {Array.from({ length: 2 }).map((_, i) =>
             firstSlider.map(image => (
               <div
-                key={i}
+                key={image.src}
                 className="relative w-[42vw] max-w-[500px] overflow-hidden md:w-[35vw] xl:w-[25vw]"
               >
                 <Image
@@ -76,7 +76,7 @@ export default function ScrollGallery({ scrollRef }: Props) {
           {Array.from({ length: 2 }).map((_, i) =>
             secondSlider.map(image => (
               <div
-                key={i}
+                key={image.src}
                 className="relative w-[42vw] max-w-[500px] overflow-hidden md:w-[35vw] xl:w-[25vw]"
               >
                 <Image

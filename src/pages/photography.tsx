@@ -2,18 +2,12 @@ import Button from '@/components/buttons/Button'
 import Categories from '@/components/Categories'
 import Icon from '@/components/Icon'
 import PageLayout from '@/components/layout/PageLayout'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-
-import image1 from '../../public/images/photography/1.jpg'
-import image2 from '../../public/images/photography/2.jpg'
-import image3 from '../../public/images/photography/3.jpg'
-import image4 from '../../public/images/photography/4.jpg'
-import image5 from '../../public/images/photography/5.jpg'
-import image6 from '../../public/images/photography/6.jpg'
 import classNames from 'classnames'
 import photoData, { PhotographyCategories } from '@/assets/photography'
+import Modal from '@/components/Modal'
 
 const categories = [
   PhotographyCategories.ALL,
@@ -27,7 +21,7 @@ export default function Photography() {
     PhotographyCategories.ALL
   )
   const [showDropdown, setShowDropdown] = useState(false)
-  const [activeImg, setActiveImg] = useState()
+  const [activeImg, setActiveImg] = useState<StaticImageData>()
 
   return (
     <PageLayout hideFooter>
@@ -119,17 +113,20 @@ export default function Photography() {
           <div className="flex flex-col gap-4">
             {photoData[category].map((image, i) => (
               <Image
+                onClick={() => setActiveImg(image)}
                 key={i}
-                className="cursor-zoom-in overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
+                className="cursor-pointer overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
                 src={image}
                 alt="slika"
               />
             ))}
           </div>
-          <div className="flex flex-col-reverse gap-4">
+
+          <div className="flex flex-col gap-4">
             {photoData[category].map((image, i) => (
               <Image
-                className="cursor-zoom-in overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
+                onClick={() => setActiveImg(image)}
+                className="cursor-pointer overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
                 src={image}
                 alt="slika"
                 key={i}
@@ -137,6 +134,28 @@ export default function Photography() {
             ))}
           </div>
         </section>
+
+        <Modal open={!!activeImg} onClose={() => setActiveImg(undefined)}>
+          <div
+            onClick={e => e.stopPropagation()}
+            className="relative rounded-[20px]"
+          >
+            <div
+              onClick={() => setActiveImg(undefined)}
+              className="absolute -top-7 right-0 z-10 cursor-pointer"
+            >
+              <Icon name="close-btn" size="1.5rem" />
+            </div>
+
+            {activeImg && (
+              <Image
+                className="rounded-[20px]"
+                alt="modal image"
+                src={activeImg}
+              />
+            )}
+          </div>
+        </Modal>
       </div>
     </PageLayout>
   )

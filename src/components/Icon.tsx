@@ -7,6 +7,7 @@ import FatherDev from '@/assets/icons/father-dev.svg'
 import ArrowRight from '@/assets/icons/arrow-right.svg'
 import Close from '@/assets/icons/close.svg'
 import ArrowDown from '@/assets/icons/arrow-down.svg'
+import CloseBtn from '@/assets/icons/close-btn.svg'
 
 const iconTypes = {
   logo: {
@@ -36,6 +37,10 @@ const iconTypes = {
   'arrow-down': {
     component: ArrowDown,
     viewBox: '0 0 14 9'
+  },
+  'close-btn': {
+    component: CloseBtn,
+    viewBox: '0 0 25 25'
   }
 }
 

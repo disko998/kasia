@@ -67,7 +67,7 @@ export default function Index() {
               y: useTransform(
                 headerScroll.scrollYProgress,
                 [0, 1],
-                ['0%', '30%']
+                ['0%', '20%']
               )
             }}
             className="absolute inset-0 z-20 flex flex-col items-center justify-center"

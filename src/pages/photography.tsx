@@ -125,6 +125,7 @@ export default function Photography() {
           <div className="flex flex-col gap-4">
             {col1.map(image => (
               <Image
+                placeholder="blur"
                 onClick={() => setActiveImg(image)}
                 key={image.src}
                 className="cursor-pointer overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
@@ -138,6 +139,7 @@ export default function Photography() {
           <div className="flex flex-col gap-4">
             {col2.map(image => (
               <Image
+                placeholder="blur"
                 loading="lazy"
                 onClick={() => setActiveImg(image)}
                 className="cursor-pointer overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"

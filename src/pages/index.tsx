@@ -284,6 +284,7 @@ export default function Index() {
 
       <FeaturedVideos />
       <FeaturedImages />
+
       <Clients />
       <ProjectsReveals />
       <WeddingVideo />

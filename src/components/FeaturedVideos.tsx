@@ -37,16 +37,15 @@ export default function FeaturedVideosSection() {
     offset: ['end end', 'end start']
   })
 
-  const videoY = useTransform(scrollYProgress, [0, 0.5], [500, 0])
+  const videoY = useTransform(scrollYProgress, [0.2, 0.5], [500, 0])
 
   return (
     <motion.section
       style={{
         y: useTransform(parallaxScroll.scrollYProgress, [0, 1], ['0%', '20%'])
-        // opacity: useTransform(parallaxScroll.scrollYProgress, [0, 1], [1, 0])
       }}
       ref={targetRef}
-      className="container flex min-h-screen flex-col items-center justify-center text-center"
+      className="container flex flex-col items-center justify-center py-36 text-center"
     >
       <motion.h2 {...fade} className="sm:text-h2 text-4xl">
         Videografija je naša specijalnost

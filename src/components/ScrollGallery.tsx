@@ -44,7 +44,7 @@ export default function ScrollGallery({ scrollRef }: Props) {
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ['start end', 'end start']
+    offset: ['start end', 'end -500px']
   })
 
   const x = useTransform(scrollYProgress, [0, 1], ['0%', '-100%'])

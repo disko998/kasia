@@ -113,7 +113,7 @@ const Project = ({
           <Image fill src={images[0]} alt={title} />
         </motion.div>
 
-        <div className="container flex min-w-[100vw] flex-col items-center text-center sm:min-w-[80vw] md:min-w-[700px] md:max-w-[600px]">
+        <div className="flex min-w-[100vw] flex-col items-center px-4 text-center sm:min-w-[80vw] md:min-w-[700px] md:max-w-[600px]">
           <h2>{title}</h2>
           <p className="mt-7">{description}</p>
 

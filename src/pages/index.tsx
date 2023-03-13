@@ -52,7 +52,7 @@ export default function Index() {
             y: useTransform(
               headerScroll.scrollYProgress,
               [0, 1],
-              ['0%', '30%']
+              ['0%', '40%']
             ),
             opacity: useTransform(
               headerScroll.scrollYProgress,

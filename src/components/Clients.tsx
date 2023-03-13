@@ -40,7 +40,7 @@ const Clients = (props: Props) => {
       >
         <motion.h2
           style={{
-            opacity: useTransform(scrollYProgress, [0.2, 0.4], [0, 1])
+            opacity: useTransform(scrollYProgress, [0, 0.4], [0, 1])
           }}
         >
           Naši Klijenti

@@ -3,6 +3,7 @@ import Icon from '@/components/Icon'
 import Image from 'next/image'
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import useFadeVariations from '@/hooks/useFadeVariations'
 
 const videos = [
   {
@@ -24,6 +25,7 @@ const videos = [
 
 export default function FeaturedVideosSection() {
   const targetRef = useRef<any>()
+  const fade = useFadeVariations()
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -35,22 +37,22 @@ export default function FeaturedVideosSection() {
     offset: ['end end', 'end start']
   })
 
-  const videoY = useTransform(scrollYProgress, [0.2, 0.5], [300, 0])
+  const videoY = useTransform(scrollYProgress, [0, 0.5], [500, 0])
 
   return (
     <motion.section
-      //   style={{
-      //     y: useTransform(parallaxScroll.scrollYProgress, [0, 1], ['0%', '30%']),
-      //     opacity: useTransform(parallaxScroll.scrollYProgress, [0, 1], [1, 0])
-      //   }}
+      style={{
+        y: useTransform(parallaxScroll.scrollYProgress, [0, 1], ['0%', '20%'])
+        // opacity: useTransform(parallaxScroll.scrollYProgress, [0, 1], [1, 0])
+      }}
       ref={targetRef}
       className="container flex min-h-screen flex-col items-center justify-center text-center"
     >
-      <motion.h2 className="sm:text-h2 text-4xl">
+      <motion.h2 {...fade} className="sm:text-h2 text-4xl">
         Videografija je naša specijalnost
       </motion.h2>
 
-      <motion.p className="mt-7 mb-20 max-w-2xl leading-[120%]">
+      <motion.p {...fade} className="mt-7 mb-20 max-w-2xl leading-[120%]">
         Višedecenijska karijera u oblasti Videografije nam je donela veliko
         iskustvo i profesionalnost koju možemo da prezentujemo i ponudimo našim
         klijentima. Od svabi, do real-estate videa, preko commercial spotova i

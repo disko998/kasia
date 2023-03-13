@@ -36,12 +36,8 @@ export default function WeddingVideo() {
               rotateX: useTransform(scrollYProgress, [0, 1], [-10, 0])
             }}
           >
-            <div>
-              <Image
-                className="overflow-hidden rounded-[20px] lg:rounded-[3rem]"
-                src={Thumbnail}
-                alt="Jezenic"
-              />
+            <div className="relative overflow-hidden rounded-[20px] lg:rounded-[3rem]">
+              <Image src={Thumbnail} alt="Jezenic" />
 
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-soft-black/60">
                 <Button

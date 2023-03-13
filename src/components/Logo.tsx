@@ -19,42 +19,42 @@ const Logo = (props: Props) => {
         {...props}
       >
         <path
-          className={`transition-colors delay-[50ms] duration-300 dark:fill-soft-white`}
+          className={`transition-colors duration-300 dark:fill-soft-white`}
           d="M25.592 7.61v5.59L13.53.879a18.337 18.337 0 0 1 4.736-.617h.08c4 .017 7.247 3.315 7.247 7.349Z"
           fill={props.color || '#272823'}
         />
         <path
-          className={`transition-colors delay-[100ms] duration-300 dark:fill-soft-white`}
+          className={`transition-colors duration-300 dark:fill-soft-white`}
           d="M31.234 5.666c2.816 2.838 2.785 7.47-.069 10.325l-3.954 3.951.185-17.243a18.372 18.372 0 0 1 3.786 2.91l.052.057Z"
           fill={props.color || '#8E827D'}
         />
         <path
-          className={`transition-colors delay-[150ms] duration-300 dark:fill-soft-white`}
+          className={`transition-colors duration-300 dark:fill-soft-white`}
           d="M36.529 18.522v.082c-.018 3.997-3.316 7.25-7.352 7.25H23.59L35.91 13.791c.411 1.543.619 3.134.619 4.73Z"
           fill={props.color || '#F2D7A0'}
         />
         <path
-          className={`transition-colors delay-[200ms] duration-300 dark:fill-soft-white`}
+          className={`transition-colors duration-300 dark:fill-soft-white`}
           d="m16.847 27.472 17.245.185a18.502 18.502 0 0 1-2.913 3.786l-.057.055c-2.837 2.815-7.468 2.782-10.325-.072l-3.95-3.954Z"
           fill={props.color || '#CD8B62'}
         />
         <path
-          className={`transition-colors delay-[250ms] duration-300 dark:fill-soft-white`}
+          className={`transition-colors duration-300 dark:fill-soft-white`}
           d="M10.935 23.845 23 36.168c-1.544.411-3.137.62-4.736.618h-.08c-3.997-.016-7.25-3.313-7.25-7.35v-5.59Z"
           fill={props.color || '#CE6249'}
         />
         <path
-          className={`transition-colors delay-[300ms] duration-300 dark:fill-soft-white`}
+          className={`transition-colors duration-300 dark:fill-soft-white`}
           d="m9.319 17.105-.185 17.244a18.395 18.395 0 0 1-3.786-2.91l-.055-.058c-2.813-2.839-2.784-7.47.07-10.324l3.956-3.952Z"
           fill={props.color || '#6F9FA3'}
         />
         <path
-          className={`transition-colors delay-[350ms] duration-300 dark:fill-soft-white`}
+          className={`transition-colors duration-300 dark:fill-soft-white`}
           d="M12.94 11.194.617 23.258A18.409 18.409 0 0 1 0 18.522v-.08c.018-3.997 3.315-7.248 7.35-7.248h5.59Z"
           fill={props.color || '#55707F'}
         />
         <path
-          className={`transition-colors delay-[400ms] duration-300 dark:fill-soft-white`}
+          className={`transition-colors duration-300 dark:fill-soft-white`}
           d="M19.682 9.576 2.437 9.391A18.544 18.544 0 0 1 5.35 5.608l.058-.058c2.839-2.813 7.469-2.78 10.322.074l3.952 3.952Z"
           fill={props.color || '#394556'}
         />

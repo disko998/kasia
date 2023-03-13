@@ -1,7 +1,7 @@
 import Button from '@/components/buttons/Button'
 import useSSRTheme from '@/hooks/useSSRTheme'
 import shutter from '@/assets/shutter.json'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useLottie } from 'lottie-react'
 import { motion } from 'framer-motion'
 
@@ -17,7 +17,7 @@ const ThemeToggle = () => {
     theme === 'dark'
       ? 'invert(100%) sepia(0%) saturate(1%) hue-rotate(97deg) brightness(107%) contrast(101%)'
       : 'invert(5%) sepia(9%) saturate(861%) hue-rotate(169deg) brightness(95%) contrast(97%) blur(0.7px)'
-  const { View, playSegments, setSpeed } = useLottie(options, {
+  const { View, playSegments, setSpeed, goToAndStop } = useLottie(options, {
     width: '1.7rem',
     height: '1.7rem',
     filter: filterColor

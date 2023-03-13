@@ -15,6 +15,21 @@
     @apply overflow-x-hidden overscroll-contain bg-soft-white text-dark-blue transition-colors duration-500 dark:bg-soft-black dark:text-soft-white;
   }
 
+  body::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    transition: all 0.5ms;
+    @apply bg-soft-black dark:bg-soft-white;
+    border-radius: 20px;
+    height: 100px;
+  }
+
   * {
     line-height: 100%;
   }

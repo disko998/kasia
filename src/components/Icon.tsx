@@ -8,6 +8,7 @@ import ArrowRight from '@/assets/icons/arrow-right.svg'
 import Close from '@/assets/icons/close.svg'
 import ArrowDown from '@/assets/icons/arrow-down.svg'
 import CloseBtn from '@/assets/icons/close-btn.svg'
+import Share from '@/assets/icons/share.svg'
 
 const iconTypes = {
   logo: {
@@ -41,6 +42,10 @@ const iconTypes = {
   'close-btn': {
     component: CloseBtn,
     viewBox: '0 0 25 25'
+  },
+  share: {
+    component: Share,
+    viewBox: '0 0 24 24'
   }
 }
 

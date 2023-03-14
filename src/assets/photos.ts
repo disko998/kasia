@@ -97,6 +97,24 @@ import automobili8 from '../../public/images/photography/automobili/8.jpg'
 import automobili9 from '../../public/images/photography/automobili/9.jpg'
 import automobili10 from '../../public/images/photography/automobili/10.jpg'
 
+import product1 from '../../public/images/photography/product/1.jpg'
+import product2 from '../../public/images/photography/product/2.jpg'
+import product3 from '../../public/images/photography/product/3.jpg'
+import product4 from '../../public/images/photography/product/4.jpg'
+import product5 from '../../public/images/photography/product/5.jpg'
+import product6 from '../../public/images/photography/product/6.jpg'
+import product7 from '../../public/images/photography/product/7.jpg'
+import product8 from '../../public/images/photography/product/8.jpg'
+import product9 from '../../public/images/photography/product/9.jpg'
+import product10 from '../../public/images/photography/product/10.jpg'
+import product11 from '../../public/images/photography/product/11.jpg'
+import product12 from '../../public/images/photography/product/12.jpg'
+import product13 from '../../public/images/photography/product/13.jpg'
+import product14 from '../../public/images/photography/product/14.jpg'
+import product15 from '../../public/images/photography/product/15.jpg'
+import product16 from '../../public/images/photography/product/16.jpg'
+import product17 from '../../public/images/photography/product/17.jpg'
+
 import panorama1 from '../../public/images/photography/panorama/1.jpg'
 import panorama2 from '../../public/images/photography/panorama/2.jpg'
 import panorama3 from '../../public/images/photography/panorama/3.jpg'
@@ -106,15 +124,12 @@ export enum PhotographyCategories {
   OSTALO = 'ostalo',
   PORTRETI = 'portreti',
   DOGADJAJI = 'dogadjaji',
-  ARHITEKTURA = 'arhitektura'
+  ARHITEKTURA = 'arhitektura',
+  PRODUCT = 'product'
 }
 
 const photoData = {
   [PhotographyCategories.PORTRETI]: [
-    portreti1,
-    portreti2,
-    portreti3,
-    portreti4,
     portreti20,
     portreti5,
     portreti6,
@@ -131,7 +146,11 @@ const photoData = {
     portreti16,
     portreti17,
     portreti18,
-    portreti19
+    portreti19,
+    portreti1,
+    portreti2,
+    portreti3,
+    portreti4
   ],
   [PhotographyCategories.DOGADJAJI]: [
     dogadjaji1,
@@ -178,6 +197,25 @@ const photoData = {
     arhitektura19,
     arhitektura20,
     arhitektura21
+  ],
+  [PhotographyCategories.PRODUCT]: [
+    product1,
+    product2,
+    product3,
+    product4,
+    product5,
+    product6,
+    product7,
+    product8,
+    product10,
+    product9,
+    product11,
+    product12,
+    product13,
+    product14,
+    product15,
+    product17,
+    product16
   ],
   [PhotographyCategories.OSTALO]: [
     automobili1,

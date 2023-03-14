@@ -14,6 +14,7 @@ import Link from 'next/link'
 
 const categories = [
   PhotographyCategories.PORTRETI,
+  PhotographyCategories.PRODUCT,
   PhotographyCategories.DOGADJAJI,
   PhotographyCategories.ARHITEKTURA,
   PhotographyCategories.OSTALO
@@ -26,8 +27,6 @@ type Props = {
 export default function Photography({ images }: Props) {
   const { query } = useRouter()
   const category = query.category as PhotographyCategories
-
-  console.log(images)
 
   const [showDropdown, setShowDropdown] = useState(false)
   const [activeImg, setActiveImg] = useState<StaticImageData>()
@@ -118,7 +117,7 @@ export default function Photography({ images }: Props) {
             <div key={i} className="flex flex-col gap-4">
               {images?.[i].map(image => (
                 <Image
-                  className="cursor-pointer overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
+                  className="cursor-pointer overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02]"
                   placeholder="blur"
                   onClick={() => setActiveImg(image)}
                   key={image.src}
@@ -133,18 +132,19 @@ export default function Photography({ images }: Props) {
         </section>
 
         <Modal open={!!activeImg} onClose={() => setActiveImg(undefined)}>
-          <div className="relative w-[90%] max-w-[100%] rounded-[20px] md:max-w-[50vw] xl:max-w-[30vw]">
+          <div className="relative px-4">
             <div
               onClick={() => setActiveImg(undefined)}
-              className="absolute -top-7 right-0 z-10 cursor-pointer"
+              className="absolute -top-7 right-5 z-10 cursor-pointer"
             >
               <Icon name="close-btn" size="1.5rem" />
             </div>
 
             {activeImg && (
               <Image
-                className="rounded-[20px] object-contain"
+                className="max-h-[80vh] object-contain lg:max-h-[90vh]"
                 priority
+                sizes="80vw"
                 alt={category}
                 src={activeImg}
               />

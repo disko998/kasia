@@ -9,6 +9,7 @@ type Props = {
 
 export default function Navbar({ onMenu }: Props) {
   const router = useRouter()
+  console.log(router)
 
   return (
     <nav
@@ -25,7 +26,7 @@ export default function Navbar({ onMenu }: Props) {
         </Button> */}
         <Button
           className={
-            router.asPath === '/videography'
+            router.asPath.startsWith('/videography')
               ? 'border-red-orang text-red-orange dark:border-red-orange dark:text-red-orange'
               : undefined
           }
@@ -38,7 +39,7 @@ export default function Navbar({ onMenu }: Props) {
           as="a"
           href={'/photography'}
           className={
-            router.asPath === '/photography'
+            router.asPath.startsWith('/photography')
               ? 'border-red-orang text-red-orange dark:border-red-orange dark:text-red-orange'
               : undefined
           }

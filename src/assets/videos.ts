@@ -1,23 +1,21 @@
-import image1 from '../../public/images/photography/1.jpg'
-
 export enum VideoCategories {
-  ALL = 'Svi albums',
-  DOGADJAJI = 'Događaji',
-  SPORT = 'Sport',
-  ARHITEKTURA = 'Arhitektura',
-  PRODUCT = 'Product'
+  OSTALO = 'ostalo',
+  DOGADJAJI = 'dogadjaji',
+  SPORT = 'sport',
+  SPOTOVI = 'spotovi',
+  PRODUCT = 'product'
+}
+
+export type VideoData = {
+  video: string
 }
 
 const videoData = {
-  [VideoCategories.ALL]: [
-    {
-      video: '/intro/TP FINAL.mp4'
-    }
-  ],
   [VideoCategories.SPORT]: [],
   [VideoCategories.DOGADJAJI]: [],
-  [VideoCategories.ARHITEKTURA]: [],
-  [VideoCategories.PRODUCT]: []
+  [VideoCategories.SPOTOVI]: [],
+  [VideoCategories.PRODUCT]: [],
+  [VideoCategories.OSTALO]: ['/intro/TP FINAL.mp4']
 }
 
 export default videoData

@@ -9,7 +9,6 @@ type Props = {
 
 export default function Navbar({ onMenu }: Props) {
   const router = useRouter()
-  console.log(router)
 
   return (
     <nav

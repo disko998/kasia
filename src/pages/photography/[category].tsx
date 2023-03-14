@@ -53,7 +53,11 @@ export default function Photography({ images }: Props) {
             </div>
 
             <div className="mt-5 hidden w-full sm:block">
-              <Categories selected={category} categories={categories} />
+              <Categories
+                type="photography"
+                selected={category}
+                categories={categories}
+              />
             </div>
 
             <div className="fixed bottom-12 z-10 sm:hidden">

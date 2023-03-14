@@ -5,14 +5,19 @@ import Link from 'next/link'
 type Props = {
   categories: string[]
   selected: string
+  type: 'videography' | 'photography'
 }
 
-export default function Categories({ categories, selected }: Props) {
+export default function Categories({
+  categories,
+  selected,
+  type = 'photography'
+}: Props) {
   return (
     <div className="flex items-center justify-between gap-1 border-t-1 border-silver-brown text-sm font-medium">
       {categories.map(category => (
         <Link
-          href={`/photography/${category}`}
+          href={`/${type}/${category}`}
           className={classNames(
             'relative flex flex-1 items-center justify-center py-[15px] capitalize text-black duration-300 dark:text-white',
             {}

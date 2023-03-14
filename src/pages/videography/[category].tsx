@@ -6,23 +6,29 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Modal from '@/components/Modal'
 import videoData, { VideoCategories } from '@/assets/videos'
+import { GetStaticPropsContext } from 'next'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import classNames from 'classnames'
 
 const categories = [
-  VideoCategories.ALL,
   VideoCategories.DOGADJAJI,
   VideoCategories.SPORT,
-  VideoCategories.ARHITEKTURA,
-  VideoCategories.PRODUCT
+  VideoCategories.SPOTOVI,
+  VideoCategories.PRODUCT,
+  VideoCategories.OSTALO
 ]
 
-export default function Photography() {
-  const [category, setCategory] = useState<VideoCategories>(VideoCategories.ALL)
+type Props = {
+  videos: [string[], string[]]
+}
+
+export default function Photography({ videos }: Props) {
+  const { query } = useRouter()
+  const category = query.category as VideoCategories
+
   const [showDropdown, setShowDropdown] = useState(false)
   const [activeVideo, setActiveVideo] = useState<string>()
-
-  const half = Math.round(videoData[category].length / 2)
-  const col1 = videoData[category].slice(0, half)
-  const col2 = videoData[category].slice(half, videoData[category].length)
 
   return (
     <PageLayout hideFooter>
@@ -48,7 +54,7 @@ export default function Photography() {
 
             <div className="mt-5 hidden w-full sm:block">
               <Categories
-                onClick={category => setCategory(category as VideoCategories)}
+                type="videography"
                 selected={category}
                 categories={categories}
               />
@@ -69,17 +75,22 @@ export default function Photography() {
                 animate={showDropdown ? 'show' : 'hidden'}
                 className="mb-5 flex w-full flex-col rounded-lg border-2 border-red-orange bg-soft-white dark:text-soft-black"
               >
-                {categories.map(category => (
-                  <button
+                {categories.map((category, i) => (
+                  <Link
+                    href={`/videography/${category}`}
                     onClick={() => {
-                      setCategory(category)
                       setShowDropdown(false)
                     }}
-                    className="border-b-1 border-silver-brown p-[12px]"
+                    className={classNames(
+                      'border-silver-brown p-[12px] capitalize dark:border-red-orange',
+                      {
+                        'border-b-1': i !== category.length
+                      }
+                    )}
                     key={category}
                   >
                     {category}
-                  </button>
+                  </Link>
                 ))}
               </motion.div>
 
@@ -105,59 +116,38 @@ export default function Photography() {
 
         <section className="mt-10 grid w-full grid-cols-1 gap-4 overflow-hidden p-4 sm:grid-cols-2 lg:mt-0 lg:w-[50%] lg:pt-[200px]">
           <div className="flex flex-col gap-4">
-            {col1.map(({ video }) => (
-              <div
-                key={video}
-                className="relative overflow-hidden rounded-[20px]"
-              >
-                <video
-                  src={`/videos/${video}`}
-                  className="h-full w-full  object-cover"
+            {Array.from({ length: 2 }).map((_, index) =>
+              videos?.[index].map(video => (
+                <div
+                  key={video}
+                  className="relative overflow-hidden rounded-[20px]"
                 >
-                  Your browser does not support the video tag.
-                </video>
-
-                <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden bg-soft-black/60">
-                  <Button
-                    onClick={() => setActiveVideo(video)}
-                    className="mt-4 whitespace-nowrap border-soft-white text-soft-white backdrop-blur-[3.5px]"
-                    iconRight={<Icon name="play" />}
+                  <video
+                    src={`/videos/${video}`}
+                    className="h-full w-full  object-cover"
                   >
-                    Pogledaj
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
+                    Your browser does not support the video tag.
+                  </video>
 
-          <div className="flex flex-col gap-4">
-            {col2.map(({ video }) => (
-              <div key={video} className="relative">
-                <video
-                  src={`/videos/${video}`}
-                  className="h-full w-full rounded-[20px] object-cover"
-                >
-                  Your browser does not support the video tag.
-                </video>
-
-                <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden bg-soft-black/60">
-                  <Button
-                    onClick={() => setActiveVideo(video)}
-                    className="mt-4 whitespace-nowrap border-soft-white text-soft-white backdrop-blur-[3.5px]"
-                    iconRight={<Icon name="play" />}
-                  >
-                    Pogledaj
-                  </Button>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden bg-soft-black/60">
+                    <Button
+                      onClick={() => setActiveVideo(video)}
+                      className="mt-4 whitespace-nowrap border-soft-white text-soft-white backdrop-blur-[3.5px]"
+                      iconRight={<Icon name="play" />}
+                    >
+                      Pogledaj
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </section>
 
         <Modal open={!!activeVideo} onClose={() => setActiveVideo(undefined)}>
           <div
             onClick={e => e.stopPropagation()}
-            className="relative h-[50vh] max-h-[40rem] w-[90vw] max-w-[50rem] rounded-[20px] bg-light-yellow md:w-[70vw] xl:w-[40vw]"
+            className="relative h-[50vh] max-h-[40rem] w-[90vw] max-w-[50rem] md:w-[70vw] xl:w-[40vw]"
           >
             <div
               onClick={() => setActiveVideo(undefined)}
@@ -167,7 +157,7 @@ export default function Photography() {
             </div>
 
             <video
-              className="h-full w-full rounded-[20px] object-cover"
+              className="h-full w-full overflow-hidden rounded-[20px] object-cover"
               autoPlay
               controls
             >
@@ -179,4 +169,27 @@ export default function Photography() {
       </div>
     </PageLayout>
   )
+}
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const category =
+    categories.find(category => category === context.params?.category) ||
+    VideoCategories.DOGADJAJI
+
+  const half = Math.round(videoData[category]?.length / 2)
+  const col1 = videoData[category].slice(0, half)
+  const col2 = videoData[category].slice(half, videoData[category].length)
+
+  const videos = [col1, col2]
+
+  return {
+    props: {
+      videos
+    }
+  }
+}
+
+export async function getStaticPaths() {
+  const paths = categories.map(category => ({ params: { category } }))
+  return { paths, fallback: true }
 }

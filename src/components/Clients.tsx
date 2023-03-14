@@ -46,7 +46,7 @@ const Clients = (props: Props) => {
           Naši Klijenti
         </motion.h2>
 
-        <div className="mx-auto mt-20 grid grid-cols-2 grid-rows-2 place-items-center gap-x-16 gap-y-14">
+        <div className="mx-auto mt-20 grid grid-cols-1 grid-rows-4 place-items-center gap-x-16 gap-y-14 sm:grid-cols-2 sm:grid-rows-2">
           <motion.div
             style={{
               opacity: useTransform(scrollYProgress, [0.3, 0.4], [0, 1])

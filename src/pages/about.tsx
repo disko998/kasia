@@ -64,7 +64,13 @@ export default function About() {
         >
           <div>
             <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
-              <Image fill src={StricImage} alt="EDVARD NALBANTJAN" />
+              <Image
+                fill
+                placeholder="blur"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                src={StricImage}
+                alt="EDVARD NALBANTJAN"
+              />
             </div>
             <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
               <h3 className="text-white">{'Edvard Nalbantjan'}</h3>
@@ -81,7 +87,12 @@ export default function About() {
               }}
             >
               <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
-                <Image fill src={StefanImage} alt="Stefan Gorenjak" />
+                <Image
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                  fill
+                  src={StefanImage}
+                  alt="Stefan Gorenjak"
+                />
               </div>
               <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
                 <h3 className="text-white">STEFAN GORENJAK</h3>
@@ -94,7 +105,12 @@ export default function About() {
 
           <div className="block lg:hidden">
             <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
-              <Image fill src={StefanImage} alt="Stefan Gorenjak" />
+              <Image
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                fill
+                src={StefanImage}
+                alt="Stefan Gorenjak"
+              />
             </div>
             <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
               <h3 className="text-white">STEFAN GORENJAK</h3>
@@ -106,7 +122,12 @@ export default function About() {
 
           <div>
             <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
-              <Image fill src={MilosImage} alt="Miloš Mrđa" />
+              <Image
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                fill
+                src={MilosImage}
+                alt="Miloš Mrđa"
+              />
             </div>
             <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
               <h3 className="text-white">{'MILOŠ MRĐA'}</h3>

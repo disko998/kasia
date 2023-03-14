@@ -108,7 +108,7 @@ const Project = ({
       >
         <motion.div
           style={{ x: rightImageX, rotate: rightRotate }}
-          className="relative z-10 h-[80%] min-w-[100vw] overflow-hidden rounded-xl sm:min-w-[80vw] md:h-[700px] md:min-w-[600px]"
+          className="relative z-10 h-[60%] min-w-[100vw] overflow-hidden rounded-xl sm:min-w-[80vw] md:h-[700px] md:min-w-[600px]"
         >
           <Image
             fill
@@ -143,7 +143,7 @@ const Project = ({
 
         <motion.div
           style={{ x: leftImageX, rotate: leftRotate }}
-          className="relative h-[80%] min-w-[100vw] max-w-[600px] origin-center overflow-hidden rounded-xl sm:min-w-[80vw] md:h-[700px] md:min-w-[600px]"
+          className="relative h-[60%] min-w-[100vw] max-w-[600px] origin-center overflow-hidden rounded-xl sm:min-w-[80vw] md:h-[700px] md:min-w-[600px]"
         >
           <Image fill src={images[1]} alt={title} />
         </motion.div>

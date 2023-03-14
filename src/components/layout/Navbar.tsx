@@ -1,4 +1,3 @@
-import React from 'react'
 import Button from '@/components/buttons/Button'
 import ThemeToggle from '@/components/buttons/ThemeToggle'
 import Logo from '@/components/Logo'

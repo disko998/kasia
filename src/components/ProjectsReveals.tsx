@@ -110,7 +110,12 @@ const Project = ({
           style={{ x: rightImageX, rotate: rightRotate }}
           className="relative z-10 h-[80%] min-w-[100vw] overflow-hidden rounded-xl sm:min-w-[80vw] md:h-[700px] md:min-w-[600px]"
         >
-          <Image fill src={images[0]} alt={title} />
+          <Image
+            fill
+            src={images[0]}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw"
+            alt={title}
+          />
         </motion.div>
 
         <div className="flex min-w-[100vw] flex-col items-center px-4 text-center sm:min-w-[80vw] md:min-w-[700px] md:max-w-[600px]">

@@ -29,7 +29,8 @@ const ThemeToggle = () => {
 
   useEffect(() => {
     playSegments(theme === 'dark' ? [15, 5] : [5, 15], true)
-  }, [theme, playSegments])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [theme])
 
   return (
     <Button

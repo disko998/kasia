@@ -3,36 +3,34 @@ import Categories from '@/components/Categories'
 import Icon from '@/components/Icon'
 import PageLayout from '@/components/layout/PageLayout'
 import Image, { StaticImageData } from 'next/image'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import classNames from 'classnames'
 import photoData, { PhotographyCategories } from '@/assets/photos'
 import Modal from '@/components/Modal'
+import { useRouter } from 'next/router'
+import { GetStaticPropsContext } from 'next'
+import Link from 'next/link'
 
 const categories = [
-  PhotographyCategories.ALL,
   PhotographyCategories.PORTRETI,
   PhotographyCategories.DOGADJAJI,
-  PhotographyCategories.ARHITEKTURA
+  PhotographyCategories.ARHITEKTURA,
+  PhotographyCategories.OSTALO
 ]
 
-export default function Photography() {
-  const [category, setCategory] = useState<PhotographyCategories>(
-    PhotographyCategories.ALL
-  )
+type Props = {
+  images?: [StaticImageData[], StaticImageData[]]
+}
+
+export default function Photography({ images }: Props) {
+  const { query } = useRouter()
+  const category = query.category as PhotographyCategories
+
+  console.log(images)
+
   const [showDropdown, setShowDropdown] = useState(false)
   const [activeImg, setActiveImg] = useState<StaticImageData>()
-
-  const { col1, col2 } = useMemo(() => {
-    const col1: StaticImageData[] = []
-    const col2: StaticImageData[] = []
-
-    photoData[category].forEach((data, i) => {
-      i % 2 === 0 ? col1.push(data) : col2.push(data)
-    })
-
-    return { col1, col2 }
-  }, [category])
 
   return (
     <PageLayout hideFooter>
@@ -56,13 +54,7 @@ export default function Photography() {
             </div>
 
             <div className="mt-5 hidden w-full sm:block">
-              <Categories
-                onClick={category =>
-                  setCategory(category as PhotographyCategories)
-                }
-                selected={category}
-                categories={categories}
-              />
+              <Categories selected={category} categories={categories} />
             </div>
 
             <div className="fixed bottom-12 z-10 sm:hidden">
@@ -82,13 +74,13 @@ export default function Photography() {
                 className="text:bg-soft-white mb-5 flex w-full flex-col rounded-lg border-2 border-red-orange bg-soft-white dark:bg-soft-black"
               >
                 {categories.map((category, i) => (
-                  <button
+                  <Link
+                    href={`/photography/${category}`}
                     onClick={() => {
-                      setCategory(category)
                       setShowDropdown(false)
                     }}
                     className={classNames(
-                      'border-silver-brown p-[12px] dark:border-red-orange',
+                      'border-silver-brown p-[12px] capitalize dark:border-red-orange',
                       {
                         'border-b-1': i !== category.length
                       }
@@ -96,7 +88,7 @@ export default function Photography() {
                     key={category}
                   >
                     {category}
-                  </button>
+                  </Link>
                 ))}
               </motion.div>
 
@@ -122,33 +114,22 @@ export default function Photography() {
         </section>
 
         <section className="mt-10 grid w-full grid-cols-1 gap-4 overflow-hidden p-4 sm:grid-cols-2 lg:mt-0 lg:w-[50%] lg:pt-[200px]">
-          <div className="flex flex-col gap-4">
-            {col1.map(image => (
-              <Image
-                placeholder="blur"
-                onClick={() => setActiveImg(image)}
-                key={image.src}
-                className="cursor-pointer overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
-                src={image}
-                alt="slika"
-                loading="lazy"
-              />
-            ))}
-          </div>
-
-          <div className="flex flex-col gap-4">
-            {col2.map(image => (
-              <Image
-                placeholder="blur"
-                loading="lazy"
-                onClick={() => setActiveImg(image)}
-                className="cursor-pointer overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
-                src={image}
-                alt="slika"
-                key={image.src}
-              />
-            ))}
-          </div>
+          {Array.from({ length: 2 }).map((_, i) => (
+            <div key={i} className="flex flex-col gap-4">
+              {images?.[i].map(image => (
+                <Image
+                  className="cursor-pointer overflow-hidden rounded-[30px] transition-transform duration-500 hover:scale-[1.02]"
+                  placeholder="blur"
+                  onClick={() => setActiveImg(image)}
+                  key={image.src}
+                  src={image}
+                  alt={category}
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+              ))}
+            </div>
+          ))}
         </section>
 
         <Modal open={!!activeImg} onClose={() => setActiveImg(undefined)}>
@@ -162,9 +143,9 @@ export default function Photography() {
 
             {activeImg && (
               <Image
-                loading="lazy"
                 className="rounded-[20px] object-contain"
-                alt="modal image"
+                priority
+                alt={category}
                 src={activeImg}
               />
             )}
@@ -173,4 +154,26 @@ export default function Photography() {
       </div>
     </PageLayout>
   )
+}
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const category = context.params?.category as PhotographyCategories
+  const col1: StaticImageData[] = []
+  const col2: StaticImageData[] = []
+
+  photoData[category]?.forEach((data, i) => {
+    i % 2 === 0 ? col1.push(data) : col2.push(data)
+  })
+  const images = [col1, col2]
+
+  return {
+    props: {
+      images
+    }
+  }
+}
+
+export async function getStaticPaths() {
+  const paths = categories.map(category => ({ params: { category } }))
+  return { paths, fallback: true }
 }

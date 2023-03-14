@@ -167,7 +167,7 @@ export default function Index() {
                 )
               }}
             >
-              <Image src={BelgradeImage} alt="Beograd" />
+              <Image src={BelgradeImage} sizes="100vw" alt="Beograd" />
             </motion.div>
           </div>
         </motion.div>

@@ -1,6 +1,20 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/photography',
+        destination: '/photography/portreti',
+        permanent: true
+      }
+      //   {
+      //     source: '/videography',
+      //     destination: '/videography/portreti',
+      //     permanent: true
+      //   }
+    ]
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,

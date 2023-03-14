@@ -54,7 +54,7 @@ export default function ScrollGallery({ scrollRef }: Props) {
     <div ref={targetRef} className="w-screen overflow-hidden">
       <motion.div style={{ x: xReverse }} className="flex">
         <div className="flex flex-nowrap items-stretch justify-start gap-x-4 gap-y-4">
-          {Array.from({ length: 2 }).map((_, i) =>
+          {Array.from({ length: 2 }).map(() =>
             firstSlider.map(image => (
               <div
                 key={image.src}
@@ -63,6 +63,7 @@ export default function ScrollGallery({ scrollRef }: Props) {
                 <Image
                   className="overflow-hidden rounded-xl"
                   alt="featured-image"
+                  sizes="50vw"
                   src={image}
                 />
               </div>
@@ -73,7 +74,7 @@ export default function ScrollGallery({ scrollRef }: Props) {
 
       <motion.div style={{ x: x }} className="max-w-screen mt-4 flex w-screen">
         <div className="flex flex-nowrap items-stretch justify-start gap-x-4 gap-y-4">
-          {Array.from({ length: 2 }).map((_, i) =>
+          {Array.from({ length: 2 }).map(() =>
             secondSlider.map(image => (
               <div
                 key={image.src}
@@ -82,6 +83,7 @@ export default function ScrollGallery({ scrollRef }: Props) {
                 <Image
                   className="overflow-hidden rounded-xl"
                   alt="featured-image"
+                  sizes="50vw"
                   src={image}
                 />
               </div>

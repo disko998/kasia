@@ -3,12 +3,13 @@ import { useRef } from 'react'
 import FeaturedVideosSection from '@/components/FeaturedVideos'
 import PageLayout from '@/components/layout/PageLayout'
 import Image from 'next/image'
-import LighthouseImage from '../../public/images/lighthouse.png'
-import NatureImage from '../../public/images/nature.png'
-import StricImage from '../../public/images/stric.jpg'
-import StefanImage from '../../public/images/stefan.jpg'
-import MilosImage from '../../public/images/milos.jpg'
 import FeaturedImages from '@/components/FeaturedImages'
+
+import NatureImage from '../../public/images/nature.png'
+import LighthouseImage from '../../public/images/lighthouse.png'
+import StricImage from '../../public/images/Stric.jpg'
+import StefanImage from '../../public/images/Stefan.jpg'
+import MilosImage from '../../public/images/Milos.jpg'
 
 export default function About() {
   const headerRef = useRef<any>()

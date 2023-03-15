@@ -141,12 +141,16 @@ export default function Photography({ images }: Props) {
               onClick={() => setActiveImg(undefined)}
               className="absolute -top-7 right-5 z-10 cursor-pointer"
             >
-              <Icon name="close-btn" size="1.5rem" />
+              <Icon
+                name="close-btn"
+                size="1.5rem"
+                className="dark:soft-white text-soft-black transition-colors"
+              />
             </div>
 
             {activeImg && (
               <Image
-                className="max-h-[80vh] object-contain lg:max-h-[90vh]"
+                className="max-h-[80vh] w-[100vw] object-contain lg:max-h-[90vh]"
                 priority
                 sizes="80vw"
                 alt={category}

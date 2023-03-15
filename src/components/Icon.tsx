@@ -1,4 +1,4 @@
-import React from 'react'
+import { twMerge } from 'tailwind-merge'
 
 import Logo from '@/assets/icons/logo.svg'
 import Shutter from '@/assets/icons/shutter.svg'
@@ -77,7 +77,10 @@ const Icon = ({
     <IconComponent
       onClick={onClick}
       viewBox={iconTypes[name].viewBox}
-      className={`text-soft-dark-blue transition-colors dark:text-soft-white`}
+      className={twMerge(
+        `text-soft-dark-blue transition-colors dark:text-soft-white`,
+        className
+      )}
       color={color}
       {...sizeProps}
       {...props}

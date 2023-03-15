@@ -11,7 +11,11 @@ export default function useSSRTheme() {
 
   return {
     ...theme,
-    theme: mounted ? theme.theme : 'light',
+    theme: mounted
+      ? theme.theme === 'system'
+        ? theme.systemTheme
+        : theme.theme
+      : 'light',
     setTheme: (mode: string) => mounted && theme.setTheme(mode),
     isMounted: mounted
   }

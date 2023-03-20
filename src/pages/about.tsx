@@ -1,4 +1,4 @@
-import { useScroll, useTransform, motion } from 'framer-motion'
+import { useScroll, useTransform, motion, useSpring } from 'framer-motion'
 import { useRef } from 'react'
 import FeaturedVideosSection from '@/components/FeaturedVideos'
 import PageLayout from '@/components/layout/PageLayout'
@@ -10,6 +10,7 @@ import LighthouseImage from '../../public/images/lighthouse.png'
 import StricImage from '../../public/images/Stric.jpg'
 import StefanImage from '../../public/images/Stefan.jpg'
 import MilosImage from '../../public/images/Milos.jpg'
+import useAppSpring from '@/hooks/useAppSpring'
 
 export default function About() {
   const headerRef = useRef<any>()
@@ -24,7 +25,8 @@ export default function About() {
     offset: ['end end', 'end start']
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], ['-30%', '0%'])
+  const y = useTransform(scrollYProgress, [0, 1], [-100, 0])
+  const spring = useSpring(y, { stiffness: 500, damping: 50 })
 
   return (
     <PageLayout>
@@ -66,12 +68,12 @@ export default function About() {
             <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
               <Image
                 fill
-                placeholder="blur"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
                 src={StricImage}
                 alt="EDVARD NALBANTJAN"
               />
             </div>
+
             <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
               <h3 className="text-white">{'Edvard Nalbantjan'}</h3>
               <span className="text-[0.75rem] text-light-yellow">
@@ -80,27 +82,26 @@ export default function About() {
             </div>
           </div>
 
-          <motion.div className="hidden lg:block">
-            <motion.div
-              style={{
-                y
-              }}
-            >
-              <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
-                <Image
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
-                  fill
-                  src={StefanImage}
-                  alt="Stefan Gorenjak"
-                />
-              </div>
-              <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
-                <h3 className="text-white">STEFAN GORENJAK</h3>
-                <span className="text-[0.75rem] text-light-yellow">
-                  {'VIDEO MONTAŽER'}
-                </span>
-              </div>
-            </motion.div>
+          <motion.div
+            className="hidden lg:block"
+            style={{
+              y: spring
+            }}
+          >
+            <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
+              <Image
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                fill
+                src={StefanImage}
+                alt="Stefan Gorenjak"
+              />
+            </div>
+            <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
+              <h3 className="text-white">STEFAN GORENJAK</h3>
+              <span className="text-[0.75rem] text-light-yellow">
+                {'VIDEO MONTAŽER'}
+              </span>
+            </div>
           </motion.div>
 
           <div className="block lg:hidden">
@@ -141,7 +142,12 @@ export default function About() {
         <div className="container mt-12 flex flex-col items-center justify-center gap-12 lg:mt-56 lg:hidden lg:flex-row lg:gap-4">
           <div>
             <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
-              <Image fill src={StricImage} alt="EDVARD NALBANTJAN" />
+              <Image
+                fill
+                src={StricImage}
+                alt="EDVARD NALBANTJAN"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+              />
             </div>
             <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
               <h3 className="text-white">{'Edvard Nalbantjan'}</h3>
@@ -151,14 +157,19 @@ export default function About() {
             </div>
           </div>
 
-          <motion.div className="hidden lg:block">
+          <div className="hidden lg:block">
             <motion.div
               style={{
-                y
+                y: spring
               }}
             >
               <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
-                <Image fill src={StefanImage} alt="Stefan Gorenjak" />
+                <Image
+                  fill
+                  src={StefanImage}
+                  alt="Stefan Gorenjak"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                />
               </div>
               <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
                 <h3 className="text-white">STEFAN GORENJAK</h3>
@@ -167,11 +178,16 @@ export default function About() {
                 </span>
               </div>
             </motion.div>
-          </motion.div>
+          </div>
 
           <div className="block lg:hidden">
             <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
-              <Image fill src={StefanImage} alt="Stefan Gorenjak" />
+              <Image
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                fill
+                src={StefanImage}
+                alt="Stefan Gorenjak"
+              />
             </div>
             <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
               <h3 className="text-white">STEFAN GORENJAK</h3>
@@ -183,7 +199,12 @@ export default function About() {
 
           <div>
             <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
-              <Image fill src={MilosImage} alt="Miloš Mrđa" />
+              <Image
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                fill
+                src={MilosImage}
+                alt="Miloš Mrđa"
+              />
             </div>
             <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
               <h3 className="text-white">{'MILOŠ MRĐA'}</h3>

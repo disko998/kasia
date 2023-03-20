@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import useFadeVariations from '@/hooks/useFadeVariations'
+import useAppSpring from '@/hooks/useAppSpring'
 
 const videos = [
   {
@@ -39,6 +40,8 @@ export default function FeaturedVideosSection() {
 
   const videoY = useTransform(scrollYProgress, [0.2, 0.5], [500, 0])
 
+  const spring = useAppSpring(videoY)
+
   return (
     <motion.section
       style={{
@@ -63,7 +66,7 @@ export default function FeaturedVideosSection() {
         {videos.map(({ title, thumb }) => (
           <motion.div
             style={{
-              y: videoY
+              y: spring
             }}
             key={title}
             className="flex flex-col items-center justify-center"

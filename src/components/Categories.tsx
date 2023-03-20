@@ -38,7 +38,7 @@ export default function Categories({
           onClick={() => (active.current = true)}
           href={`/${type}/${category}`}
           className={classNames(
-            'relative flex flex-1 items-center justify-center py-[15px] capitalize text-black duration-300 dark:text-white',
+            'relative flex flex-1 items-center justify-center py-[15px] capitalize text-black duration-300 hover:text-red-orange dark:text-white hover:dark:text-red-orange',
             {
               'text-red-orange dark:text-red-orange': selected === category
             }
@@ -46,9 +46,9 @@ export default function Categories({
           key={category}
         >
           {category}
-          {hover === category && (
+          {selected === category && (
             <motion.div
-              layoutId="buttonUpperLine"
+              //   layoutId="buttonUpperLine"
               className="before absolute top-[-1px] flex h-[1px] w-full items-center justify-center bg-red-orange before:absolute before:h-2 before:w-2 before:rounded-full before:bg-red-orange"
             />
           )}

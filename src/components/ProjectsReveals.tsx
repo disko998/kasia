@@ -111,6 +111,7 @@ const Project = ({
           className="relative z-10 h-[60%] min-w-[100vw] overflow-hidden rounded-xl sm:min-w-[80vw] md:h-[700px] md:min-w-[600px]"
         >
           <Image
+            loading="eager"
             fill
             src={images[0]}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw"
@@ -145,7 +146,13 @@ const Project = ({
           style={{ x: leftImageX, rotate: leftRotate }}
           className="relative h-[60%] min-w-[100vw] max-w-[600px] origin-center overflow-hidden rounded-xl sm:min-w-[80vw] md:h-[700px] md:min-w-[600px]"
         >
-          <Image fill src={images[1]} alt={title} />
+          <Image
+            loading="eager"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw"
+            fill
+            src={images[1]}
+            alt={title}
+          />
         </motion.div>
       </motion.article>
     </motion.div>

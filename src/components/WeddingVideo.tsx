@@ -2,7 +2,7 @@ import Button from '@/components/buttons/Button'
 import Icon from '@/components/Icon'
 import Image from 'next/image'
 import { useRef } from 'react'
-import { useScroll, useTransform, motion } from 'framer-motion'
+import { useScroll, useTransform, motion, useSpring } from 'framer-motion'
 
 import Thumbnail from '../../public/images/projects/janezic/thumbnail.png'
 import MladenciVencanje from '../../public/images/projects/janezic/mladenci.png'
@@ -19,6 +19,8 @@ export default function WeddingVideo() {
     offset: ['center end', 'end center']
   })
 
+  const spring = useSpring(scrollYProgress, { stiffness: 500, damping: 50 })
+
   return (
     <section ref={sectionRef} className=" overflow-hidden">
       <div className="container flex max-w-4xl flex-col items-center justify-center gap-4 pb-[100px] text-center sm:pb-[200px]">
@@ -32,8 +34,8 @@ export default function WeddingVideo() {
         <div className="relative mt-[50px]">
           <motion.div
             style={{
-              rotateY: useTransform(scrollYProgress, [0, 1], [-20, 0]),
-              rotateX: useTransform(scrollYProgress, [0, 1], [-10, 0])
+              rotateY: useTransform(spring, [0, 1], [-10, 0]),
+              rotateX: useTransform(spring, [0, 1], [-10, 0])
             }}
           >
             <div className="relative overflow-hidden rounded-[20px] lg:rounded-[3rem]">
@@ -54,8 +56,8 @@ export default function WeddingVideo() {
             <motion.div
               className="absolute bottom-[-60px] left-[-150px] overflow-hidden rounded-[20px]"
               style={{
-                x: useTransform(scrollYProgress, [0, 1], [100, 0]),
-                scale: useTransform(scrollYProgress, [0, 1], [0.8, 1])
+                x: useTransform(spring, [0, 1], [100, 0]),
+                scale: useTransform(spring, [0, 1], [0.8, 1])
               }}
             >
               <Image
@@ -68,7 +70,7 @@ export default function WeddingVideo() {
             <motion.div
               className="absolute top-[-30px] right-[-37px] overflow-hidden rounded-[20px]"
               style={{
-                x: useTransform(scrollYProgress, [0, 1], [-50, 0])
+                x: useTransform(spring, [0, 1], [-50, 0])
               }}
             >
               <Image width={250} src={ImageVencanje} alt="Jezenic vencanje" />
@@ -77,7 +79,7 @@ export default function WeddingVideo() {
             <motion.div
               className="absolute top-[200px] right-[-150px] overflow-hidden rounded-[20px]"
               style={{
-                x: useTransform(scrollYProgress, [0, 1], [50, 0])
+                x: useTransform(spring, [0, 1], [50, 0])
               }}
             >
               <Image width={300} src={ImageBurma} alt="Jezenic burma" />

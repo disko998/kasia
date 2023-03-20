@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, useWillChange } from 'framer-motion'
 import Image from 'next/image'
 import { useRef } from 'react'
 
@@ -15,6 +15,7 @@ import ImageSat2 from '../../public/images/featured/sat-na-kamenu.png'
 import ImageHotel from '../../public/images/featured/hotel.png'
 import ImageAutomobil from '../../public/images/featured/automobil.png'
 import ImageHouse from '../../public/images/featured/house.png'
+import useAppSpring from '@/hooks/useAppSpring'
 
 const firstSlider = [
   ImagePriroda,
@@ -42,17 +43,19 @@ type Props = {
 export default function ScrollGallery({ scrollRef }: Props) {
   const targetRef = useRef<any>()
 
+  const willChange = useWillChange()
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ['start end', 'end -500px']
   })
 
-  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-100%'])
-  const xReverse = useTransform(scrollYProgress, [0, 1], ['-100%', '0%'])
+  const spring = useAppSpring(scrollYProgress)
+  const x = useTransform(spring, [0, 1], ['0%', '-100%'])
+  const xReverse = useTransform(spring, [0, 1], ['-100%', '0%'])
 
   return (
     <div ref={targetRef} className="w-screen overflow-hidden">
-      <motion.div style={{ x: xReverse }} className="flex">
+      <motion.div style={{ x: xReverse, willChange }} className="flex">
         <div className="flex flex-nowrap items-stretch justify-start gap-x-4 gap-y-4">
           {Array.from({ length: 2 }).map(() =>
             firstSlider.map(image => (
@@ -61,6 +64,7 @@ export default function ScrollGallery({ scrollRef }: Props) {
                 className="relative w-[42vw] max-w-[500px] overflow-hidden md:w-[35vw] xl:w-[25vw]"
               >
                 <Image
+                  loading="eager"
                   className="overflow-hidden rounded-xl"
                   alt="featured-image"
                   sizes="50vw"
@@ -81,6 +85,7 @@ export default function ScrollGallery({ scrollRef }: Props) {
                 className="relative w-[42vw] max-w-[500px] overflow-hidden md:w-[35vw] xl:w-[25vw]"
               >
                 <Image
+                  loading="eager"
                   className="overflow-hidden rounded-xl"
                   alt="featured-image"
                   sizes="50vw"

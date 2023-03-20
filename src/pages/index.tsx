@@ -167,7 +167,7 @@ export default function Index() {
                 )
               }}
             >
-              <Image src={BelgradeImage} sizes="100vw" alt="Beograd" />
+              <Image src={BelgradeImage} priority sizes="100vw" alt="Beograd" />
             </motion.div>
           </div>
         </motion.div>
@@ -259,7 +259,12 @@ export default function Index() {
               )
             }}
           >
-            <Image width={900} src={LighthouseImage} alt="Svetionik" />
+            <Image
+              loading="eager"
+              width={900}
+              src={LighthouseImage}
+              alt="Svetionik"
+            />
           </motion.div>
 
           <motion.div
@@ -277,7 +282,12 @@ export default function Index() {
               )
             }}
           >
-            <Image width={900} src={NatureImage} alt="Priroda" />
+            <Image
+              loading="eager"
+              width={900}
+              src={NatureImage}
+              alt="Priroda"
+            />
           </motion.div>
         </motion.div>
       </section>

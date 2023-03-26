@@ -7,12 +7,12 @@ const nextConfig = {
         source: '/photography',
         destination: '/photography/portreti',
         permanent: true
+      },
+      {
+        source: '/videography',
+        destination: '/videography/dogadjaji',
+        permanent: true
       }
-      //   {
-      //     source: '/videography',
-      //     destination: '/videography/portreti',
-      //     permanent: true
-      //   }
     ]
   },
   webpack(config) {

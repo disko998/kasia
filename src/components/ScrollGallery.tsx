@@ -76,7 +76,7 @@ export default function ScrollGallery({ scrollRef }: Props) {
         </div>
       </motion.div>
 
-      <motion.div style={{ x: x }} className="max-w-screen mt-4 flex w-screen">
+      <motion.div style={{ x }} className="max-w-screen mt-4 flex w-screen">
         <div className="flex flex-nowrap items-stretch justify-start gap-x-4 gap-y-4">
           {Array.from({ length: 2 }).map(() =>
             secondSlider.map(image => (

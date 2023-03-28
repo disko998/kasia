@@ -97,7 +97,7 @@ const Project = ({
       style={{ y: y }}
       ref={sectionRef}
       key={title}
-      className="relative h-[200vh]"
+      className="relative h-[300vh]"
     >
       <motion.article
         ref={targetRef}

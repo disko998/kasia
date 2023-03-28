@@ -2,7 +2,7 @@ import Button from '@/components/buttons/Button'
 import Icon from '@/components/Icon'
 import Image from 'next/image'
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import useFadeVariations from '@/hooks/useFadeVariations'
 import useAppSpring from '@/hooks/useAppSpring'
 
@@ -40,7 +40,7 @@ export default function FeaturedVideosSection() {
 
   const videoY = useTransform(scrollYProgress, [0.2, 0.5], [500, 0])
 
-  const spring = useAppSpring(videoY)
+  const spring = useSpring(videoY, { mass: 1.25, stiffness: 400, damping: 50 })
 
   return (
     <motion.section

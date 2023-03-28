@@ -61,9 +61,29 @@ export default function Navbar({ onMenu }: Props) {
       <Logo />
 
       <div className="flex-row gap-4 lg:flex">
-        <Button className="hidden lg:block">INSTAGRAM</Button>
-        <Button className="hidden lg:block">TIKTOK</Button>
-        <Button className="hidden lg:block">EMAIL</Button>
+        <Button
+          as="a"
+          target="_blank"
+          href="https://www.youtube.com/channel/UCg_xzBtI5jkIA4eKVCBjNNw"
+          className="hidden lg:flex"
+        >
+          YOUTUBE
+        </Button>
+        <Button
+          as="a"
+          target="_blank"
+          href="https://www.instagram.com/gorky_01/?hl=sr"
+          className="hidden lg:flex"
+        >
+          INSTAGRAM
+        </Button>
+        <Button
+          as="a"
+          href="mailto:office@kasiastudio.rs"
+          className="hidden lg:flex"
+        >
+          EMAIL
+        </Button>
         <ThemeToggle />
       </div>
     </nav>

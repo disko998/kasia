@@ -5,22 +5,22 @@ import PageLayout from '@/components/layout/PageLayout'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Modal from '@/components/Modal'
-import videoData, { VideoCategories } from '@/assets/videos'
+import videoData, { VideoCategories, VideoData } from '@/assets/videos'
 import { GetStaticPropsContext } from 'next'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import classNames from 'classnames'
 
 const categories = [
+  VideoCategories.PRODUCT,
   VideoCategories.DOGADJAJI,
   VideoCategories.SPORT,
   VideoCategories.SPOTOVI,
-  VideoCategories.PRODUCT,
   VideoCategories.OSTALO
 ]
 
 type Props = {
-  videos: [string[], string[]]
+  videos: VideoData[]
 }
 
 export default function Photography({ videos }: Props) {
@@ -28,7 +28,7 @@ export default function Photography({ videos }: Props) {
   const category = query.category as VideoCategories
 
   const [showDropdown, setShowDropdown] = useState(false)
-  const [activeVideo, setActiveVideo] = useState<string>()
+  //   const [activeVideo, setActiveVideo] = useState<string>()
 
   return (
     <PageLayout hideFooter>
@@ -41,9 +41,8 @@ export default function Photography({ videos }: Props) {
               <br /> na jednom mestu
             </h1>
             <p className="max-w-[80%] text-center lg:text-left">
-              Sprecijalizovani fotografi u oblastima kao što su brend kontent,
-              događaji, produkt fotografija, fotografija arhitekture. Vaše
-              fotografije će te dobiti u kratkom roku.
+              Sprecijalizovani videografi u oblastima kao što su spotovi,
+              događaji, produkt, arhitekture.
             </p>
 
             <div className="mt-10 flex w-[146px] flex-col gap-4 sm:my-0 sm:mt-5 sm:w-full sm:flex-row">
@@ -115,37 +114,22 @@ export default function Photography({ videos }: Props) {
         </section>
 
         <section className="mt-10 grid w-full grid-cols-1 gap-4 overflow-hidden p-4 sm:grid-cols-2 lg:mt-0 lg:w-[50%] lg:pt-[200px]">
-          <div className="flex flex-col gap-4">
-            {Array.from({ length: 2 }).map((_, index) =>
-              videos?.[index].map(video => (
-                <div
-                  key={video}
-                  className="relative overflow-hidden rounded-[20px]"
-                >
-                  <video
-                    src={`/videos/${video}`}
-                    className="h-full w-full  object-cover"
-                  >
-                    Your browser does not support the video tag.
-                  </video>
-
-                  <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden bg-soft-black/60">
-                    <Button
-                      onClick={() => setActiveVideo(video)}
-                      className="mt-4 whitespace-nowrap border-soft-white text-soft-white backdrop-blur-[3.5px]"
-                      iconRight={<Icon name="play" />}
-                    >
-                      Pogledaj
-                    </Button>
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
+          {videos?.map(video => (
+            <div key={video.title} className="flex items-center justify-center">
+              <iframe
+                width="100%"
+                className="h-[30vh] overflow-hidden rounded-[20px]"
+                src={video.link}
+                title={video.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          ))}
         </section>
 
-        <Modal open={!!activeVideo} onClose={() => setActiveVideo(undefined)}>
-          <div
+        {/* <Modal open={!!activeVideo} onClose={() => setActiveVideo(undefined)}>
+		<div
             onClick={e => e.stopPropagation()}
             className="relative h-[50vh] max-h-[40rem] w-[90vw] max-w-[50rem] md:w-[70vw] xl:w-[40vw]"
           >
@@ -165,31 +149,25 @@ export default function Photography({ videos }: Props) {
               Your browser does not support the video tag.
             </video>
           </div>
-        </Modal>
+        </Modal> */}
       </div>
     </PageLayout>
   )
 }
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export function getStaticProps(context: GetStaticPropsContext) {
   const category =
     categories.find(category => category === context.params?.category) ||
     VideoCategories.DOGADJAJI
 
-  const half = Math.round(videoData[category]?.length / 2)
-  const col1 = videoData[category].slice(0, half)
-  const col2 = videoData[category].slice(half, videoData[category].length)
-
-  const videos = [col1, col2]
-
   return {
     props: {
-      videos
+      videos: videoData[category]
     }
   }
 }
 
-export async function getStaticPaths() {
+export function getStaticPaths() {
   const paths = categories.map(category => ({ params: { category } }))
   return { paths, fallback: true }
 }

@@ -58,9 +58,23 @@ export default function Footer() {
           Sva prava zadržana. Ⓒ 2023 Kasia Studio
         </span>
         <div className="order-1 mb-6 flex gap-4 lg:-order-none lg:mb-0">
-          <Button>YOUTUBE</Button>
-          <Button>INSTAGRAM</Button>
-          <Button>TIKTOK</Button>
+          <Button
+            as="a"
+            target="_blank"
+            href="https://www.youtube.com/channel/UCg_xzBtI5jkIA4eKVCBjNNw"
+          >
+            YOUTUBE
+          </Button>
+          <Button
+            as="a"
+            target="_blank"
+            href="https://www.instagram.com/gorky_01/?hl=sr"
+          >
+            INSTAGRAM
+          </Button>
+          <Button as="a" href="mailto:office@kasiastudio.rs">
+            EMAIL
+          </Button>
         </div>
         <span className="order-3 text-[0.75rem] lg:-order-none">
           Design & Development - Bluestudio.rs

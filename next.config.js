@@ -10,7 +10,7 @@ const nextConfig = {
       },
       {
         source: '/videography',
-        destination: '/videography/dogadjaji',
+        destination: '/videography/product',
         permanent: true
       }
     ]

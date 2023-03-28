@@ -10,10 +10,11 @@ import LighthouseImage from '../../public/images/lighthouse.png'
 import StricImage from '../../public/images/Stric.jpg'
 import StefanImage from '../../public/images/Stefan.jpg'
 import MilosImage from '../../public/images/Milos.jpg'
-import useAppSpring from '@/hooks/useAppSpring'
+import useFadeVariations from '@/hooks/useFadeVariations'
 
 export default function About() {
   const headerRef = useRef<any>()
+  const fade = useFadeVariations()
 
   const { scrollYProgress } = useScroll({
     target: headerRef,
@@ -32,11 +33,14 @@ export default function About() {
     <PageLayout>
       <header ref={headerRef} className="my-14 mt-[140px]">
         <div className="container relative flex max-w-2xl flex-col items-center justify-center gap-6 text-center">
-          <p className="text-sm font-medium tracking-[0.245em]">
+          <motion.p
+            {...fade}
+            className="text-sm font-medium tracking-[0.245em]"
+          >
             HAJDE BOLJE DA SE UPOZNAMO!
-          </p>
-          <h1>O NAMA - Kasia Studio</h1>
-          <p className="text-sm">
+          </motion.p>
+          <motion.h1 {...fade}>O NAMA - Kasia Studio</motion.h1>
+          <motion.p {...fade} className="text-sm">
             Naš tim je sastavljen od 3 profesionalca, svako u svojoj oblasti.
             Edvard je profesionalni fotograf koji je radio sa preko hiljadu
             poznatih ličnosti i imena u regionu i svojim iskustvom i kvalitetom
@@ -44,7 +48,7 @@ export default function About() {
             inovativan i moderan način kreirati video koji će vas ostaviti bez
             daha. Sa najnovijom opremom i iskustvom, šta god zamislite - mi
             stvaramo!
-          </p>
+          </motion.p>
 
           <div className="absolute left-[-15rem] top-[5rem] hidden xl:block">
             <Image width={500} src={LighthouseImage} alt="Svetionik" />
@@ -139,8 +143,22 @@ export default function About() {
           </div>
         </motion.div>
 
-        <div className="container mt-12 flex flex-col items-center justify-center gap-12 lg:mt-56 lg:hidden lg:flex-row lg:gap-4">
-          <div>
+        <motion.div
+          style={{
+            y: useTransform(
+              parallaxScroll.scrollYProgress,
+              [0, 1],
+              ['0%', '20%']
+            ),
+            opacity: useTransform(
+              parallaxScroll.scrollYProgress,
+              [0.8, 1],
+              [1, 0]
+            )
+          }}
+          className="container mt-12 flex flex-col items-center justify-center gap-12 lg:mt-56 lg:hidden lg:flex-row lg:gap-4"
+        >
+          <motion.div {...fade}>
             <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
               <Image
                 fill
@@ -155,32 +173,9 @@ export default function About() {
                 {'SNIMATELJ I VIDEO MONTAŽER'}
               </span>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="hidden lg:block">
-            <motion.div
-              style={{
-                y: spring
-              }}
-            >
-              <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
-                <Image
-                  fill
-                  src={StefanImage}
-                  alt="Stefan Gorenjak"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
-                />
-              </div>
-              <div className="mt-5 w-full rounded-lg bg-blue p-[0.625rem] text-center">
-                <h3 className="text-white">STEFAN GORENJAK</h3>
-                <span className="text-[0.75rem] text-light-yellow">
-                  {'SNIMATELJ I VIDEO MONTAŽER'}
-                </span>
-              </div>
-            </motion.div>
-          </div>
-
-          <div className="block lg:hidden">
+          <motion.div {...fade} className="block lg:hidden">
             <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
               <Image
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
@@ -195,9 +190,9 @@ export default function About() {
                 {'DIPLOMIRANI FOTOGRAF'}
               </span>
             </div>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div {...fade}>
             <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
               <Image
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
@@ -212,8 +207,8 @@ export default function About() {
                 {'DIPLOMIRANI FOTOGRAF'}
               </span>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </header>
 
       <div className="py-[140px] lg:mt-0">

@@ -47,8 +47,22 @@ export default function Photography({ images }: Props) {
             </p>
 
             <div className="mt-10 flex w-[146px] flex-col gap-4 sm:my-0 sm:mt-5 sm:w-full sm:flex-row">
-              <Button className="min-h-[25px] flex-1">KONTAKT</Button>
-              <Button className="min-h-[25px] flex-1">INSTAGRAM</Button>
+              <Button
+                as="a"
+                target="_blank"
+                href="https://www.youtube.com/channel/UCg_xzBtI5jkIA4eKVCBjNNw"
+                className="min-h-[25px] flex-1"
+              >
+                YOUTUBE
+              </Button>
+              <Button
+                as="a"
+                target="_blank"
+                href="https://www.instagram.com/gorky_01/?hl=sr"
+                className="min-h-[25px] flex-1"
+              >
+                INSTAGRAM
+              </Button>
               <Button className="min-h-[25px] flex-1">TIKTOK</Button>
             </div>
 

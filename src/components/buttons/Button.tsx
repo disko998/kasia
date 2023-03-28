@@ -39,7 +39,7 @@ export default function Button({
     >
       {iconLeft && <span>{iconLeft}</span>}
       <span className={textClasses}>{children}</span>
-      <span>{iconRight}</span>
+      {iconRight && <span>{iconRight}</span>}
     </RenderTag>
   )
 }

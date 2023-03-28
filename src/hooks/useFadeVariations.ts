@@ -14,7 +14,7 @@ const useFadeVariations = () => {
     variants: fade,
     initial: 'hide',
     whileInView: 'show',
-    viewport: { margin: '-50px' }
+    viewport: { margin: '-50px', once: true }
   }
 }
 

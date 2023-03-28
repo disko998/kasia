@@ -17,7 +17,7 @@ export default function FeaturedImages() {
       ref={targetRef}
       className="mt-20 flex flex-col items-center justify-center py-40 text-center lg:mt-0"
       style={{
-        y: useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
+        y: useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
       }}
     >
       <div className="container flex max-w-3xl flex-col items-center justify-center text-center">

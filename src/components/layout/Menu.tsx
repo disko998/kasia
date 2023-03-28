@@ -17,9 +17,17 @@ const menuItems = [
 ]
 
 const socials = [
-  { label: 'EMAIL', href: 'mailto:official@kasia.com' },
-  { label: 'INSTAGRAM', href: 'https://www.instagram.com/' },
-  { label: 'TIKTOK', href: 'https://www.tiktok.com/' }
+  {
+    label: 'YOUTUBE',
+    href: 'https://www.youtube.com/channel/UCg_xzBtI5jkIA4eKVCBjNNw',
+    target: '_blank'
+  },
+  {
+    label: 'INSTAGRAM',
+    href: 'https://www.instagram.com/gorky_01/?hl=sr',
+    target: '_blank'
+  },
+  { label: 'EMAIL', href: 'mailto:official@kasia.com', target: '_self' }
 ]
 
 export default function Menu({ isOpen, onClose }: Props) {
@@ -54,13 +62,13 @@ export default function Menu({ isOpen, onClose }: Props) {
       <div className="h-[1px] w-full bg-soft-white" />
 
       <div className="flex flex-col gap-y-[20px] p-[30px]">
-        {socials.map(({ label, href }) => (
+        {socials.map(({ label, href, target }) => (
           <Button
             className="mt-2 h-[35px] border-soft-white text-[15px] text-soft-white"
             as="a"
             key={label}
+            target={target}
             href={href}
-            target="_blank"
           >
             {label}
           </Button>

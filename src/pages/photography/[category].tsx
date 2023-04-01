@@ -4,7 +4,7 @@ import Icon from '@/components/Icon'
 import PageLayout from '@/components/layout/PageLayout'
 import Image, { StaticImageData } from 'next/image'
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import classNames from 'classnames'
 import photoData, { PhotographyCategories } from '@/assets/photos'
 import Modal from '@/components/Modal'
@@ -134,22 +134,59 @@ export default function Photography({ images }: Props) {
           {Array.from({ length: 2 }).map((_, i) => (
             <div key={i} className="flex flex-col gap-4">
               {images?.[i].map(image => (
-                <Image
-                  className="cursor-pointer overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02]"
-                  placeholder="blur"
-                  onClick={() => setActiveImg(image)}
+                <motion.div
                   key={image.src}
-                  src={image}
-                  alt={category}
-                  loading="lazy"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
+                  onClick={() => setActiveImg(image)}
+                  layoutId={image.src}
+                >
+                  <Image
+                    className="cursor-pointer overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02]"
+                    placeholder="blur"
+                    src={image}
+                    alt={category}
+                    loading="lazy"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </motion.div>
               ))}
             </div>
           ))}
         </section>
 
-        <Modal open={!!activeImg} onClose={() => setActiveImg(undefined)}>
+        <AnimatePresence>
+          {activeImg && (
+            <motion.div
+              layoutId={activeImg.src}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-soft-white/80 dark:bg-soft-black/80"
+              onClick={() => setActiveImg(undefined)}
+            >
+              {activeImg && (
+                <div className="relative w-fit rounded-2xl">
+                  <div
+                    onClick={() => setActiveImg(undefined)}
+                    className="absolute top-3 right-2 z-10  cursor-pointer "
+                  >
+                    <Icon
+                      name="close-btn"
+                      size="1.5rem"
+                      className="dark:soft-white text-soft-black transition-colors"
+                    />
+                  </div>
+                  <Image
+                    className="max-h-[80vh] w-[100vw] object-contain lg:max-h-[90vh]"
+                    priority
+                    sizes="80vw"
+                    alt={category}
+                    src={activeImg}
+                    style={{ borderRadius: '16px' }}
+                  />
+                </div>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* <Modal open={!!activeImg} onClose={() => setActiveImg(undefined)}>
           <div className="relative px-4">
             <div
               onClick={() => setActiveImg(undefined)}
@@ -172,7 +209,7 @@ export default function Photography({ images }: Props) {
               />
             )}
           </div>
-        </Modal>
+        </Modal> */}
       </div>
     </PageLayout>
   )

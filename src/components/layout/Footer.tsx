@@ -72,8 +72,8 @@ export default function Footer() {
           >
             INSTAGRAM
           </Button>
-          <Button as="a" href="mailto:office@kasiastudio.rs">
-            EMAIL
+          <Button as="a" href="">
+            TIKTOK
           </Button>
         </div>
         <span className="order-3 text-[0.75rem] lg:-order-none">

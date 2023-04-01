@@ -15,7 +15,7 @@ export default function useSSRTheme() {
       ? theme.theme === 'system'
         ? theme.systemTheme
         : theme.theme
-      : 'light',
+      : 'dark',
     setTheme: (mode: string) => mounted && theme.setTheme(mode),
     isMounted: mounted
   }

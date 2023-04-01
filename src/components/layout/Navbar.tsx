@@ -64,19 +64,12 @@ export default function Navbar({ onMenu }: Props) {
         <Button
           as="a"
           target="_blank"
-          href="https://www.youtube.com/channel/UCg_xzBtI5jkIA4eKVCBjNNw"
+          href="tel:+381 61/1160-549"
           className="hidden lg:flex"
         >
-          YOUTUBE
+          KONTAKT
         </Button>
-        <Button
-          as="a"
-          target="_blank"
-          href="https://www.instagram.com/gorky_01/?hl=sr"
-          className="hidden lg:flex"
-        >
-          INSTAGRAM
-        </Button>
+
         <Button
           as="a"
           href="mailto:office@kasiastudio.rs"

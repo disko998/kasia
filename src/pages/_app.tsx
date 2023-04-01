@@ -16,7 +16,7 @@ function App({ Component, pageProps }: AppProps) {
           }
         />
       </Head>
-      <ThemeProvider attribute="class">
+      <ThemeProvider defaultTheme="dark" enableSystem={false} attribute="class">
         <Component {...pageProps} />
       </ThemeProvider>
     </div>

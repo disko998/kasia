@@ -41,6 +41,41 @@ import dogadjaji18 from '../../public/images/photography/dogadjaji/18.jpg'
 import dogadjaji19 from '../../public/images/photography/dogadjaji/19.jpg'
 import dogadjaji20 from '../../public/images/photography/dogadjaji/20.jpg'
 import dogadjaji21 from '../../public/images/photography/dogadjaji/21.jpg'
+import dogadjaji22 from '../../public/images/photography/dogadjaji/22.jpg'
+import dogadjaji23 from '../../public/images/photography/dogadjaji/23.jpg'
+import dogadjaji24 from '../../public/images/photography/dogadjaji/24.jpg'
+import dogadjaji25 from '../../public/images/photography/dogadjaji/25.jpg'
+import dogadjaji26 from '../../public/images/photography/dogadjaji/26.jpg'
+import dogadjaji27 from '../../public/images/photography/dogadjaji/27.jpg'
+import dogadjaji28 from '../../public/images/photography/dogadjaji/28.jpg'
+import dogadjaji29 from '../../public/images/photography/dogadjaji/29.jpg'
+import dogadjaji30 from '../../public/images/photography/dogadjaji/30.jpg'
+import dogadjaji31 from '../../public/images/photography/dogadjaji/31.jpg'
+import dogadjaji32 from '../../public/images/photography/dogadjaji/32.jpg'
+import dogadjaji33 from '../../public/images/photography/dogadjaji/33.jpg'
+import dogadjaji34 from '../../public/images/photography/dogadjaji/34.jpg'
+import dogadjaji35 from '../../public/images/photography/dogadjaji/35.jpg'
+import dogadjaji36 from '../../public/images/photography/dogadjaji/36.jpg'
+import dogadjaji37 from '../../public/images/photography/dogadjaji/37.jpg'
+import dogadjaji38 from '../../public/images/photography/dogadjaji/38.jpg'
+import dogadjaji39 from '../../public/images/photography/dogadjaji/39.jpg'
+import dogadjaji40 from '../../public/images/photography/dogadjaji/40.jpg'
+import dogadjaji41 from '../../public/images/photography/dogadjaji/41.jpg'
+import dogadjaji42 from '../../public/images/photography/dogadjaji/42.jpg'
+import dogadjaji43 from '../../public/images/photography/dogadjaji/43.jpg'
+import dogadjaji44 from '../../public/images/photography/dogadjaji/44.jpg'
+import dogadjaji45 from '../../public/images/photography/dogadjaji/45.jpg'
+import dogadjaji46 from '../../public/images/photography/dogadjaji/46.jpg'
+import dogadjaji47 from '../../public/images/photography/dogadjaji/47.jpg'
+import dogadjaji48 from '../../public/images/photography/dogadjaji/48.jpg'
+import dogadjaji49 from '../../public/images/photography/dogadjaji/49.jpg'
+import dogadjaji50 from '../../public/images/photography/dogadjaji/50.jpg'
+import dogadjaji51 from '../../public/images/photography/dogadjaji/51.jpg'
+import dogadjaji52 from '../../public/images/photography/dogadjaji/52.jpg'
+import dogadjaji53 from '../../public/images/photography/dogadjaji/53.jpg'
+import dogadjaji54 from '../../public/images/photography/dogadjaji/54.jpg'
+import dogadjaji55 from '../../public/images/photography/dogadjaji/55.jpg'
+import dogadjaji56 from '../../public/images/photography/dogadjaji/56.jpg'
 
 import arhitektura1 from '../../public/images/photography/arhitektura/1.jpg'
 import arhitektura2 from '../../public/images/photography/arhitektura/2.jpg'
@@ -63,6 +98,7 @@ import arhitektura18 from '../../public/images/photography/arhitektura/18.jpg'
 import arhitektura19 from '../../public/images/photography/arhitektura/19.jpg'
 import arhitektura20 from '../../public/images/photography/arhitektura/20.jpg'
 import arhitektura21 from '../../public/images/photography/arhitektura/21.jpg'
+import arhitektura22 from '../../public/images/photography/arhitektura/22.jpg'
 
 import hrana1 from '../../public/images/photography/hrana/1.jpg'
 import hrana2 from '../../public/images/photography/hrana/2.jpg'
@@ -173,7 +209,42 @@ const photoData = {
     dogadjaji18,
     dogadjaji19,
     dogadjaji20,
-    dogadjaji21
+    dogadjaji21,
+    dogadjaji22,
+    dogadjaji23,
+    dogadjaji24,
+    dogadjaji25,
+    dogadjaji26,
+    dogadjaji27,
+    dogadjaji28,
+    dogadjaji29,
+    dogadjaji30,
+    dogadjaji31,
+    dogadjaji32,
+    dogadjaji33,
+    dogadjaji34,
+    dogadjaji35,
+    dogadjaji36,
+    dogadjaji37,
+    dogadjaji38,
+    dogadjaji39,
+    dogadjaji40,
+    dogadjaji41,
+    dogadjaji42,
+    dogadjaji43,
+    dogadjaji44,
+    dogadjaji45,
+    dogadjaji46,
+    dogadjaji47,
+    dogadjaji48,
+    dogadjaji49,
+    dogadjaji50,
+    dogadjaji51,
+    dogadjaji52,
+    dogadjaji53,
+    dogadjaji54,
+    dogadjaji55,
+    dogadjaji56
   ],
   [PhotographyCategories.ARHITEKTURA]: [
     arhitektura1,
@@ -196,7 +267,8 @@ const photoData = {
     arhitektura18,
     arhitektura19,
     arhitektura20,
-    arhitektura21
+    arhitektura21,
+    arhitektura22
   ],
   [PhotographyCategories.PRODUCT]: [
     product1,

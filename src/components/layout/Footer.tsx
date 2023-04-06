@@ -17,7 +17,7 @@ export default function Footer() {
 
   return (
     <footer className="container flex flex-col items-center justify-center py-10 text-center">
-      <div className="flex h-[1.25rem] flex-col overflow-hidden py-[1px] text-xl font-light sm:text-lg">
+      <div className="flex h-[1.2rem] flex-col overflow-hidden py-[1px] text-xl font-light sm:text-lg">
         <motion.span
           transition={{ duration: 0.5, type: 'spring' }}
           animate={copied ? { y: '-100%' } : { y: 0 }}

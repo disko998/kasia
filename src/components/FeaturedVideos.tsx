@@ -1,32 +1,33 @@
 import Button from '@/components/buttons/Button'
 import Icon from '@/components/Icon'
 import Image from 'next/image'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import useFadeVariations from '@/hooks/useFadeVariations'
-import useAppSpring from '@/hooks/useAppSpring'
+import Modal from './Modal'
 
 const videos = [
   {
-    title: 'Naziv videa: Svadba - Kovačević',
-    thumb: '/images/thumbs/city-1.png',
-    video: ''
+    title: 'Naziv videa: Svadba - Janježić',
+    thumb: '/images/photography/dogadjaji/21.jpg',
+    video: 'https://www.youtube.com/embed/CCkYlWPOFeU'
   },
   {
-    title: 'Naziv videa: Film - Kosmajska bitka',
-    thumb: '/images/thumbs/city-2.png',
-    video: ''
+    title: 'Naziv videa: Real estate - Krit',
+    thumb: '/images/photography/arhitektura/22.jpg',
+    video: 'https://www.youtube.com/embed/kWgtX3z9rQ0'
   },
   {
-    title: 'Naziv videa: Spot za pesmu - Stara garda',
-    thumb: '/images/thumbs/city-3.png',
-    video: ''
+    title: 'Naziv videa: Product - KS Cipele',
+    thumb: '/images/cipele.png',
+    video: 'https://www.youtube.com/embed/VJQuMbiEQAk'
   }
 ]
 
 export default function FeaturedVideosSection() {
   const targetRef = useRef<any>()
   const fade = useFadeVariations()
+  const [activeVideo, setActiveVideo] = useState<string>()
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -63,7 +64,7 @@ export default function FeaturedVideosSection() {
       </motion.p>
 
       <div className="grid w-full grid-rows-1 gap-6 lg:grid-cols-3">
-        {videos.map(({ title, thumb }) => (
+        {videos.map(({ title, thumb, video }) => (
           <motion.div
             style={{
               y: spring
@@ -77,11 +78,13 @@ export default function FeaturedVideosSection() {
                 className="absolute inset-0 z-0 object-cover"
                 src={thumb}
                 alt="Grad"
+                sizes="(max-width: 640px) 100vw, 33vw"
               />
 
               <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden bg-soft-black/60">
                 <h3 className="text-soft-white">{title}</h3>
                 <Button
+                  onClick={() => setActiveVideo(video)}
                   className="mt-4 whitespace-nowrap border-soft-white text-soft-white backdrop-blur-[3.5px]"
                   iconRight={<Icon name="play" />}
                 >
@@ -91,13 +94,29 @@ export default function FeaturedVideosSection() {
             </div>
           </motion.div>
         ))}
-
-        {videos.length > 3 && (
-          <span className="mt-[15px] cursor-pointer text-sm font-semibold text-red-orange hover:underline">
-            UČITAJ JOŠ...
-          </span>
-        )}
       </div>
+
+      <Modal open={!!activeVideo} onClose={() => setActiveVideo(undefined)}>
+        <div
+          onClick={e => e.stopPropagation()}
+          className="relative h-[50vh] max-h-[40rem] w-[90vw] max-w-[50rem] md:w-[70vw] xl:w-[40vw]"
+        >
+          <div
+            onClick={() => setActiveVideo(undefined)}
+            className="absolute -top-7 right-0 z-10 cursor-pointer"
+          >
+            <Icon name="close-btn" size="1.5rem" />
+          </div>
+
+          <iframe
+            width="100%"
+            className="h-[100%] overflow-hidden rounded-[20px]"
+            src={activeVideo}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </div>
+      </Modal>
     </motion.section>
   )
 }

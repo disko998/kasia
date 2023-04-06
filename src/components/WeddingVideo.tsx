@@ -1,18 +1,20 @@
 import Button from '@/components/buttons/Button'
 import Icon from '@/components/Icon'
 import Image from 'next/image'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useScroll, useTransform, motion, useSpring } from 'framer-motion'
 
-import Thumbnail from '../../public/images/projects/janezic/thumbnail.png'
-import MladenciVencanje from '../../public/images/projects/janezic/mladenci.png'
-import ImageVencanje from '../../public/images/projects/janezic/vencanje.png'
-import ImageBurma from '../../public/images/projects/janezic/burma.png'
+import Thumbnail from '../../public/images/photography/dogadjaji/40.jpg'
+import MladenciVencanje from '../../public/images/photography/dogadjaji/56.jpg'
+import ImageVencanje from '../../public/images/photography/dogadjaji/29.jpg'
+import ImageBurma from '../../public/images/photography/dogadjaji/41.jpg'
+import Modal from './Modal'
 
 const pallet = ['#060A0B', '#474749', '#C3C2C0', '#D3A38B', '#FFFFFF']
 
 export default function WeddingVideo() {
   const sectionRef = useRef<any>()
+  const [showVideo, setShowVideo] = useState(false)
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -39,10 +41,15 @@ export default function WeddingVideo() {
             }}
           >
             <div className="relative overflow-hidden rounded-[20px] lg:rounded-[3rem]">
-              <Image src={Thumbnail} alt="Jezenic" />
+              <Image
+                src={Thumbnail}
+                alt="Janjezici"
+                className="max-h-[30rem] w-[50rem]"
+              />
 
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-soft-black/60">
                 <Button
+                  onClick={() => setShowVideo(true)}
                   className="mt-4 whitespace-nowrap border-soft-white text-soft-white backdrop-blur-[3.5px]"
                   iconRight={<Icon name="play" />}
                 >
@@ -65,6 +72,7 @@ export default function WeddingVideo() {
                 src={MladenciVencanje}
                 alt="Jezenic mladenci"
               />
+              <div className="absolute inset-0 bg-black/50" />
             </motion.div>
 
             <motion.div
@@ -74,6 +82,7 @@ export default function WeddingVideo() {
               }}
             >
               <Image width={250} src={ImageVencanje} alt="Jezenic vencanje" />
+              <div className="absolute inset-0 bg-black/50" />
             </motion.div>
 
             <motion.div
@@ -83,6 +92,7 @@ export default function WeddingVideo() {
               }}
             >
               <Image width={300} src={ImageBurma} alt="Jezenic burma" />
+              <div className="absolute inset-0 bg-black/50" />
             </motion.div>
           </div>
         </div>
@@ -97,6 +107,29 @@ export default function WeddingVideo() {
           ))}
         </div>
       </div>
+
+      <Modal open={showVideo} onClose={() => setShowVideo(false)}>
+        <div
+          onClick={e => e.stopPropagation()}
+          className="relative h-[50vh] max-h-[40rem] w-[90vw] max-w-[50rem] md:w-[70vw] xl:w-[40vw]"
+        >
+          <div
+            onClick={() => setShowVideo(false)}
+            className="absolute -top-7 right-0 z-10 cursor-pointer"
+          >
+            <Icon name="close-btn" size="1.5rem" />
+          </div>
+
+          <iframe
+            width="100%"
+            className="h-[100%] overflow-hidden rounded-[20px]"
+            src={'https://www.youtube.com/embed/CCkYlWPOFeU'}
+            title="Svadba - Janežić"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </div>
+      </Modal>
     </section>
   )
 }

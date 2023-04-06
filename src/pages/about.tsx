@@ -92,7 +92,7 @@ export default function About() {
               y: spring
             }}
           >
-            <div className="relative h-[375px] w-[250px] overflow-hidden rounded-xl">
+            <div className="relative flex h-[375px] w-[250px] items-center justify-center overflow-hidden rounded-xl">
               <Image
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
                 fill

@@ -23,8 +23,8 @@ const socials = [
     target: '_self'
   },
   {
-    label: 'official@kasia.com',
-    href: 'mailto:official@kasia.com',
+    label: 'office@kasia.com',
+    href: 'mailto:office@kasia.com',
     target: '_self'
   },
 

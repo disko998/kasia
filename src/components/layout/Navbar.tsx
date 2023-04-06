@@ -1,6 +1,7 @@
 import Button from '@/components/buttons/Button'
 import ThemeToggle from '@/components/buttons/ThemeToggle'
 import Logo from '@/components/Logo'
+import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 
 type Props = {
@@ -63,11 +64,16 @@ export default function Navbar({ onMenu }: Props) {
       <div className="flex-row gap-4 lg:flex">
         <Button
           as="a"
-          target="_blank"
           href="tel:+381 61/1160-549"
-          className="hidden lg:flex"
+          className="group hidden transition-all lg:flex"
+          textClassName="flex flex-col overflow-hidden h-[0.625rem]"
         >
-          KONTAKT
+          <span className="translate-y-0 transition-transform duration-500 group-hover:translate-y-[-100%]">
+            {'KONTAKT'}
+          </span>
+          <span className="translate-y-0 transition-transform duration-500 group-hover:translate-y-[-100%]">
+            {'+381 61/1160-549'}
+          </span>
         </Button>
 
         <Button

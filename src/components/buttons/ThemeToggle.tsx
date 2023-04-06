@@ -34,7 +34,7 @@ const ThemeToggle = () => {
 
   return (
     <Button
-      textClassName={`min-w-[1.5rem] overflow-visible mr-[5px] flex flex-col h-[0.625rem] overflow-hidden`}
+      textClassName={`min-w-[1.5rem] mr-[5px] flex flex-col h-[0.625rem] overflow-hidden`}
       className="pr-0"
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       iconRight={View}

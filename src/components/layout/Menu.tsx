@@ -18,6 +18,17 @@ const menuItems = [
 
 const socials = [
   {
+    label: '+381 61/1160-549',
+    href: 'tel:+381 61/1160-549',
+    target: '_self'
+  },
+  {
+    label: 'official@kasia.com',
+    href: 'mailto:official@kasia.com',
+    target: '_self'
+  },
+
+  {
     label: 'YOUTUBE',
     href: 'https://www.youtube.com/channel/UCg_xzBtI5jkIA4eKVCBjNNw',
     target: '_blank'
@@ -26,8 +37,7 @@ const socials = [
     label: 'INSTAGRAM',
     href: 'https://www.instagram.com/gorky_01/?hl=sr',
     target: '_blank'
-  },
-  { label: 'EMAIL', href: 'mailto:official@kasia.com', target: '_self' }
+  }
 ]
 
 export default function Menu({ isOpen, onClose }: Props) {

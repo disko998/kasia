@@ -75,7 +75,13 @@ export default function Index() {
             <h1 className="max-w-[30rem] text-center text-white">
               ZABELEŽI TRENUTAK SA KASIA STUDIOM
             </h1>
-            <Button className="mt-7 border-white text-white">O NAMA</Button>
+            <Button
+              as="a"
+              href="/about"
+              className="mt-7 border-white text-white"
+            >
+              O NAMA
+            </Button>
           </motion.div>
 
           <video className="h-full w-full object-cover" autoPlay loop muted>
@@ -237,7 +243,7 @@ export default function Index() {
               <Button
                 as="a"
                 href="/about"
-                className="mt-7 border-red-orange text-red-orange"
+                className="z-10 mt-7 border-red-orange text-red-orange"
               >
                 O nama
               </Button>
@@ -247,6 +253,7 @@ export default function Index() {
           <motion.div
             className="absolute left-0 top-[100%] flex items-center justify-center"
             style={{
+              zIndex: -1,
               top: useTransform(
                 aboutScroll.scrollYProgress,
                 [0.4, 1],
@@ -270,6 +277,7 @@ export default function Index() {
           <motion.div
             className="absolute right-0 top-[100%] hidden items-center justify-center xl:flex"
             style={{
+              zIndex: -1,
               top: useTransform(
                 aboutScroll.scrollYProgress,
                 [0.6, 1],

@@ -1,6 +1,7 @@
 import Button from '@/components/buttons/Button'
 import { motion } from 'framer-motion'
 import { useState, useRef } from 'react'
+import { isMobile } from 'react-device-detect'
 
 export default function Footer() {
   const [copied, setCopied] = useState(false)
@@ -10,14 +11,14 @@ export default function Footer() {
     if (timerRef.current) {
       clearTimeout(timerRef.current)
     }
-    navigator.clipboard.writeText(text)
+    navigator.clipboard?.writeText(text)
     setCopied(true)
     timerRef.current = setTimeout(() => setCopied(false), 3000)
   }
 
   return (
     <footer className="container flex flex-col items-center justify-center py-10 text-center">
-      <div className="flex h-[1.2rem] flex-col overflow-hidden py-[1px] text-xl font-light sm:text-lg">
+      <div className="flex h-[1.25rem] flex-col overflow-hidden text-lg font-light sm:text-lg">
         <motion.span
           transition={{ duration: 0.5, type: 'spring' }}
           animate={copied ? { y: '-100%' } : { y: 0 }}
@@ -25,6 +26,7 @@ export default function Footer() {
           Budite slobodni da nas kontaktirate
         </motion.span>
         <motion.span
+          className="my-1"
           transition={{ duration: 0.5, type: 'spring' }}
           animate={copied ? { y: '-100%' } : { y: 0 }}
         >
@@ -33,24 +35,47 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-col">
-        <button
-          onClick={() => onCopy('office@kasiastudio.rs')}
-          className="group mt-12 cursor-pointer rounded-2xl bg-white p-5 text-center font-serif text-[2.5rem] text-red-orange transition-colors duration-500 dark:bg-[#181b1e] sm:text-5xl"
-        >
-          <div className="transition-transform duration-300 group-hover:scale-[0.98] group-active:scale-95">
-            OFFICE@KASIASTUDIO.RS
-          </div>
-          <div className="hidden">Copy</div>
-        </button>
+        {isMobile ? (
+          <a
+            className="group mt-12 cursor-pointer rounded-2xl bg-white p-5 text-center font-serif text-[2.5rem] text-red-orange transition-colors duration-500 dark:bg-[#181b1e] sm:text-5xl"
+            href={'mailto:office@kasiastudio.rs'}
+          >
+            <div className="transition-transform duration-300 group-hover:scale-[0.98] group-active:scale-95">
+              OFFICE@KASIASTUDIO.RS
+            </div>
+          </a>
+        ) : (
+          <button
+            onClick={() => onCopy('office@kasiastudio.rs')}
+            className="group mt-12 cursor-pointer rounded-2xl bg-white p-5 text-center font-serif text-[2.5rem] text-red-orange transition-colors duration-500 dark:bg-[#181b1e] sm:text-5xl"
+          >
+            <div className="transition-transform duration-300 group-hover:scale-[0.98] group-active:scale-95">
+              OFFICE@KASIASTUDIO.RS
+            </div>
+            <div className="hidden">Copy</div>
+          </button>
+        )}
 
-        <button
-          onClick={() => onCopy('+381 61/1160-549')}
-          className="group mt-12 cursor-pointer rounded-2xl bg-white p-5 text-center font-serif text-[2.5rem] text-red-orange transition-colors duration-500 dark:bg-[#181b1e] sm:text-5xl"
-        >
-          <div className="transition-transform duration-300 group-hover:scale-[.98] group-active:scale-95">
-            +381 61/1160-549
-          </div>
-        </button>
+        {isMobile ? (
+          <a
+            className="group mt-12 cursor-pointer rounded-2xl bg-white p-5 text-center font-serif text-[2.5rem] text-red-orange transition-colors duration-500 dark:bg-[#181b1e] sm:text-5xl"
+            href={'tel:+381611160549'}
+          >
+            <div className="transition-transform duration-300 group-hover:scale-[0.98] group-active:scale-95">
+              +381 61/1160-549
+            </div>
+          </a>
+        ) : (
+          <button
+            onClick={() => onCopy('office@kasiastudio.rs')}
+            className="group mt-12 cursor-pointer rounded-2xl bg-white p-5 text-center font-serif text-[2.5rem] text-red-orange transition-colors duration-500 dark:bg-[#181b1e] sm:text-5xl"
+          >
+            <div className="transition-transform duration-300 group-hover:scale-[0.98] group-active:scale-95">
+              +381 61/1160-549
+            </div>
+            <div className="hidden">Copy</div>
+          </button>
+        )}
       </div>
 
       <div className="relative mt-12 flex w-full flex-col items-center justify-between gap-6 lg:flex-row">

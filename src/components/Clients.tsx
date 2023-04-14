@@ -28,7 +28,7 @@ const Clients = (props: Props) => {
           y: useTransform(
             parallaxScroll.scrollYProgress,
             [0, 1],
-            ['0%', '100%']
+            ['0%', '30%']
           ),
           opacity: useTransform(
             parallaxScroll.scrollYProgress,

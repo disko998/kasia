@@ -36,7 +36,7 @@ export default function WeddingVideo() {
         <div className="relative mt-[50px]">
           <motion.div
             style={{
-              rotateY: useTransform(spring, [0, 1], [-10, 0]),
+              rotateY: useTransform(spring, [0, 1], [-20, 0]),
               rotateX: useTransform(spring, [0, 1], [-10, 0])
             }}
           >
@@ -59,42 +59,51 @@ export default function WeddingVideo() {
             </div>
           </motion.div>
 
-          <div className="hidden md:block">
-            <motion.div
-              className="absolute bottom-[-60px] left-[-150px] overflow-hidden rounded-[20px]"
-              style={{
-                x: useTransform(spring, [0, 1], [100, 0]),
-                scale: useTransform(spring, [0, 1], [0.8, 1])
-              }}
-            >
-              <Image
-                width={400}
-                src={MladenciVencanje}
-                alt="Jezenic mladenci"
-              />
-              <div className="absolute inset-0 bg-black/50" />
-            </motion.div>
+          <motion.div
+            className="absolute bottom-[-10%] left-[-20%] overflow-hidden rounded-[20px]"
+            style={{
+              x: useTransform(spring, [0, 1], [-100, 0])
+              //   scale: useTransform(spring, [0, 1], [0.8, 1])
+            }}
+          >
+            <Image
+              width={400}
+              src={MladenciVencanje}
+              className="w-[40vw] max-w-[400px]"
+              alt="Jezenic mladenci"
+            />
+            <div className="absolute inset-0 bg-black/50" />
+          </motion.div>
 
-            <motion.div
-              className="absolute top-[-30px] right-[-37px] overflow-hidden rounded-[20px]"
-              style={{
-                x: useTransform(spring, [0, 1], [-50, 0])
-              }}
-            >
-              <Image width={250} src={ImageVencanje} alt="Jezenic vencanje" />
-              <div className="absolute inset-0 bg-black/50" />
-            </motion.div>
+          <motion.div
+            className="absolute top-[-10%] right-[-10%] overflow-hidden rounded-[20px]"
+            style={{
+              x: useTransform(spring, [0, 1], [50, 0])
+            }}
+          >
+            <Image
+              width={250}
+              className="w-[40vw] max-w-[300px]"
+              src={ImageVencanje}
+              alt="Jezenic vencanje"
+            />
+            <div className="absolute inset-0 bg-black/50" />
+          </motion.div>
 
-            <motion.div
-              className="absolute top-[200px] right-[-150px] overflow-hidden rounded-[20px]"
-              style={{
-                x: useTransform(spring, [0, 1], [50, 0])
-              }}
-            >
-              <Image width={300} src={ImageBurma} alt="Jezenic burma" />
-              <div className="absolute inset-0 bg-black/50" />
-            </motion.div>
-          </div>
+          <motion.div
+            className="absolute top-[40%] right-[-15%] overflow-hidden rounded-[20px]"
+            style={{
+              x: useTransform(spring, [0, 1], [100, 0])
+            }}
+          >
+            <Image
+              className="w-[40vw] max-w-[300px]"
+              width={300}
+              src={ImageBurma}
+              alt="Jezenic burma"
+            />
+            <div className="absolute inset-0 bg-black/50" />
+          </motion.div>
         </div>
 
         <div className="mt-1 flex w-[15rem] justify-between">

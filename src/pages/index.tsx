@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import FeaturedVideos from '@/components/FeaturedVideos'
 import PageLayout from '@/components/layout/PageLayout'
 import ProjectsReveals from '@/components/ProjectsReveals'
@@ -17,6 +17,12 @@ export default function Index() {
   const heroRef = useRef<any>()
   const locationRef = useRef<any>()
   const aboutRef = useRef<any>()
+
+  const videRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    videRef?.current?.play()
+  }, [videRef])
 
   const headerScroll = useScroll({
     target: heroRef,
@@ -84,8 +90,17 @@ export default function Index() {
             </Button>
           </motion.div>
 
-          <video className="h-full w-full object-cover" autoPlay loop muted>
+          <video
+            ref={videRef}
+            className="h-full w-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
             <source src="/hero.mp4" type="video/mp4" />
+            <source src="/hero.webm" type="video/webm" />
+            {/* <source src="/hero.ogg" type="video/ogg" /> */}
             Your browser does not support the video tag.
           </video>
 

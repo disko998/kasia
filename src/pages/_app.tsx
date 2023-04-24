@@ -1,12 +1,14 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
-import { imbue, jeko } from '@/styles/fonts'
+import { jeko } from '@/styles/fonts'
 import Head from 'next/head'
+import Loading from '@/components/Loading'
+import { AnimatePresence } from 'framer-motion'
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${imbue.variable} ${jeko.variable} font-sans`}>
+    <div className={`${jeko.variable} font-sans`}>
       <Head>
         <title>{'Kasia - ZABELEŽI TRENUTAK SA KASIA STUDIOM'}</title>
         <meta
@@ -17,7 +19,11 @@ function App({ Component, pageProps }: AppProps) {
         />
       </Head>
       <ThemeProvider defaultTheme="dark" enableSystem={false} attribute="class">
-        <Component {...pageProps} />
+        <AnimatePresence mode="wait">
+          <Loading>
+            <Component {...pageProps} />
+          </Loading>
+        </AnimatePresence>
       </ThemeProvider>
     </div>
   )

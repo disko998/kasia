@@ -1,13 +1,13 @@
 import localFont from '@next/font/local'
 import { Imbue } from '@next/font/google'
 
-export const imbue = Imbue({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  display: 'swap',
-  fallback: ['serif'],
-  variable: '--font-imbue'
-})
+// export const imbue = Imbue({
+//   subsets: ['latin'],
+//   weight: ['400', '500', '600'],
+//   display: 'swap',
+//   fallback: ['serif'],
+//   variable: '--font-imbue'
+// })
 
 export const jeko = localFont({
   src: [

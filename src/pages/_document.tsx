@@ -21,6 +21,16 @@ const Document = () => {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,400;10..100,500;10..100,600&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <body>
         <Main />

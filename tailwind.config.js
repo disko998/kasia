@@ -26,7 +26,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        serif: ['var(--font-imbue)'],
+        serif: ['Imbue'],
         sans: ['var(--font-jeko)']
       },
       fontSize: {

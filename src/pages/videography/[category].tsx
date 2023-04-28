@@ -4,12 +4,12 @@ import Icon from '@/components/Icon'
 import PageLayout from '@/components/layout/PageLayout'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import Modal from '@/components/Modal'
 import videoData, { VideoCategories, VideoData } from '@/assets/videos'
 import { GetStaticPropsContext } from 'next'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import classNames from 'classnames'
+import useTranslation from 'next-translate/useTranslation'
 
 const categories = [
   VideoCategories.PRODUCT,
@@ -26,23 +26,21 @@ type Props = {
 export default function Photography({ videos }: Props) {
   const { query } = useRouter()
   const category = query.category as VideoCategories
+  const { t } = useTranslation('common')
 
   const [showDropdown, setShowDropdown] = useState(false)
-  //   const [activeVideo, setActiveVideo] = useState<string>()
 
   return (
     <PageLayout hideFooter>
       <div className="flex min-h-screen flex-col lg:flex-row">
         <section className="relative mt-[140px] flex w-full lg:mt-0 lg:w-[50%]">
           <div className="container sticky top-0 flex w-full max-w-[40rem] flex-col items-center justify-center gap-[25px] lg:m-0 lg:h-screen lg:items-start lg:gap-[40px] lg:py-[89px]">
-            <p>VIDEOGRAGIJA</p>
-            <h1>
-              Naši video snimci
-              <br /> na jednom mestu
-            </h1>
+            <p>{t('videography')}</p>
+            <h1
+              dangerouslySetInnerHTML={{ __html: t('videographyPage.title') }}
+            />
             <p className="max-w-[80%] text-center lg:text-left">
-              Sprecijalizovani videografi u oblastima kao što su spotovi,
-              događaji, produkt, arhitekture.
+              {t('videographyPage.description')}
             </p>
 
             <div className="mt-10 flex w-[146px] flex-col gap-4 sm:my-0 sm:mt-5 sm:w-full sm:flex-row">
@@ -127,29 +125,6 @@ export default function Photography({ videos }: Props) {
             </div>
           ))}
         </section>
-
-        {/* <Modal open={!!activeVideo} onClose={() => setActiveVideo(undefined)}>
-		<div
-            onClick={e => e.stopPropagation()}
-            className="relative h-[50vh] max-h-[40rem] w-[90vw] max-w-[50rem] md:w-[70vw] xl:w-[40vw]"
-          >
-            <div
-              onClick={() => setActiveVideo(undefined)}
-              className="absolute -top-7 right-0 z-10 cursor-pointer"
-            >
-              <Icon name="close-btn" size="1.5rem" />
-            </div>
-
-            <video
-              className="h-full w-full overflow-hidden rounded-[20px] object-cover"
-              autoPlay
-              controls
-            >
-              <source src={`/videos/${activeVideo}`} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </Modal> */}
       </div>
     </PageLayout>
   )

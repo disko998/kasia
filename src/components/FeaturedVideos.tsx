@@ -5,20 +5,21 @@ import { useRef, useState } from 'react'
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import useFadeVariations from '@/hooks/useFadeVariations'
 import Modal from './Modal'
+import useTranslation from 'next-translate/useTranslation'
 
 const videos = [
   {
-    title: 'Naziv videa: Svadba - Janježić',
+    title: 'vid1Title',
     thumb: '/images/photography/dogadjaji/21.jpg',
     video: 'https://www.youtube.com/embed/CCkYlWPOFeU'
   },
   {
-    title: 'Naziv videa: Real estate - Krit',
+    title: 'vid2Title',
     thumb: '/images/photography/arhitektura/22.jpg',
     video: 'https://www.youtube.com/embed/kWgtX3z9rQ0'
   },
   {
-    title: 'Naziv videa: Product - KS Cipele',
+    title: 'vid3Title',
     thumb: '/images/cipele.png',
     video: 'https://www.youtube.com/embed/VJQuMbiEQAk'
   }
@@ -28,6 +29,7 @@ export default function FeaturedVideosSection() {
   const targetRef = useRef<any>()
   const fade = useFadeVariations()
   const [activeVideo, setActiveVideo] = useState<string>()
+  const { t } = useTranslation('common')
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -52,15 +54,11 @@ export default function FeaturedVideosSection() {
       className="container flex flex-col items-center justify-center py-36 text-center"
     >
       <motion.h2 {...fade} className="sm:text-h2 text-4xl">
-        Videografija je naša specijalnost
+        {t('featuredVideos.title')}
       </motion.h2>
 
       <motion.p {...fade} className="mt-7 mb-20 max-w-2xl leading-[120%]">
-        Višedecenijska karijera u oblasti Videografije nam je donela veliko
-        iskustvo i profesionalnost koju možemo da prezentujemo i ponudimo našim
-        klijentima. Od svabi, do real-estate videa, preko commercial spotova i
-        videa do edukativnih programa… U prilogu možete videti neke od projekata
-        koje smo radili.
+        {t('featuredVideos.description')}
       </motion.p>
 
       <div className="grid w-full grid-rows-1 gap-6 lg:grid-cols-3">
@@ -82,13 +80,13 @@ export default function FeaturedVideosSection() {
               />
 
               <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden bg-soft-black/60">
-                <h3 className="text-soft-white">{title}</h3>
+                <h3 className="text-soft-white">{t(title)}</h3>
                 <Button
                   onClick={() => setActiveVideo(video)}
                   className="mt-4 whitespace-nowrap border-soft-white text-soft-white backdrop-blur-[3.5px]"
                   iconRight={<Icon name="play" />}
                 >
-                  Pogledaj
+                  {t('playVideo')}
                 </Button>
               </div>
             </div>

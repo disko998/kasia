@@ -6,17 +6,18 @@ import WeddingVideo from '@/components/WeddingVideo'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Button from '@/components/buttons/Button'
-import Icon from '@/components/Icon'
 import FeaturedImages from '@/components/FeaturedImages'
 import BelgradeImage from '../../public/images/belgrade.png'
 import LighthouseImage from '../../public/images/lighthouse.png'
 import NatureImage from '../../public/images/nature.png'
 import Clients from '@/components/Clients'
+import useTranslation from 'next-translate/useTranslation'
 
 export default function Index() {
   const heroRef = useRef<any>()
   const locationRef = useRef<any>()
   const aboutRef = useRef<any>()
+  const { t } = useTranslation('common')
 
   const videRef = useRef<HTMLVideoElement>(null)
 
@@ -79,14 +80,14 @@ export default function Index() {
             className="absolute inset-0 z-20 flex flex-col items-center justify-center"
           >
             <h1 className="max-w-[30rem] text-center text-white">
-              ZABELEŽI TRENUTAK SA KASIA STUDIOM
+              {t('title')}
             </h1>
             <Button
               as="a"
               href="/about"
               className="mt-7 border-white text-white"
             >
-              O NAMA
+              {t('aboutUs')}
             </Button>
           </motion.div>
 
@@ -134,7 +135,7 @@ export default function Index() {
                 )
               }}
             >
-              Naša Lokacija
+              {t('ourLocation')}
             </motion.h2>
 
             <motion.h3
@@ -152,7 +153,7 @@ export default function Index() {
               }}
               className="mt-7 text-soft-black dark:text-soft-white"
             >
-              Beograd, Srbija
+              {t('city')}
             </motion.h3>
 
             <motion.p
@@ -170,7 +171,7 @@ export default function Index() {
               }}
               className="mt-7"
             >
-              Naš studio se nalazi u Zemunu - ulica Prvomajska 6k.
+              {t('location')}
             </motion.p>
 
             <motion.div
@@ -217,7 +218,7 @@ export default function Index() {
                 y: useTransform(aboutScroll.scrollYProgress, [0, 0.4], [20, 0])
               }}
             >
-              Kasia Studio
+              {t('companyName')}
             </motion.h2>
 
             <motion.p
@@ -235,10 +236,7 @@ export default function Index() {
               }}
               className="mt-7 max-w-[35rem]"
             >
-              Naš tim je sastavljen od 3 profesionalca, svako u svojoj oblasti.
-              Edvard je profesionalni fotograf koji je radio sa preko hiljadu
-              poznatih ličnosti i imena u regionu i svojim iskustvom i
-              kvalitetom stoji iza svake svoje fotografije...
+              {t('ourTeamShortDesc')}
             </motion.p>
 
             <motion.div
@@ -260,7 +258,7 @@ export default function Index() {
                 href="/about"
                 className="z-10 mt-7 border-red-orange text-red-orange"
               >
-                O nama
+                {t('aboutUs')}
               </Button>
             </motion.div>
           </div>
@@ -317,7 +315,6 @@ export default function Index() {
 
       <FeaturedVideos />
       <FeaturedImages />
-
       <Clients />
       <ProjectsReveals />
       <WeddingVideo />

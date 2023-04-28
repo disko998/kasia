@@ -1,7 +1,8 @@
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
+import useTranslation from 'next-translate/useTranslation'
 
 type Props = {
   categories: string[]
@@ -14,12 +15,8 @@ export default function Categories({
   selected,
   type = 'photography'
 }: Props) {
-  const [hover, setHover] = useState<string>()
   const active = useRef(false)
-
-  useEffect(() => {
-    setHover(selected)
-  }, [selected])
+  const { t } = useTranslation('common')
 
   return (
     <div
@@ -28,13 +25,11 @@ export default function Categories({
           active.current = false
           return
         }
-        setHover(selected)
       }}
       className="flex items-center justify-between gap-1 border-t-1 border-silver-brown text-sm font-medium"
     >
       {categories.map(category => (
         <Link
-          onMouseOver={() => setHover(category)}
           onClick={() => (active.current = true)}
           href={`/${type}/${category}`}
           className={classNames(
@@ -45,7 +40,7 @@ export default function Categories({
           )}
           key={category}
         >
-          {category}
+          {t(category)}
           {selected === category && (
             <motion.div
               //   layoutId="buttonUpperLine"

@@ -1,20 +1,13 @@
-import React from 'react'
 import classNames from 'classnames'
 import Button from '@/components/buttons/Button'
 import Logo from '@/components/Logo'
 import Icon from '@/components/Icon'
+import useTranslation from 'next-translate/useTranslation'
 
 type Props = {
   isOpen: boolean
   onClose: () => void
 }
-
-const menuItems = [
-  { label: 'Home', href: '/' },
-  { label: 'VIDEOGRAPHY', href: '/videography' },
-  { label: 'PHOTOGRAPHY', href: '/photography' },
-  { label: 'ABOUT US', href: '/about' }
-]
 
 const socials = [
   {
@@ -41,6 +34,14 @@ const socials = [
 ]
 
 export default function Menu({ isOpen, onClose }: Props) {
+  const { t } = useTranslation('common')
+
+  const menuItems = [
+    { label: t('videography'), href: '/videography' },
+    { label: t('photography'), href: '/photography' },
+    { label: t('aboutUs'), href: '/about' }
+  ]
+
   return (
     <nav
       className={classNames(

@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
+const nextTranslate = require('next-translate-plugin')
 
-const nextConfig = {
+const nextConfig = nextTranslate({
   async redirects() {
     return [
       {
@@ -24,6 +25,6 @@ const nextConfig = {
 
     return config
   }
-}
+})
 
 module.exports = nextConfig

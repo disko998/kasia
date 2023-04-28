@@ -7,10 +7,10 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import classNames from 'classnames'
 import photoData, { PhotographyCategories } from '@/assets/photos'
-import Modal from '@/components/Modal'
 import { useRouter } from 'next/router'
 import { GetStaticPropsContext } from 'next'
 import Link from 'next/link'
+import useTranslation from 'next-translate/useTranslation'
 
 const categories = [
   PhotographyCategories.PORTRETI,
@@ -27,6 +27,7 @@ type Props = {
 export default function Photography({ images }: Props) {
   const { query } = useRouter()
   const category = query.category as PhotographyCategories
+  const { t } = useTranslation('common')
 
   const [showDropdown, setShowDropdown] = useState(false)
   const [activeImg, setActiveImg] = useState<StaticImageData>()
@@ -36,14 +37,12 @@ export default function Photography({ images }: Props) {
       <div className="flex min-h-screen flex-col lg:flex-row">
         <section className="relative mt-[140px] flex w-full lg:mt-0 lg:w-[50%]">
           <div className="container sticky top-0 flex w-full max-w-[40rem] flex-col items-center justify-center gap-[25px] lg:m-0 lg:h-screen lg:items-start lg:gap-[40px] lg:py-[89px]">
-            <p>FOTOGRAFIJE</p>
-            <h1>
-              Naše fotografije <br /> na jednom mestu
-            </h1>
+            <p>{t('photography')}</p>
+            <h1
+              dangerouslySetInnerHTML={{ __html: t('photographyPage.title') }}
+            />
             <p className="max-w-[80%] text-center lg:text-left">
-              Sprecijalizovani fotografi u oblastima kao što su brend kontent,
-              događaji, produkt fotografija, fotografija arhitekture. Vaše
-              fotografije će te dobiti u kratkom roku.
+              {t('photographyPage.description')}
             </p>
 
             <div className="mt-10 flex w-[146px] flex-col gap-4 sm:my-0 sm:mt-5 sm:w-full sm:flex-row">
@@ -185,31 +184,6 @@ export default function Photography({ images }: Props) {
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* <Modal open={!!activeImg} onClose={() => setActiveImg(undefined)}>
-          <div className="relative px-4">
-            <div
-              onClick={() => setActiveImg(undefined)}
-              className="absolute -top-7 right-5 z-10 cursor-pointer"
-            >
-              <Icon
-                name="close-btn"
-                size="1.5rem"
-                className="dark:soft-white text-soft-black transition-colors"
-              />
-            </div>
-
-            {activeImg && (
-              <Image
-                className="max-h-[80vh] w-[100vw] object-contain lg:max-h-[90vh]"
-                priority
-                sizes="80vw"
-                alt={category}
-                src={activeImg}
-              />
-            )}
-          </div>
-        </Modal> */}
       </div>
     </PageLayout>
   )

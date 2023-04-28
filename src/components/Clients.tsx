@@ -5,11 +5,13 @@ import Telegraf from '../../public/images/clients/telegraf.png'
 import Amazon from '../../public/images/clients/amazon.png'
 import OnlineBusinessAcademy from '../../public/images/clients/oba.png'
 import Autopect from '../../public/images/clients/autopect.png'
+import useTranslation from 'next-translate/useTranslation'
 
 type Props = {}
 
 const Clients = (props: Props) => {
   const targetRef = useRef<any>()
+  const { t } = useTranslation('common')
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -43,7 +45,7 @@ const Clients = (props: Props) => {
             opacity: useTransform(scrollYProgress, [0, 0.4], [0, 1])
           }}
         >
-          Naši Klijenti
+          {t('ourClients')}
         </motion.h2>
 
         <div className="mx-auto mt-20 grid grid-cols-1 grid-rows-4 place-items-center gap-x-16 gap-y-14 sm:grid-cols-2 sm:grid-rows-2">

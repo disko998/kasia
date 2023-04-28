@@ -9,12 +9,14 @@ import MladenciVencanje from '../../public/images/photography/dogadjaji/56.jpg'
 import ImageVencanje from '../../public/images/photography/dogadjaji/29.jpg'
 import ImageBurma from '../../public/images/photography/dogadjaji/41.jpg'
 import Modal from './Modal'
+import useTranslation from 'next-translate/useTranslation'
 
 const pallet = ['#060A0B', '#474749', '#C3C2C0', '#D3A38B', '#FFFFFF']
 
 export default function WeddingVideo() {
   const sectionRef = useRef<any>()
   const [showVideo, setShowVideo] = useState(false)
+  const { t } = useTranslation('common')
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -26,11 +28,9 @@ export default function WeddingVideo() {
   return (
     <section ref={sectionRef} className=" overflow-hidden">
       <div className="container flex max-w-4xl flex-col items-center justify-center gap-4 pb-[100px] text-center sm:pb-[200px]">
-        <motion.h2>Svadba - Janežić</motion.h2>
+        <motion.h2>{t('wedding.title')}</motion.h2>
         <motion.p className="max-w-[600px]">
-          Matej i Vanesa su prelepi mladi bračni par koji je odlučio da
-          najbitniji dan u njihovom životu zabeleži kroz brojne fotografije i
-          video od kog se gubi dah. Uživajte!
+          {t('wedding.description')}
         </motion.p>
 
         <div className="relative mt-[50px]">
@@ -53,7 +53,7 @@ export default function WeddingVideo() {
                   className="mt-4 whitespace-nowrap border-soft-white text-soft-white backdrop-blur-[3.5px]"
                   iconRight={<Icon name="play" />}
                 >
-                  Pogledaj
+                  {t('playVideo')}
                 </Button>
               </div>
             </div>

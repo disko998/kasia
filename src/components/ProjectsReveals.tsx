@@ -2,37 +2,27 @@ import Icon from '@/components/Icon'
 import Image from 'next/image'
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import useTranslation from 'next-translate/useTranslation'
 
-const projects = [
-  {
-    title: 'Produkt fotografija',
-    description:
-      'Sa zadovoljstvom vam predstavljamo jednu od najboljih product photography kampanja koju smo imali prilike da radimo i na koju smo najviše ponosni. U pitanju je kompanija Seiko.',
-    date: '05, steptembar 2021.',
-    place: 'Beograd, Srbija',
-    pallet: ['#58412A', '#555532', '#A0AA72', '#E6B2A6', '#E2BFA2'],
-    images: [
-      '/images/projects/product-sat-1.png',
-      '/images/projects/product-sat-2.png'
-    ]
-  },
-  {
-    title: 'Lazar Lux Apartments',
-    description:
-      'Predivan hotel na samoj obali grčkog ostrva Krit. Imali smo tu čast da sarađujemo sa njima i njihovim predivnim hotelom. Nadamo se da ćete uživati!',
-    date: '05, steptembar 2022.',
-    place: 'Krit, Grčka',
-    pallet: ['#58412A', '#544A44', '#74A4C5', '#C6D8E2', '#FFFFFF'],
-    images: ['/images/projects/hotel-1.png', '/images/projects/hotel-2.png']
-  }
-]
+type Projects = {
+  title: string
+  description: string
+  date: string
+  place: string
+  pallet: string[]
+  images: string[]
+}
 
 export default function ProjectsReveals() {
+  const { t } = useTranslation('common')
+
+  const projects = t<Projects[]>('projects', {}, { returnObjects: true })
+
   return (
     <section className="relative flex flex-col gap-y-36">
-      {projects.map((project, i) => (
+      {projects?.map((project, i) => (
         <motion.div key={project.title}>
-          <Project {...project} index={i} />
+          <Project projects={projects} {...project} index={i} />
         </motion.div>
       ))}
     </section>
@@ -46,8 +36,9 @@ const Project = ({
   place,
   pallet,
   images,
-  index
-}: (typeof projects)[0] & { index: number }) => {
+  index,
+  projects
+}: Projects & { index: number; projects: Projects[] }) => {
   const sectionRef = useRef<any>()
   const targetRef = useRef<any>()
 

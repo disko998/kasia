@@ -1,8 +1,8 @@
 import Button from '@/components/buttons/Button'
 import ThemeToggle from '@/components/buttons/ThemeToggle'
 import Logo from '@/components/Logo'
-import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
+import useTranslation from 'next-translate/useTranslation'
 
 type Props = {
   onMenu: () => void
@@ -10,6 +10,7 @@ type Props = {
 
 export default function Navbar({ onMenu }: Props) {
   const router = useRouter()
+  const { t } = useTranslation('common')
 
   return (
     <nav
@@ -17,7 +18,7 @@ export default function Navbar({ onMenu }: Props) {
 	   backdrop-blur-md transition-colors duration-500 dark:bg-soft-black/80`}
     >
       <Button onClick={onMenu} className="lg:hidden">
-        menu
+        {t('menu')}
       </Button>
 
       <div className="hidden flex-row gap-4 lg:flex">
@@ -33,7 +34,7 @@ export default function Navbar({ onMenu }: Props) {
           as="a"
           href={'/videography'}
         >
-          VIDEOGRAPHY
+          {t('videography')}
         </Button>
         <Button
           as="a"
@@ -44,7 +45,7 @@ export default function Navbar({ onMenu }: Props) {
               : undefined
           }
         >
-          PHOTOGRAPHY
+          {t('photography')}
         </Button>
         <Button
           as="a"
@@ -55,7 +56,7 @@ export default function Navbar({ onMenu }: Props) {
               : undefined
           }
         >
-          ABOUT US
+          {t('aboutUs')}
         </Button>
       </div>
 
@@ -69,7 +70,7 @@ export default function Navbar({ onMenu }: Props) {
           textClassName="flex flex-col overflow-hidden h-[0.625rem]"
         >
           <span className="translate-y-0 transition-transform duration-500 group-hover:translate-y-[-100%]">
-            {'KONTAKT'}
+            {t('contactUs')}
           </span>
           <span className="translate-y-0 transition-transform duration-500 group-hover:translate-y-[-100%]">
             {'+381 61/1160-549'}
@@ -81,7 +82,7 @@ export default function Navbar({ onMenu }: Props) {
           href="mailto:office@kasiastudio.rs"
           className="hidden lg:flex"
         >
-          EMAIL
+          {t('email')}
         </Button>
         <ThemeToggle />
       </div>

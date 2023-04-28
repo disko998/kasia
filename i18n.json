@@ -1,0 +1,10 @@
+{
+  "locales": ["sr", "en"],
+  "defaultLocale": "sr",
+  "localeDetection": false,
+  "pages": {
+    "*": ["common"],
+    "/": ["home"],
+    "/about": ["about"]
+  }
+}

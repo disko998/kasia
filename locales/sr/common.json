@@ -1,0 +1,77 @@
+{
+  "title": "ZABELEŽI TRENUTAK SA KASIA STUDIOM",
+  "aboutUs": "O NAMA",
+  "ourLocation": "Naša Lokacija",
+  "city": "Beograd, Srbija",
+  "location": "Naš studio se nalazi u Zemunu - ulica Prvomajska 6k.",
+  "companyName": "Kasia Studio",
+  "ourTeamShortDesc": "Naš tim je sastavljen od 3 profesionalca, svako u svojoj oblasti. Edvard je profesionalni fotograf koji je radio sa preko hiljadu poznatih ličnosti i imena u regionu i svojim iskustvom i kvalitetom stoji iza svake svoje fotografije...",
+  "featuredVideos": {
+    "title": "Videografija je naša specijalnost",
+    "description": "Višedecenijska karijera u oblasti Videografije nam je donela veliko iskustvo i profesionalnost koju možemo da prezentujemo i ponudimo našim klijentima. Od svabi, do real-estate videa, preko commercial spotova i videa do edukativnih programa… U prilogu možete videti neke od projekata koje smo radili.",
+    "vid1Title": "Naziv videa: Svadba - Janježić",
+    "vid2Title": "Naziv videa: Real estate - Krit",
+    "vid3Title": "Naziv videa: Product - KS Cipele"
+  },
+  "featuredPhotos": {
+    "title": "Fotografija nam je u rukama",
+    "description": "Iza nas stoji široki spektar fotografskog sadržaja. Smatramo da smo jedni od najboljih na tržištu, kao što možete i sami da se uverite po slikama koje su ispod vas. Radeći sa nekim od najvećih firmi i imena u Srbiji i šire, postavili smo lestvicu koju retko ko može da nadmaši. Real Estate Photography, Porteri, Food Photography, Product Photography, Landscape Photography su samo neke od stvari koje vam nudimo. Nadamo se da ćete i vi, takođe, prepoznati naš kvalitet i sami se uveriti u ove reči."
+  },
+  "playVideo": "Pogledaj",
+  "ourClients": "Naši Klijenti",
+  "projects": [
+    {
+      "title": "Produkt fotografija",
+      "description": "Sa zadovoljstvom vam predstavljamo jednu od najboljih product photography kampanja koju smo imali prilike da radimo i na koju smo najviše ponosni. U pitanju je kompanija Seiko.",
+      "date": "05, steptembar 2021.",
+      "place": "Beograd, Srbija",
+      "pallet": ["#58412A", "#555532", "#A0AA72", "#E6B2A6", "#E2BFA2"],
+      "images": [
+        "/images/projects/product-sat-1.png",
+        "/images/projects/product-sat-2.png"
+      ]
+    },
+    {
+      "title": "Lazar Lux Apartments",
+      "description": "Predivan hotel na samoj obali grčkog ostrva Krit. Imali smo tu čast da sarađujemo sa njima i njihovim predivnim hotelom. Nadamo se da ćete uživati!",
+      "date": "05, steptembar 2022.",
+      "place": "Krit, Grčka",
+      "pallet": ["#58412A", "#544A44", "#74A4C5", "#C6D8E2", "#FFFFFF"],
+      "images": ["/images/projects/hotel-1.png", "/images/projects/hotel-2.png"]
+    }
+  ],
+  "wedding": {
+    "title": "Svadba - Janežić",
+    "description": "Matej i Vanesa su prelepi mladi bračni par koji je odlučio da najbitniji dan u njihovom životu zabeleži kroz brojne fotografije i video od kog se gubi dah. Uživajte!"
+  },
+  "menu": "Meni",
+  "videography": "Videografija",
+  "photography": "Fotografija",
+  "contactUs": "Kontakt",
+  "email": "Email",
+  "feelFreeToContactUs": "Budite slobodni da nas kontaktirate",
+  "copy": "Kopirano",
+  "copyRights": "Sva prava zadržana. Ⓒ 2023 Kasia Studio",
+  "photographyPage": {
+    "title": "Naše fotografije <br /> na jednom mestu",
+    "description": "Sprecijalizovani fotografi u oblastima kao što su brend kontent, događaji, produkt fotografija, fotografija arhitekture. Vaše fotografije će te dobiti u kratkom roku.",
+    "categories": {
+      "ostalo": "Ostalo",
+      "portreti": "Portreti",
+      "dogadjaji": "Događaji",
+      "arhitektura": "Arhitektura",
+      "product": "Product"
+    }
+  },
+  "videographyPage": {
+    "title": "Naše fotografije <br /> na jednom mestu",
+    "description": "Sprecijalizovani fotografi u oblastima kao što su brend kontent, događaji, produkt fotografija, fotografija arhitekture. Vaše fotografije će te dobiti u kratkom roku.",
+    "categories": {
+      "ostalo": "Ostalo",
+      "sport": "Sport",
+      "dogadjaji": "Događaji",
+      "spotovi": "Spotovi",
+      "product": "Product"
+    }
+  }
+}

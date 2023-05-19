@@ -73,5 +73,13 @@
       "spotovi": "Spotovi",
       "product": "Product"
     }
+  },
+  "about": {
+    "letsMeet": "HAJDE BOLJE DA SE UPOZNAMO!",
+    "title": "O NAMA - Kasia Studio",
+    "description": "Naš tim je sastavljen od 3 profesionalca, svako u svojoj oblasti. Edvard je profesionalni fotograf koji je radio sa preko hiljadu poznatih ličnosti i imena u regionu i svojim iskustvom i kvalitetom stoji iza svake svoje fotografije. Stefan i Miloš će vam na inovativan i moderan način kreirati video koji će vas ostaviti bez daha. Sa najnovijom opremom i iskustvom, šta god zamislite - mi stvaramo!",
+    "photograph": "DIPLOMIRANI FOTOGRAF",
+    "recorder": "Snimatelj i Video Montažer",
+    "editor": "Video Montažer"
   }
 }

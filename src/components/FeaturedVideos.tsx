@@ -80,7 +80,10 @@ export default function FeaturedVideosSection() {
               />
 
               <div className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden bg-soft-black/60">
-                <h3 className="text-soft-white">{t(title)}</h3>
+                <h3 className="text-soft-white">
+                  {t(`featuredVideos.${title}`)}
+                </h3>
+
                 <Button
                   onClick={() => setActiveVideo(video)}
                   className="mt-4 whitespace-nowrap border-soft-white text-soft-white backdrop-blur-[3.5px]"

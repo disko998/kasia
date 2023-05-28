@@ -5,17 +5,18 @@ import { jeko } from '@/styles/fonts'
 import Head from 'next/head'
 import Loading from '@/components/Loading'
 import { AnimatePresence } from 'framer-motion'
+import useTranslation from 'next-translate/useTranslation'
 
 function App({ Component, pageProps }: AppProps) {
+  const { t } = useTranslation('common')
   return (
     <div className={`${jeko.variable} font-sans`}>
       <Head>
-        <title>{'Kasia - ZABELEŽI TRENUTAK SA KASIA STUDIOM'}</title>
+        <title>{t('meta.title')}</title>
+        <meta name="description" content={t('meta.description')} />
         <meta
-          name="description"
-          content={
-            'Naš tim je sastavljen od 3 profesionalca u svojoj oblasti: fotografija i video montaža. Svi zajedno kreiramo jedinstvene i kvalitetne usluge.'
-          }
+          property="og:image"
+          content="https://www.kasiastudio.rs/images/og.png"
         />
       </Head>
       <ThemeProvider defaultTheme="dark" enableSystem={false} attribute="class">

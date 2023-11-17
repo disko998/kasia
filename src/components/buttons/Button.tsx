@@ -1,5 +1,5 @@
 import RenderTag from '@/components/RenderTag'
-import Link, { LinkProps } from 'next/link'
+import { LinkProps } from 'next/link'
 import React, { HTMLAttributeAnchorTarget } from 'react'
 import { twMerge } from 'tailwind-merge'
 

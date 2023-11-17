@@ -7,19 +7,17 @@ type Props = {
 
 const Loading = ({ children }: Props) => {
   return (
-    <>
-      <motion.div
-        key="page transition animation screen"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          duration: 0.9,
-          delay: 0.6
-        }}
-      >
-        {children}
-      </motion.div>
-    </>
+    <motion.div
+      key="page transition animation screen"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        duration: 0.9,
+        delay: 0.6
+      }}
+    >
+      {children}
+    </motion.div>
   )
 }
 

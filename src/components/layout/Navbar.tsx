@@ -22,31 +22,10 @@ export default function Navbar({ onMenu }: Props) {
       </Button>
 
       <div className="hidden flex-row gap-4 lg:flex">
-        {/* <Button as="a" href={'/'}>
+        <Button as="a" href={'/'}>
           HOME
-        </Button> */}
-        <Button
-          className={
-            router.asPath.startsWith('/videography')
-              ? 'border-red-orang text-red-orange dark:border-red-orange dark:text-red-orange'
-              : undefined
-          }
-          as="a"
-          href={'/videography'}
-        >
-          {t('videography')}
         </Button>
-        <Button
-          as="a"
-          href={'/photography'}
-          className={
-            router.asPath.startsWith('/photography')
-              ? 'border-red-orang text-red-orange dark:border-red-orange dark:text-red-orange'
-              : undefined
-          }
-        >
-          {t('photography')}
-        </Button>
+
         <Button
           as="a"
           href={'/about'}

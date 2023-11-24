@@ -7,14 +7,16 @@ import FeaturedImages from '@/components/FeaturedImages'
 
 import NatureImage from '../../public/images/nature.png'
 import LighthouseImage from '../../public/images/lighthouse.png'
-import StricImage from '../../public/images/Stric.jpg'
-import StefanImage from '../../public/images/Stefan.jpg'
-import MilosImage from '../../public/images/Milos.jpg'
+import StricImage from '../../public/images/Stric.webp'
+import StefanImage from '../../public/images/Stefan.webp'
+import MilosImage from '../../public/images/Milos.webp'
 import useFadeVariations from '@/hooks/useFadeVariations'
+import useTranslation from 'next-translate/useTranslation'
 
 export default function About() {
   const headerRef = useRef<any>()
   const fade = useFadeVariations()
+  const { t } = useTranslation('common')
 
   const { scrollYProgress } = useScroll({
     target: headerRef,
@@ -41,13 +43,7 @@ export default function About() {
           </motion.p>
           <motion.h1 {...fade}>O NAMA - Kasia Studio</motion.h1>
           <motion.p {...fade} className="text-sm">
-            Naš tim je sastavljen od 3 profesionalca, svako u svojoj oblasti.
-            Edvard je profesionalni fotograf koji je radio sa preko hiljadu
-            poznatih ličnosti i imena u regionu i svojim iskustvom i kvalitetom
-            stoji iza svake svoje fotografije. Stefan i Miloš će vam na
-            inovativan i moderan način kreirati video koji će vas ostaviti bez
-            daha. Sa najnovijom opremom i iskustvom, šta god zamislite - mi
-            stvaramo!
+            {t('about.description')}
           </motion.p>
 
           <div className="absolute left-[-15rem] top-[5rem] hidden xl:block">

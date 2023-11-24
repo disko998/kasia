@@ -13,7 +13,7 @@ const videos = [
     video: 'https://www.youtube.com/embed/CCkYlWPOFeU'
   },
   {
-    thumb: '/images/photography/arhitektura/22.jpg',
+    thumb: '/images/portfolio/LAZAR-LUX.jpg',
     video: 'https://www.youtube.com/embed/kWgtX3z9rQ0'
   },
   {
@@ -21,39 +21,26 @@ const videos = [
     video: 'https://www.youtube.com/embed/VJQuMbiEQAk'
   },
   {
-    thumb: '/images/cipele.png',
+    thumb: '/images/portfolio/kicks.jpg',
     video: 'https://youtube.com/embed/jTEb3N3anGQ'
   },
   {
-    thumb: '/images/cipele.png',
-    video: 'https://www.youtube.com/embed/uVtwNHGQ57E'
-  },
-  {
-    thumb: '/images/cipele.png',
-    video: 'https://www.youtube.com/embed/B5Hp7BJH4yY'
-  },
-  {
-    thumb: '/images/cipele.png',
-    video: 'https://www.youtube.com/embed/-dhNrcjWiGk'
-  },
-  {
-    thumb: '/images/cipele.png',
-    video: 'https://www.youtube.com/embed/QhdAFGc_JCk'
-  },
-  {
-    thumb: '/images/cipele.png',
-    video: 'https://www.youtube.com/embed/FxFqtcEVg4E'
-  },
-  {
-    thumb: '/images/cipele.png',
+    thumb: '/images/portfolio/MINISTARSTVO.jpg',
     video: 'https://www.youtube.com/embed/s4teckmG2w8'
   },
   {
-    thumb: '/images/cipele.png',
-    video: 'https://www.youtube.com/embed/jtCaNsdicUU'
+    thumb: '/images/portfolio/BKT.png',
+    video: 'https://www.youtube.com/embed/s4teckmG2w8'
+  },
+  {
+    thumb: '/images/portfolio/deve.jpg',
+    video: 'https://www.youtube.com/embed/BpGao1NErYg'
+  },
+  {
+    thumb: '/images/portfolio/12.jpg',
+    video: 'https://www.youtube.com/embed/Ree8L1VGeCw'
   }
 ]
-
 const VideosList = (props: Props) => {
   const { t } = useTranslation('common')
   const [activeVideo, setActiveVideo] = useState<string>()

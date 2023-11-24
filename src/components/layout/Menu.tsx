@@ -3,6 +3,7 @@ import Button from '@/components/buttons/Button'
 import Logo from '@/components/Logo'
 import Icon from '@/components/Icon'
 import useTranslation from 'next-translate/useTranslation'
+import { links } from './Navbar'
 
 type Props = {
   isOpen: boolean
@@ -36,16 +37,10 @@ const socials = [
 export default function Menu({ isOpen, onClose }: Props) {
   const { t } = useTranslation('common')
 
-  const menuItems = [
-    { label: t('videography'), href: '/videography' },
-    { label: t('photography'), href: '/photography' },
-    { label: t('aboutUs'), href: '/about' }
-  ]
-
   return (
     <nav
       className={classNames(
-        'fixed inset-0 z-50 translate-x-[-100%] overflow-y-scroll overscroll-contain bg-red-orange transition-transform duration-500 ease-out sm:w-[400px] lg:hidden',
+        'fixed inset-0 z-50 translate-x-[-100%] overflow-y-scroll overscroll-contain bg-red-orange transition-transform duration-500 ease-out sm:w-[400px] xl:hidden',
         {
           'translate-x-0': isOpen
         }
@@ -58,14 +53,14 @@ export default function Menu({ isOpen, onClose }: Props) {
       </div>
 
       <div className="flex flex-col gap-y-[20px] p-[30px] pt-0">
-        {menuItems.map(({ label, href }) => (
+        {links.map(({ label, href }) => (
           <Button
             className="mt-2 h-[35px] border-soft-white text-[15px] text-soft-white"
             as="a"
             key={label}
             href={href}
           >
-            {label}
+            {t(label)}
           </Button>
         ))}
       </div>

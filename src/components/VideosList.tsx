@@ -30,7 +30,7 @@ const videos = [
   },
   {
     thumb: '/images/portfolio/BKT.png',
-    video: 'https://www.youtube.com/embed/s4teckmG2w8'
+    video: 'https://www.youtube.com/embed/uVtwNHGQ57E'
   },
   {
     thumb: '/images/portfolio/deve.jpg',
@@ -39,6 +39,10 @@ const videos = [
   {
     thumb: '/images/portfolio/12.jpg',
     video: 'https://www.youtube.com/embed/Ree8L1VGeCw'
+  },
+  {
+    thumb: '/images/portfolio/pekara-white.png',
+    video: 'https://www.youtube.com/embed/iUIhlN7Pbc0'
   }
 ]
 const VideosList = (props: Props) => {

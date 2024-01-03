@@ -1,7 +1,6 @@
 import Button from '@/components/buttons/Button'
 import ThemeToggle from '@/components/buttons/ThemeToggle'
 import Logo from '@/components/Logo'
-import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
 
 type Props = {
@@ -20,15 +19,10 @@ export const links = [
   {
     href: '/photography',
     label: 'photography'
-  },
-  {
-    href: '/videography',
-    label: 'videography'
   }
 ]
 
 export default function Navbar({ onMenu }: Props) {
-  const router = useRouter()
   const { t } = useTranslation('common')
 
   return (
@@ -42,16 +36,7 @@ export default function Navbar({ onMenu }: Props) {
 
       <div className="hidden flex-row gap-4 xl:flex">
         {links.map(({ href, label }) => (
-          <Button
-            key={href}
-            as="a"
-            href={href}
-            // className={
-            //   router.pathname === href
-            //     ? 'border-red-orang text-red-orange dark:border-red-orange dark:text-red-orange'
-            //     : undefined
-            // }
-          >
+          <Button key={href} as="a" href={href}>
             {t(label)}
           </Button>
         ))}
@@ -59,7 +44,6 @@ export default function Navbar({ onMenu }: Props) {
 
       <span className="absolute left-[50%] right-0 w-fit translate-x-[-50%]">
         <Logo />
-        {/* Logo */}
       </span>
 
       <div className="flex-row gap-4 xl:flex">

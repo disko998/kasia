@@ -9,40 +9,42 @@ type Props = {}
 
 const videos = [
   {
-    thumb: '/images/photography/dogadjaji/21.jpg',
-    video: 'https://www.youtube.com/embed/CCkYlWPOFeU'
-  },
-  {
-    thumb: '/images/portfolio/LAZAR-LUX.jpg',
-    video: 'https://www.youtube.com/embed/kWgtX3z9rQ0'
-  },
-  {
-    thumb: '/images/cipele.png',
-    video: 'https://www.youtube.com/embed/VJQuMbiEQAk'
-  },
-  {
-    thumb: '/images/portfolio/kicks.jpg',
-    video: 'https://youtube.com/embed/jTEb3N3anGQ'
+    thumb: '/images/portfolio/pekara-white.png',
+    video: 'https://www.youtube.com/embed/iUIhlN7Pbc0'
   },
   {
     thumb: '/images/portfolio/MINISTARSTVO.jpg',
     video: 'https://www.youtube.com/embed/s4teckmG2w8'
+  },
+
+  {
+    thumb: '/images/portfolio/LAZAR-LUX.jpg',
+    video: 'https://www.youtube.com/embed/kWgtX3z9rQ0'
   },
   {
     thumb: '/images/portfolio/BKT.png',
     video: 'https://www.youtube.com/embed/uVtwNHGQ57E'
   },
   {
-    thumb: '/images/portfolio/deve.jpg',
-    video: 'https://www.youtube.com/embed/BpGao1NErYg'
-  },
-  {
     thumb: '/images/portfolio/12.jpg',
     video: 'https://www.youtube.com/embed/Ree8L1VGeCw'
   },
   {
-    thumb: '/images/portfolio/pekara-white.png',
-    video: 'https://www.youtube.com/embed/iUIhlN7Pbc0'
+    thumb: '/images/photography/dogadjaji/21.jpg',
+    video: 'https://www.youtube.com/embed/CCkYlWPOFeU'
+  },
+  {
+    thumb: '/images/portfolio/kicks.jpg',
+    video: 'https://youtube.com/embed/jTEb3N3anGQ'
+  },
+  {
+    thumb: '/images/portfolio/deve.jpg',
+    video: 'https://www.youtube.com/embed/BpGao1NErYg'
+  },
+
+  {
+    thumb: '/images/cipele.png',
+    video: 'https://www.youtube.com/embed/VJQuMbiEQAk'
   }
 ]
 const VideosList = (props: Props) => {

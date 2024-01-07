@@ -9,7 +9,7 @@ type Props = {}
 
 const videos = [
   {
-    thumb: '/images/portfolio/pekara-white.png',
+    thumb: '/images/portfolio/pekara-white.jpg',
     video: 'https://www.youtube.com/embed/iUIhlN7Pbc0'
   },
   {

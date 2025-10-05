@@ -1,7 +1,11 @@
 import Button from '@/components/buttons/Button'
-import ThemeToggle from '@/components/buttons/ThemeToggle'
 import Logo from '@/components/Logo'
 import useTranslation from 'next-translate/useTranslation'
+import dynamic from 'next/dynamic'
+
+const ThemeToggle = dynamic(() => import('@/components/buttons/ThemeToggle'), {
+  ssr: false
+})
 
 type Props = {
   onMenu: () => void

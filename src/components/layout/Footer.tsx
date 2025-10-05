@@ -40,19 +40,19 @@ export default function Footer() {
         {isMobile ? (
           <a
             className="group mt-12 cursor-pointer rounded-2xl bg-white p-5 text-center font-serif text-[2.5rem] text-red-orange transition-colors duration-500 dark:bg-[#181b1e] sm:text-5xl"
-            href={'mailto:office@kasiastudio.rs'}
+            href={'mailto:milosmrdja80@gmail.com'}
           >
-            <div className="transition-transform duration-300 group-hover:scale-[0.98] group-active:scale-95">
-              OFFICE@KASIASTUDIO.RS
+            <div className="uppercase transition-transform duration-300 group-hover:scale-[0.98] group-active:scale-95">
+              milosmrdja80@gmail.com
             </div>
           </a>
         ) : (
           <button
-            onClick={() => onCopy('office@kasiastudio.rs')}
+            onClick={() => onCopy('milosmrdja80@gmail.com')}
             className="group mt-12 cursor-pointer rounded-2xl bg-white p-5 text-center font-serif text-[2.5rem] text-red-orange transition-colors duration-500 dark:bg-[#181b1e] sm:text-5xl"
           >
-            <div className="transition-transform duration-300 group-hover:scale-[0.98] group-active:scale-95">
-              OFFICE@KASIASTUDIO.RS
+            <div className="uppercase transition-transform duration-300 group-hover:scale-[0.98] group-active:scale-95">
+              milosmrdja80@gmail.com
             </div>
             <div className="hidden">Copy</div>
           </button>
@@ -69,7 +69,7 @@ export default function Footer() {
           </a>
         ) : (
           <button
-            onClick={() => onCopy('office@kasiastudio.rs')}
+            onClick={() => onCopy('milosmrdja80@gmail.com')}
             className="group mt-12 cursor-pointer rounded-2xl bg-white p-5 text-center font-serif text-[2.5rem] text-red-orange transition-colors duration-500 dark:bg-[#181b1e] sm:text-5xl"
           >
             <div className="transition-transform duration-300 group-hover:scale-[0.98] group-active:scale-95">

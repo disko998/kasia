@@ -63,7 +63,7 @@ export default function Navbar({ onMenu }: Props) {
 
         <Button
           as="a"
-          href="mailto:office@kasiastudio.rs"
+          href="mailto:milosmrdja80@gmail.com"
           className="hidden xl:flex"
         >
           {t('email')}
